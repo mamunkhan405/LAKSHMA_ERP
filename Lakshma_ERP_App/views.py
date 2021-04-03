@@ -12,11 +12,11 @@ class Home(View):
     def get(self, request):
         return render(request, 'Home/home.html')
     
-class EmployeeInfo(View):
+class OrderEntry(View):
     def get(self, request):
         # Employee_information = Employee_Info.objects.all()
         # context = {'Employee_information':Employee_information}
-        return render(request, 'Order_Entry/order_entry.html')
+        return render(request, 'Order_Entry/order_entry_form.html')
 
     # def post(self, request):
     #     emp_Image = request.FILES['emp_Image']

@@ -9,10 +9,10 @@
   
     <div class="container">
       <div class="py-5 text-center">
-        <h2>Employee Information Form</h2>
-        <p class="lead">
+        <h2 class="text-uppercase font-weight-bold">Order Entry Form</h2>
+        <!-- <p class="lead">
             Please provide your authentic information by filling up the form below
-          </p>
+          </p> -->
       </div>
 
       <div class="col-md-12 order-md-1 mb-2">
@@ -21,7 +21,7 @@
         {% csrf_token %}
           <div class="row justify-content-center"> 
 
-          <div class="col-md-12 mb-3">
+          <!-- <div class="col-md-12 mb-3">
               <label for="emp_Image">Choose Profile Picture:</label>
               <input
                src="media/images/Employee_Images"
@@ -30,32 +30,84 @@
                 class="form-control"
                 id="emp_Image"
               />
-            </div> 
+            </div>  -->
 
-             <div class="col-md-6 mb-3">
-              <label for="emp_first_Name">First Name:</label>
+             <div class="col-md-12 mb-3">
+              <label for="jobno">Job No.</label>
               <input
-              name="emp_first_Name"
+              name="jobno"
                 type="text"
                 class="form-control"
-                id="emp_first_Name"
+                id="jobno"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
             <div class="col-md-6 mb-3">
-              <label for="emp_father_Name">Father Name:</label>
+              <label for="buyername">Buyer Name</label>
+              <select
+              name="buyername"
+              class="custom-select d-block w-100"
+              id="buyername"
+              
+            >
+              <option value="">-- Select Buyer --</option>
+              <option>Buyer 1</option>
+              <option>Buyer 2</option>
+              <option>Buyer 3</option>
+              <option>Buyer 4</option>
+            </select>
+            </div> 
+
+            <div class="col-md-6 mb-3">
+              <label for="proddept">Prod. Dept.</label>
+              <select
+              name="proddept"
+              class="custom-select d-block w-100"
+              id="proddept"
+              
+            >
+              <option value="">-- Select --</option>
+              <option>Prod. Dept. 1</option>
+              <option>Prod. Dept. 2</option>
+              <option>Prod. Dept. 3</option>
+              <option>Prod. Dept. 4</option>
+            </select>
+            </div> 
+
+            <div class="col-md-6 mb-3">
+              <label for="repeatno">Repeat No/Job</label>
               <input
-              name="emp_father_Name"
+              name="repeatno"
                 type="text"
                 class="form-control"
-                id="emp_father_Name"
-                placeholder=""
+                id="repeatno"
+                placeholder="Browse Job"
                 value=""
                 required=""
               />
             </div> 
+            <div class="col-md-6 mb-3">
+              <label for="teamleader">Team Leader</label>
+              <select
+              name="teamleader"
+              class="custom-select d-block w-100"
+              id="teamleader"
+              
+            >
+              <option value="">-- Select Buyer --</option>
+              <option>Buyer 1</option>
+              <option>Buyer 2</option>
+              <option>Buyer 3</option>
+              <option>Buyer 4</option>
+            </select>
+            </div> 
+
+
+
+
+
             <div class="col-md-6 mb-3">
               <label for="emp_middle_Name">Middle Name:</label>
               <input
@@ -67,7 +119,8 @@
                 value=""
              
               />
-            </div> 
+            </div>
+
             <div class="col-md-6 mb-3">
                 <label for="emp_mother_Name">Mother Name:</label>
                 <input
