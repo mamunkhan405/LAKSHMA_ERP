@@ -112,3 +112,32 @@ class EmployeeInfo(View):
     #     Employee_information = Employee_Info.objects.all()
     #     params = {'Employee_information':Employee_information}
     #     return render(request, 'Forms/Add_Employee/employeeInfo.html', params)
+
+class MainFabric(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/main_fabric.html')
+
+class SampleRequisition(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/sample_req.html')
+    
+class OrderUpdate(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/order_update.html')
+    
+class BuyerQuotation(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/buyer_quote.html')
+    
+class QuotationEnquiry(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/quote_enquiry.html')
+    
+class ColorSizeBreakdown(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/color_size.html')
+    
+    
+    
+    
+
