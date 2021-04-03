@@ -1,0 +1,90 @@
+{% extends 'index.html' %}
+
+{% block title %} Business Group {% endblock title %}
+
+
+
+{% block body %}
+<div class="container">
+      <div class="py-5 text-center">
+        <h2>Business Group</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3 text-center"></h4>
+        <form class="needs-validation">
+            
+
+            <div class="col-md-6 mb-3">
+              <label for="businesGroup">Business Group</label>
+              <div class="input-group">
+                <input
+                name="businesGroup"
+                  type="text"
+                  class="form-control"
+                  id="businesGroup"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="businesGroup_description">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="businesGroup_description" rows="4"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="businesGroup_date">Start Date</label>
+              <div class="input-group">
+                <input
+                name="businesGroup_date"
+                  type="text"
+                  class="form-control"
+                  id="businesGroup_date"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="businesGroup_endDate">End Date</label>
+              <div class="input-group">
+                <input
+                name="businesGroup_endDate"
+                  type="text"
+                  class="form-control"
+                  id="businesGroup_endDate"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="businesGroup_assignment">Assignment</label>
+              <select
+              name="businesGroup_assignment"
+                    class="custom-select d-block w-100"
+                    id="businesGroup_assignment"
+                    required=""
+                  >
+                    <option value="">Yes/No</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+              
+            </div>
+             
+            <div class="col-md-6 mb-3">  
+              <div class="input-group">
+          <button type="submit" class="btn btn-primary">Save</button>
+            </div>   
+              </div>
+            </div>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+{% endblock body %}

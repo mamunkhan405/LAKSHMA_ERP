@@ -1,0 +1,122 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %} Sequence Assignment{% endblock title %}
+
+
+
+{% block body %}
+
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Sequence Assignment</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3 text-center">Sequence Assignment</h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="seqAss_ApplicationName">Application Name</label>
+              <select
+                    class="custom-select d-block w-100"
+                    id="seqAss_ApplicationName"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Name 01</option>
+                    <option>Name 02</option>
+                  </select>
+            </div>
+          
+            <div class="col-md-6 mb-3">
+              <label for="seqAss_TransactionName">Transaction Name</label>
+              <select
+                    class="custom-select d-block w-100"
+                    id="seqAss_TransactionName"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Transaction 01</option>
+                    <option>Transaction 02</option>
+                  </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="seqAss_StartDate">Start Date</label>
+              <div class="input-group">
+                <input
+                name="seqAss_StartDate"
+                  type="date"
+                  class="form-control"
+                  id="seqAss_StartDate"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="seqAss_EndDate">End Date</label>
+              <div class="input-group">
+                <input
+                name="seqAss_EndDate"
+                  type="date"
+                  class="form-control"
+                  id="seqAss_EndDate"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+
+            <div class="row">
+            <div class="mb-3 mr-3">
+              <label for="seqAss_SequenceName">Sequencing Name</label>
+              <input
+              name="seqAss_SequenceName"
+                type="text"
+                class="form-control"
+                id="seqAss_SequenceName"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+            <div class="mb-3 mr-3">
+              <label for="seqAss_ValidationDate">Sequence Validation Date</label>
+              <input
+              name="seqAss_ValidationDate"
+                type="date"
+                class="form-control"
+                id="seqAss_ValidationDate"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+              <div class="mb-3 mr-3">
+              <label for="seqAss_ValidationDate">Sequence Validation Date</label>
+              <input
+              name="seqAss_ValidationDate"
+                type="date"
+                class="form-control"
+                id="seqAss_ValidationDate"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+          </div>
+            <div class="col-md-6 mb-3">
+              
+              <div class="input-group">
+          <button type="button" class="btn btn-primary">Add</button>
+               
+              </div>
+            </div>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+
+{% endblock body %}

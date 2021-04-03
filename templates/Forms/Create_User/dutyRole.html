@@ -1,0 +1,86 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %} Duty Role{% endblock title %}
+
+
+
+{% block body %}
+  <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Duty Role: Role Hierarchy</h2>
+   
+      </div>
+
+      <div class="col-md-12 order-md-1">
+       
+        <form class="needs-validation">
+          <div class="row">
+            <div class="mb-3 mr-2">
+              <label for="roleName">Role Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roleName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid policy name is required.</div>
+            </div> 
+             <div class="mb-3 mr-2">
+              <label for="roleCode">Role Code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roleCode"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid policy name is required.</div>
+            </div> 
+            <div class="mb-3 mr-2">
+              <label for="InroleName">Inherit Role Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="InroleName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid policy name is required.</div>
+            </div>
+            <div class="mb-3 mr-2">
+              <label for="InroleCode">Inherit Role Code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="InroleCode"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid policy name is required.</div>
+            </div>
+            <div class="mb-3 mr-2">
+              <label for="dataassignment">Assignment</label>
+               <select
+                    class="custom-select d-block w-100"
+                    id="dataassignment"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+            </div>   
+          </div>
+
+          <button type="button" class="btn btn-primary ">Add</button>
+
+        </form>
+      </div>
+
+   {% endblock %}

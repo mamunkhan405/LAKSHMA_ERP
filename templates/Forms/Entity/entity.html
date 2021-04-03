@@ -1,0 +1,163 @@
+{% extends 'index.html' %}
+
+{% block title %} Entity {% endblock title %}
+
+
+
+{% block body %}
+ <div class="container">
+      <div class="py-5 text-center">
+        <h2>Add Entity</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3 text-center"></h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="entity_territory">Territory</label>
+              <select
+              name="entity_territory"
+                    class="custom-select d-block w-100"
+                    id="entity_territory"
+                    required=""
+                  >
+                    <option value="">Select...</option>
+                    <option>Territory 01</option>
+                    <option>Territory 02</option>
+                  </select>
+              
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="entity_name">Legal Entity Name</label>
+              <div class="input-group">
+                <input
+                name="entity_name"
+                  type="text"
+                  class="form-control"
+                  id="entity_name"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="entity_org">Organization Name</label>
+              <div class="input-group">
+                <input
+                name="entity_org"
+                  type="text"
+                  class="form-control"
+                  id="entity_org"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="entity_orgNumber">Organization Number</label>
+              <div class="input-group">
+                <input
+                name="entity_orgNumber"
+                  type="text"
+                  class="form-control"
+                  id="entity_orgNumber"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="entity_identifier">Legal Entity Identifier</label>
+              <div class="input-group">
+                <input
+                name="entity_identifier"
+                  type="text"
+                  class="form-control"
+                  id="entity_identifier"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+             <div class="col-md-6 mb-3">
+              <label for="entity_regNumber">Registration Number</label>
+              <div class="input-group">
+                <input
+                name="entity_regNumber"
+                  type="text"
+                  class="form-control"
+                  id="entity_regNumber"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="entity_transact">Transacting Entity</label>
+              <div class="input-group">
+                <input
+                name="entity_transact"
+                  type="text"
+                  class="form-control"
+                  id="entity_transact"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="entity_legalAddress">Legal Address</label>
+              <div class="input-group">
+                <input
+                name="entity_legalAddress"
+                  type="text"
+                  class="form-control"
+                  id="entity_legalAddress"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="entity_regPlace">Place of Registration</label>
+              <div class="input-group">
+                <input
+                name="entity_regPlace"
+                  type="text"
+                  class="form-control"
+                  id="entity_regPlace"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="entity_inceptionDate">Inception Date</label>
+              <div class="input-group">
+                <input
+                name="entity_inceptionDate"
+                  type="date"
+                  class="form-control"
+                  id="entity_inceptionDate"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+
+
+
+            <div class="col-md-6 mb-3">  
+              <div class="input-group">
+          <button type="submit" class="btn btn-primary">Save</button>
+            </div>   
+              </div>
+            </div>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+{% endblock body %}

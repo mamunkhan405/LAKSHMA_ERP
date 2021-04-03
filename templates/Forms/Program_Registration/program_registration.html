@@ -1,0 +1,81 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %} Program Registration{% endblock title %}
+
+
+
+{% block body %}
+ <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Program Registration Form</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Program Registration</h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="programName">Program Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="programName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid program name is required.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="shortName">Short Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="shortName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid Short Name is required.</div>
+            </div>
+         
+             <div class="col-md-6 mb-3">
+              <label for="application">Application</label>
+              <input
+                type="text"
+                class="form-control"
+                id="application"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+                <div class="col-md-6 mb-3">
+              <label for="program_registration_description">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="program_registration_description" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+              <label for="requestGroup">Request Group</label>
+              <select
+                    class="custom-select d-block w-100"
+                    id="requestGroup"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Group 01</option>
+                    <option>Group 02</option>
+                    <option>Group 03</option>
+                  </select>        
+            </div>
+          <button type="button" class="btn btn-primary">Save</button>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+    </body>
+{% endblock body %}

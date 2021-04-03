@@ -1,0 +1,116 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %} Sequence{% endblock title %}
+
+
+
+{% block body %}
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Add Sequence</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3 text-center"></h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="sequenceName">Name</label>
+              <input
+              name="sequenceName"
+                type="text"
+                class="form-control"
+                id="sequenceName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid Sequence name is required.</div>
+            </div>
+           <div class="col-md-6 mb-3">
+              <label for="sequenceDescription">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="sequenceDescription" rows="4"></textarea>
+              </div>
+            </div>
+          
+            <div class="col-md-6 mb-3">
+              <label for="sequenceStatus">Status</label>
+              <select
+                    class="custom-select d-block w-100"
+                    id="sequenceStatus"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+                  </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="sequenceStartDate">Effective Start Date</label>
+              <div class="input-group">
+                <input
+                name="sequenceStartDate"
+                  type="text"
+                  class="form-control"
+                  id="sequenceStartDate"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="sequenceEndDate">Effective End Date</label>
+              <div class="input-group">
+                <input
+                name="sequenceEndDate"
+                  type="text"
+                  class="form-control"
+                  id="sequenceEndDate"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="sequenceNumber">Initial Number</label>
+              <div class="input-group">
+                <input
+                name="sequenceNumber"
+                  type="text"
+                  class="form-control"
+                  id="sequenceNumber"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="sequenceComments">Comments</label>
+              <div class="input-group">
+                <input
+                name="sequenceComments"
+                  type="text"
+                  class="form-control"
+                  id="sequenceComments"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              
+              <div class="input-group">
+          <button type="button" class="btn btn-primary">Add</button>
+            </div>   
+              </div>
+            </div>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+
+
+{% endblock body %}

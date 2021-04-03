@@ -1,0 +1,110 @@
+{% extends 'index.html' %}
+
+{% block title %} Order {% endblock title %}
+
+{% block css %}
+<style>
+    .label:before{
+        content:"*" ;
+       color:red    
+       }
+    .mt-10{
+        margin-top: 3rem;
+    }
+</style>
+{% endblock css%}
+
+{% block body %}
+<div class="container card mb-2">
+    <div class="bg-dark p-3">
+        <h4 class="text-center">Order/Delivery Tracking</h4>
+        <p class="text-center"><span>Trace Your Order</span></p>
+    </div>
+    <div class="p-4 mt-10">
+       
+            <form>
+                <h3 class="text-left "> Personal Information</h3>
+                <hr>
+                <div class="form-group row ">
+                  <label for="cus_Name" class="col-sm-4 col-form-label label">Name</label>
+                  <div class="col-sm-6 ">
+                    <input type="text" name="cus_Name" class="form-control" id="cus_Name" >
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cus_Email" class="col-sm-4 col-form-label label">Email</label>
+                    <div class="col-sm-6">
+                      <input type="text" name="cus_Email"  class="form-control" id="cus_Email" placeholder="email@example.com">
+                    </div>
+                  </div>
+                <div class="form-group row">
+                  <label for="cus_contact" class="col-sm-4 col-form-label label">Contact Number</label>
+                  <div class="col-sm-6">
+                    <input type="text" name="cus_contact" class="form-control" id="cus_contact">
+                  </div>
+                </div>
+    
+              
+                <h3 class="text-left mt-10 "> Delivery Information</h3>
+                <hr>
+                <div class="form-group row ">
+                    <label for="cus_orderid" class="col-sm-4 col-form-label label">Order Id</label>
+                    <div class="col-sm-6 ">
+                      <input type="text" name="cus_orderid" class="form-control" id="cus_orderid" >
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="deliveryInformation" class="col-sm-4 col-form-label label">Delivery Destination</label>
+                      <div class="col-sm-6">
+                        <input type="text" name="cus_street_add"  class="form-control" id="cus_street_add">
+                        <small id="addhelp" class="form-text text-muted">Street Address</small>
+
+                        <input type="text" name="cus_add_line"  class="form-control mt-3" id="cus_add_line">
+                        <small id="addhelp" class="form-text text-muted">Address Line 2</small>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                              
+                              <input type="text" name="cus_city" class="form-control" id="cus_city">
+                              <small id="cus_city" class="form-text text-muted">City</small>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="cus_state" class="form-control" id="cus_state">
+                                <small id="addhelp" class="form-text text-muted">State/Region/Province</small>
+                            </div>
+                        </div>
+                     
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input type="text" name="cus_zipcode" class="form-control" id="cus_zipcode">
+                          <small id="cus_city" class="form-text text-muted">Postal/Zip Code</small>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <select id="cus_country" class="form-control">
+                                <option selected>-Select-</option>
+                                <option>Bangladesh</option>
+                                <option>Denmark</option>
+                                <option>India</option>
+                                <option>Pakinstan</option>
+                            </select>
+                            <small id="addhelp" class="form-text text-muted">Country</small>
+                        </div>
+                      </div>
+                    </div>
+
+                  
+                </div>
+                <div class="form-group row">
+                    <label for="cus_date" class="col-sm-4 col-form-label label">When did you place your order?</label>
+                    <div class="col-sm-6">
+                      <input type="date" name="cus_date" class="form-control" id="cus_date">
+                    </div>
+                  </div>
+                  
+
+            </form>
+    </div>
+</div>
+{% endblock body %}

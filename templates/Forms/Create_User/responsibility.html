@@ -1,0 +1,128 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %} Responsibility{% endblock title %}
+
+
+
+{% block body %}
+  <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Responsibility</h2>
+   
+      </div>
+
+      <div class="col-md-8 order-md-1">
+       
+        <form class="needs-validation">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="resName">Responsibility Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="resName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div> 
+             <div class="col-md-6 mb-3">
+              <label for="application">Application</label>
+              <input
+                type="text"
+                class="form-control"
+                id="application"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            
+             
+            <div class="col-md-6 mb-3">
+              <label for="dataGroup">Data Group</label>
+              <input
+                type="text"
+                class="form-control"
+                id="dataGroup"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-6 mb-3">
+              <label for="requestGroup">Request Group</label>
+              <input
+                type="text"
+                class="form-control"
+                id="requestGroup"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-6 mb-3">
+                <label for="resdesc">Description</label>
+                <div class="input-group">
+                    <textarea class="form-control" id="resdesc" rows="4"></textarea>
+                  
+                </div>
+            </div>
+            <div class="container mb-4">
+                <h4>Menu</h4>
+                <!-- <form class="needs-validation">
+                    <div class="row">
+                      <div class="mb-3 mr-2">
+                        <label for="menuType">Type</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="menuType"
+                          placeholder=""
+                          value=""
+                          required=""
+                        />
+                        
+                      </div> 
+                       <div class="mb-3 mr-2">
+                        <label for="roleCode">Role Code</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="roleCode"
+                          placeholder=""
+                          value=""
+                          required=""
+                        />
+                        <div class="invalid-feedback">Valid policy name is required.</div>
+                      </div> 
+                      <div class="mb-3 mr-2">
+                        <label for="InroleName">Inherit Role Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="InroleName"
+                          placeholder=""
+                          value=""
+                          required=""
+                        />
+                        <div class="invalid-feedback">Valid policy name is required.</div>
+                      </div>
+                    </form> -->
+
+            </div>
+
+          
+
+           
+            
+          </div>
+          <button type="button" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+      
+    </div>
+
+    {% endblock %}

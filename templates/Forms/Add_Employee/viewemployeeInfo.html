@@ -1,0 +1,238 @@
+{% extends 'index.html' %}
+{% block title %} View Employee Information {% endblock title %}
+
+{%block css%}
+
+{%endblock css%}
+
+
+{% block body %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-3 flex-auto img-thumbnail mt-3 mr-3">
+      <div class="mt-2">
+        <div class=" d-flex justify-content-center">
+          <img src="/media/{{employee.emp_Image}}" style="width:250PX; height:300PX"
+          class="card-img-right flex-auto  d-md-block img-thumbnail col-xs-6 img-fluid mb-3"  alt="Responsive image">
+        </div>
+        <div class="text-center">
+          <label for="emp_Code"><b>EmpCode:</b> {{employee.emp_Code}}</label> 
+        </div>
+        <hr>
+        <div class="">
+          <label for="emp_first_Name"
+            ><b>Name:</b> {{employee.emp_first_Name}} {{employee.emp_middle_Name}} {{employee.emp_last_Name}}</label
+          >
+        </div>
+        <div class="">
+          <label for="emp_join_Date"
+            ><b>Joining Date:</b> {{employee.emp_join_Date}}</label
+          >
+        </div>
+        
+        <div class="">
+          <label for="emp_present_Number"
+            ><b>Contact No:</b> {{employee.emp_present_number}}
+          </label>
+        </div>
+        <div class="">
+          <label for="emp_gender"><b>Gender:</b> {{employee.emp_gender}}</label>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <div class="">
+        
+          <a class="btn-sm btn-warning" href="/editemployeeInfo/{{employee.emp_ID}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+          </svg></a> 
+                <a  class="btn-sm btn-danger my-1" href="/delete_employee/{{employee.emp_ID}}"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+          </svg></a>
+        </div>
+    
+      </div>
+    </div>
+    
+    <div class="col-md-8 flex-auto img-thumbnail mt-3">
+      <div class="mt-2">
+        <h4 class="text-info">Personal Details:</h4><hr>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="">
+              <label for="emp_father_Name"
+                ><b>Father Name:</b> {{employee.emp_father_Name}}</label
+              >
+            </div>
+            <div class="">
+              <label for="emp_mother_Name"
+                ><b>Mother Name:</b> {{employee.emp_mother_Name}}</label
+              >
+            </div>
+            <div class="">
+              <label for="emp_birth_Date"
+                ><b> Date Of Birth:</b> {{employee.emp_birth_Date}}</label
+              >
+            </div>
+            <div class="">
+              <label for="emp_blood_group"
+                ><b>Blood Group:</b> {{employee.emp_blood_group}}</label
+              >
+            </div>
+            <div class="">
+              <label for="emp_national_No"
+                ><b>National No:</b> {{employee.emp_national_id_no}}</label
+              >
+            </div>
+            
+          </div>
+          <div class="col-md-6">
+            <div class="">
+              <label for="emp_marital_status"
+                ><b>Marital Status:</b> {{employee.emp_marital_status}}</label
+              >
+            </div>
+            <div class="">
+              <label for="emp_spouse_Name"> <b>Spouse Name:</b> {{employee.emp_spouse_Name}}</label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFESSIONAL DETAILS SECTION  -->
+      <h4 class="mt-2 text-info">Professional Details:</h4><hr>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="">
+            <label for="emp_status"><b>Status:</b> {{employee.emp_status}}</label>
+          </div>
+          <div class="">
+            <label for="emp_category"
+              ><b>Employee Category:</b> {{employee.emp_category}}</label
+            >
+          </div>
+          <div class="">
+            <label for="emp_confirm_Date"
+              ><b>Date Of Confirmation:</b> {{employee.emp_confirm_Date}}</label
+            >
+          </div>
+          <div class="">
+            <label for="emp_group"><b>Employee Group:</b> {{employee.emp_group}}</label>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="">
+            <label for="emp_reporting_Manager"
+              ><b>Reporting Manager:</b> {{employee.emp_reporting_manager}}</label
+            >
+          </div>
+          <div class="">
+            <label for="emp_designation"
+              ><b>Designation:</b> {{employee.emp_designation}}</label
+            >
+          </div>
+          <div class="">
+            <label for="emp_company"><b>Company:</b> {{employee.emp_company}}</label>
+          </div>
+          
+        </div>
+      </div>
+      <h4 class="mt-2 text-info">Department Details:</h4><hr>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="">
+            <label for="emp_division"><b>Division:</b> {{employee.emp_division}}</label>
+          </div>
+          <div class="">
+            <label for="emp_department"><b>Department:</b> {{employee.emp_department}}</label>
+          </div>
+          <div class="">
+            <label for="emp_sub_department"
+              ><b>Sub-Department:</b> {{employee.emp_sub_department}}</label
+            >
+          </div>
+
+          </div>
+          <div class="col-md-6">
+          
+          <div class="">
+            <label for="emp_section"><b>Section:</b> {{employee.emp_section}}</label>
+          </div>
+          <div class="">
+            <label for="emp_sub_section"
+              ><b>Sub-Section:</b> {{employee.emp_sub_section}}</label
+            >
+          </div>
+          
+        </div>
+       </div> 
+       <h4 class="mt-2 text-info">Bank Information:</h4><hr>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="">
+                <label for="emp_national_No"
+                  ><b>Bank Name:</b> {{employee.emp_bank_name}}</label
+                >
+              </div>
+              <div class="">
+                <label for="emp_national_No"
+                  ><b>Mobile Banking Name:</b> {{employee.emp_mobilebanking_Name}}</label
+                >
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="">
+                <label for="emp_national_No"
+                  ><b>Bank Account No:</b> {{employee.emp_bankaccount_number}}</label
+                >
+              </div>
+              <div class="">
+                <label for="emp_national_No"
+                  ><b>Mobile Account No:</b> {{employee.emp_mobileaccount_number}}</label
+                >
+              </div>
+
+            </div>
+        </div>
+        <h4 class="mt-2 text-info">Email Address:</h4><hr>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="">
+                <label for="emp_official_email"
+                  ><b>Official Email Address:</b> {{employee.emp_official_email}}</label
+                >
+              </div>
+              <div class="">
+                <label for="emp_personal_email"
+                  ><b>Personal Email Address:</b> {{employee.emp_personal_email}}</label
+                >
+              </div>
+            </div>
+        </div>
+        <h4 class="mt-2 text-info">Address:</h4><hr>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="">
+                <label for="emp_present_Address"
+                  ><b>Present Address:</b> {{employee.emp_present_address}}</label
+                >
+              </div>
+              <div class="">
+                <label for="emp_permanent_Address"
+                  ><b>Permanent Address:</b> {{employee.emp_permanent_address}}</label
+                >
+              </div>
+              <div class="">
+                <label for="emp_location"><b>Location:</b> {{employee.emp_location}}</label>
+              </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+ {% endblock %}

@@ -1,0 +1,466 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %} Edit Employee Information{% endblock title %}
+
+
+
+{% block body %}
+<div class="container">
+      <div class="py-5 text-center">
+        <h2>Edit Employee Information</h2>
+        <p class="lead">
+            Edit your information below
+          </p>
+      </div>
+
+      <div class="col-md-12 order-md-1 mb-2">
+       
+        <form class="needs-validation" method="post" action="/update_employee_Info/{{employee.emp_ID}}">
+        {% csrf_token %}
+          <div class="row justify-content-center">
+          <div class="col-md-8 d-flex justify-content-center">
+          <img src="/media/{{employee.emp_Image}}" style="width:250PX; height:300PX"
+        class="card-img-right flex-auto  d-md-block img-thumbnail col-xs-6 img-fluid mb-3" alt="Responsive image">
+        </div>
+
+            <div class="col-md-12 mb-3">
+              <label for="emp_Code">EmpCode:</label>
+              <input
+              readonly
+              name="emp_Code"
+                type="text"
+                class="form-control"
+                id="empCode"
+                placeholder=""
+                value="{{employee.emp_Code}}"
+                required=""
+              />
+            </div> 
+            {% comment %} <div class="col-md-12 mb-3">
+              <label for="emp_Image">Choose Profile Picture:</label>
+              <input
+              name="emp_Image"
+                type="file"
+                class="form-control"
+                id="emp_Image"             
+                value="{{employee.emp_Image}}"
+              />
+            </div>  {% endcomment %}
+             <div class="col-md-6 mb-3">
+              <label for="emp_first_Name">First Name:</label>
+              <input
+              name="emp_first_Name"
+                type="text"
+                class="form-control"
+                id="emp_first_Name"
+                placeholder=""
+                value="{{employee.emp_first_Name}}"
+                required=""
+              />
+            </div> 
+            
+             
+            <div class="col-md-6 mb-3">
+              <label for="emp_father_Name">Father Name:</label>
+              <input
+              name="emp_father_Name"
+                type="text"
+                class="form-control"
+                id="emp_father_Name"
+                placeholder=""
+                value="{{employee.emp_father_Name}}"
+                required=""
+              />
+            </div> 
+            <div class="col-md-6 mb-3">
+              <label for="emp_middle_Name">Middle Name:</label>
+              <input
+              name="emp_middle_Name"
+                type="text"
+                class="form-control"
+                id="emp_middle_Name"
+                placeholder=""
+                value="{{employee.emp_middle_Name}}"
+             
+              />
+            </div> 
+            <div class="col-md-6 mb-3">
+                <label for="emp_mother_Name">Mother Name:</label>
+                <input
+                name="emp_mother_Name"
+                  type="text"
+                  class="form-control"
+                  id="emp_mother_Name"
+                  placeholder=""
+                  value="{{employee.emp_mother_Name}}"
+                  required=""
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_last_Name">Last Name:</label>
+                <input
+                name="emp_last_Name"
+                  type="text"
+                  class="form-control"
+                  id="emp_last_Name"
+                  placeholder=""
+                  value="{{employee.emp_last_Name}}"
+             
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_category">Employee Category:</label>
+                <select
+                name="emp_category"
+                class="custom-select d-block w-100"
+                id="emp_category"
+                
+              >
+                <option value="{{employee.emp_category}}">{{employee.emp_category}}</option>
+                <option>Contractual</option>
+              </select>
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_join_Date">Date Of Joining:</label>
+                <input
+                name="emp_join_Date"
+                  type="date"
+                  class="form-control"
+                  id="emp_join_Date"
+                  placeholder=""
+                  value="{{employee.emp_join_Date}}"
+                  required=""
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_blood_group">Blood Group:</label>
+                <input
+                name="emp_blood_group"
+                  type="text"
+                  class="form-control"
+                  id="emp_blood_group"
+                  placeholder=""
+                  value="{{employee.emp_blood_group}}"
+                 
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_confirm_Date">Date Of Confirmation:</label>
+                <input
+                name="emp_confirm_Date"
+                  type="date"
+                  class="form-control"
+                  id="emp_confirm_Date"
+                  placeholder=""
+                  value="{{employee.emp_confirm_Date}}"
+                  
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_marital_status">Marital Status:</label>
+                <input
+                name="emp_marital_status"
+                  type="text"
+                  class="form-control"
+                  id="emp_marital_status"
+                  placeholder=""
+                  value="{{employee.emp_marital_status}}"
+                  required=""
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_birth_Date">Date Of Birth:</label>
+                <input
+                name="emp_birth_Date"
+                  type="date"
+                  class="form-control"
+                  id="emp_birth_Date"
+                  placeholder=""
+                  value="{{employee.emp_birth_Date}}"
+                  required=""
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_spouse_Name">Spouse Name:</label>
+                <input
+                name="emp_spouse_Name"
+                  type="text"
+                  class="form-control"
+                  id="emp_spouse_Name"
+                  placeholder=""
+                  value="{{employee.emp_spouse_Name}}"
+             
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_status">Status:</label>
+                <select
+                name="emp_status"
+                class="custom-select d-block w-100"
+                id="emp_status"
+                required
+              >
+                <option value="{{employee.emp_status}}">{{employee.emp_status}}</option>
+                <option>Existing</option>
+              </select>
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_present_Number">Present Mobile Number:</label>
+                <input
+                name="emp_present_Number"
+                  type="text"
+                  class="form-control"
+                  id="emp_present_Number"
+                  placeholder=""
+                  value="{{employee.emp_present_number}}"
+                  required=""
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_group">Employee Group:</label>
+                <select
+                name="emp_group"
+                class="custom-select d-block w-100"
+                id="emp_group"
+                required
+              >
+                <option value="{{employee.emp_group}}">{{employee.emp_group}}</option>
+                <option>RMG</option>
+                <option>Technology</option>
+              </select>
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_national_No">National No:</label>
+                <input
+                name="emp_national_No"
+                  type="text"
+                  class="form-control"
+                  id="emp_national_No"
+                  placeholder=""
+                  value="{{employee.emp_national_id_no}}"
+                />
+              </div> 
+
+<div class="col-md-6 mb-3">
+                <label for="emp_bank_name">Bank Name:</label>
+                <input
+                name="emp_bank_name"
+                  type="text"
+                  class="form-control"
+                  id="emp_bank_name"
+                  placeholder=""
+                  value="{{employee.emp_bank_name}}"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="emp_bankaccount_number">Bank Account No:</label>
+                <input
+                name="emp_bankaccount_number"
+                  type="text"
+                  class="form-control"
+                  id="emp_bankaccount_number"
+                  placeholder=""
+                  value="{{employee.emp_bankaccount_number}}"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="emp_mobilebanking_Name">Mobile Banking Name:</label>
+                <input
+                name="emp_mobilebanking_Name"
+                  type="text"
+                  class="form-control"
+                  id="emp_mobilebanking_Name"
+                  placeholder=""
+                  value="{{employee.emp_mobilebanking_Name}}"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="emp_mobileaccount_number">Mobile Account No:</label>
+                <input
+                name="emp_mobileaccount_number"
+                  type="text"
+                  class="form-control"
+                  id="emp_mobileaccount_number"
+                  placeholder=""
+                  value="{{employee.emp_mobileaccount_number}}"
+                />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="emp_reporting_Manager">Reporting Manager:</label>
+                <select
+                name="emp_reporting_Manager"
+                class="custom-select d-block w-100"
+                id="emp_reporting_Manager"
+                required
+              >
+                <option value="{{employee.emp_reporting_manager}}">{{employee.emp_reporting_manager}}</option>
+                <option>BVLC1439</option>
+              </select>
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_designation">Designation:</label>
+                <select
+                name="emp_designation"
+                class="custom-select d-block w-100"
+                id="emp_designation"
+              >
+                <option value="{{employee.emp_designation}}">{{employee.emp_designation}}</option>
+                <option>Designation 01</option>
+                <option>Designation 02</option>
+                <option>Designation 03</option>
+              </select>
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_gender">Gender:</label>
+                <select
+                name="emp_gender"
+                class="custom-select d-block w-100"
+                id="emp_gender"
+                required
+              >
+                <option value="{{employee.emp_gender}}">{{employee.emp_gender}}</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_company">Company:</label>
+                <select
+                name="emp_company"
+                class="custom-select d-block w-100"
+                id="emp_company"
+           
+              >
+                <option value="{{employee.emp_company}}">{{employee.emp_company}}</option>
+                <option>Company 01</option>
+                <option>Company 02</option>
+              </select>
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_official_email">Official Email Address:</label>
+                <input
+                name="emp_official_email"
+                  type="text"
+                  class="form-control"
+                  id="emp_official_email"
+                  placeholder=""
+                  value="{{employee.emp_official_email}}"
+             
+                />
+              </div> 
+              <div class="col-md-6 mb-3">
+                <label for="emp_personal_email">Personal Email Address:</label>
+                <input
+                name="emp_personal_email"
+                  type="text"
+                  class="form-control"
+                  id="emp_personal_email"
+                  placeholder=""
+                  value="{{employee.emp_personal_email}}"
+             
+                />
+              </div> 
+
+
+            <div class="col-md-12 mb-3">
+                <label for="emp_present_Address">Present Address:</label>
+                <div class="input-group">
+                    <textarea name="emp_present_Address" class="form-control" id="emp_present_Address" rows="3">{{employee.emp_present_address}}</textarea>
+                  
+                </div>
+            </div> 
+            <div class="col-md-12 mb-3">
+                <label for="emp_permanent_Address">Permanent Address:</label>
+                <div class="input-group">
+                    <textarea name="emp_permanent_Address" class="form-control" id="emp_permanent_Address" rows="3">{{employee.emp_permanent_address}}</textarea>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-3">
+                <label for="emp_division">Division:</label>
+                <select
+                name="emp_division"
+                class="custom-select d-block w-100"
+                id="emp_division"
+           
+              >
+                <option value="{{employee.emp_division}}">{{employee.emp_division}}</option>
+                <option>Division 01</option>
+                <option>Division 02</option>
+              </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="emp_department">Department:</label>
+                <select
+                name="emp_department"
+                class="custom-select d-block w-100"
+                id="emp_department"
+           
+              >
+                <option value="{{employee.emp_department}}">{{employee.emp_department}}</option>
+                <option>Department 01</option>
+                <option>Department 02</option>
+              </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="emp_sub_department">Sub-Department:</label>
+                <select
+                name="emp_sub_department"
+                class="custom-select d-block w-100"
+                id="emp_sub_department"
+           
+              >
+                <option value="{{employee.emp_sub_department}}">{{employee.emp_sub_department}}</option>
+                <option>Sub-Department 01</option>
+                <option>Sub-Department 02</option>
+              </select>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="emp_section">Section:</label>
+                <select
+                name="emp_section"
+                class="custom-select d-block w-100"
+                id="emp_section"
+           
+              >
+                <option value="{{employee.emp_section}}">{{employee.emp_section}}</option>
+                <option>Section 01</option>
+                <option>Section 02</option>
+              </select>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="emp_sub_section">Sub-Section:</label>
+                <select
+                name="emp_sub_section"
+                class="custom-select d-block w-100"
+                id="emp_sub_section"
+           
+              >
+                <option value="{{employee.emp_sub_section}}">{{employee.emp_sub_section}}</option>
+                <option>Sub-Section 01</option>
+                <option>Sub-Section 02</option>
+              </select>
+              </div>
+              <div class="col-md-12 mb-3">
+                <label for="emp_location">Location:</label>
+                <input
+                name="emp_location"
+                  type="text"
+                  class="form-control"
+                  id="emp_location"
+                  placeholder=""
+                  value="{{employee.emp_location}}"
+                />
+              </div> 
+            
+          </div>
+          
+          <button type="submit" class="btn btn-success">Update</button>
+        </form>
+       
+      </div></div>
+
+
+{% endblock body %}

@@ -1,0 +1,69 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %}  DataSet Group{% endblock title %}
+
+
+
+{% block body %}
+ <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Data Set Group</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Data Set Group Form</h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="dataset_Code">Set Code</label>
+              <input
+              name="dataset_Code"
+                type="text"
+                class="form-control"
+                id="dataset_Code"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="dataset_Name">Set Name</label>
+              <input
+              name="dataset_Name"
+                type="text"
+                class="form-control"
+                id="dataset_Name"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div>
+         
+          
+                <div class="col-md-6 mb-3">
+              <label for="dataset_description">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="dataset_description" rows="6"></textarea>
+              </div>
+            </div>
+          </div>
+
+
+          
+           
+           
+          
+          <button type="button" class="btn btn-primary">Save</button>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+    </body>
+
+
+
+{% endblock body %}

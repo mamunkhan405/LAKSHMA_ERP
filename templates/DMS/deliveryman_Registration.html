@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Order {% endblock title %}
+
+{% block css %}
+<style>
+    .label:before{
+        content:"*" ;
+       color:red    
+       }
+    .mt-10{
+        margin-top: 3rem;
+    }
+</style>
+{% endblock css%}
+
+{% block body %}
+<div class="container card mb-2">
+    <div class="bg-warning p-3">
+        <h4 class="text-center">Delivery Man Registration</h4>
+        <p class="text-center"><span>Please fill the form</span></p>
+    </div>
+    <div class="container p-4 mt-10">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{% static 'images/DMS/dm.png' %}" class="img-fluid" alt="User Image">
+            </div>
+            <div class="col-md-8 P-4">
+                <form>
+                    <div class="form-group row ">
+                        <label for="dv_fullname" class="col-sm-4 col-form-label label">Full Name</label>
+                        <div class="col-sm-6 ">
+                          <input type="text" name="dv_fullname" class="form-control" id="dv_fullname" >
+                        </div>
+                      </div>
+                      <div class="form-group row ">
+                        <label for="dv_contact" class="col-sm-4 col-form-label label">Contact No.</label>
+                        <div class="col-sm-6 ">
+                          <input type="text" name="dv_contact" class="form-control" id="dv_contact" >
+                        </div>
+                      </div>
+
+                      <div class="form-group row ">
+                        <label for="dv_location" class="col-sm-4 col-form-label label">Location</label>
+                        <div class="col-sm-6 ">
+                          <textarea type="text" name="dv_location" class="form-control" id="dv_location" row="3"></textarea>
+                          <small id="addhelp" class="form-text text-muted">Present Address, State</small>
+                        </div>
+                      </div>
+                     
+                      <div class="form-group row">
+                        <label for="dv_nidno" class="col-sm-4 col-form-label label">National ID No.</label>
+                        <div class="col-sm-6">
+                          <input type="text" name="dv_nidno" class="form-control" id="dv_nidno">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="dv_nidno" class="col-sm-4 col-form-label label">NID Photo</label>
+                        <div class="col-sm-6">
+                            <input
+                            src="media/images/DeliveryManNID_Photo"
+                           name="dv_nidphoto"
+                             type="file"
+                             class="form-control"
+                             id="dv_nidphoto"
+                           />
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="dv_email" class="col-sm-4 col-form-label label">Email</label>
+                        <div class="col-sm-6">
+                          <input type="text" name="dv_email"  class="form-control" id="dv_email" placeholder="email@example.com">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="dv_password" class="col-sm-4 col-form-label label">Password</label>
+                        <div class="col-sm-6">
+                          <input type="password" name="dv_password"  class="form-control" id="dv_password" >
+                        </div>
+                      </div>
+                      <div class="text-center">
+                          <button type="button" class="btn btn-outline-warning">Submit</button>
+                      </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock body %}

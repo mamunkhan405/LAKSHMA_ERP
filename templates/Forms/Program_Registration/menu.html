@@ -1,0 +1,159 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %} Menu{% endblock title %}
+
+
+
+{% block body %}
+ <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Menu</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Menu</h4>
+        <form class="needs-validation">
+        <div>
+            <div class="col-md-6 mb-3">
+              <label for="menu_Name">Menu Name</label>
+              <input
+              name="menu_Name"
+                type="text"
+                class="form-control"
+                id="menu_Name"
+                placeholder=""
+                value=""
+                required=""
+              />    
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="menu_Code">Menu Code</label>
+              <input
+              name="menu_Code"
+                type="text"
+                class="form-control"
+                id="menu_Code"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+                <div class="col-md-6 mb-3">
+              <label for="menu_description">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="menu_description" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+           <div class="col-md-6 mb-3">
+              <label for="menu_Icon">ICON</label>
+              <input
+              name="menu_Icon"
+                type="text"
+                class="form-control"
+                id="menu_Icon"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+            </div>
+
+              <div class="container">
+      <div class="py-2 text-center">
+      
+   
+      </div>
+
+      <div class="col-md-12 order-md-1">
+       
+        <form class="needs-validation">
+          <div class="row">
+            <div class="mb-3 mr-2">
+              <label for="roleName">Sequence</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roleName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid policy name is required.</div>
+            </div> 
+             <div class="mb-3 mr-2">
+              <label for="roleCode">Prompt Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roleCode"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div> 
+            <div class="mb-3 mr-2">
+              <label for="menu_subMenu">Sub Menu</label>
+              <input
+                type="text"
+                class="form-control"
+                id="menu_subMenu"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div>
+            <div class="mb-3 mr-2">
+              <label for="menu_function">Function</label>
+              <input
+              name="menu_function"
+                type="text"
+                class="form-control"
+                id="menu_function"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid policy name is required.</div>
+            </div>
+            <div class="mb-3 mr-2">
+              <label for="menu_Assign">Assign</label>
+               <select
+               name="menu_Assign"
+                    class="custom-select d-block w-100"
+                    id="menu_Assign"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Assign 01</option>
+                    <option>Assign 02</option>
+                    <option>Assign 03</option>
+                  </select>
+            </div>  
+             <div class="col-md-6 mb-3">
+              <label for="menu_function_description">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="menu_function_description" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+             
+          </div>
+      </div>
+       
+        
+          <button type="button" class="btn btn-primary">Save</button>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+    </body>
+
+
+
+{% endblock body %}

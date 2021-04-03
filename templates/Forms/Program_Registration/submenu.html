@@ -1,0 +1,69 @@
+{% extends 'index.html' %}
+
+{% block title %} Sub Menu{% endblock title %}
+
+
+
+{% block body %}
+ <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Sub Menu</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Sub Menu</h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="sub_menu">Sub Menu</label>
+              <input
+              name="sub_menu"
+                type="text"
+                class="form-control"
+                id="sub_menu"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="submenu_function">Function</label>
+              <input
+              name="submenu_function"
+                type="text"
+                class="form-control"
+                id="submenu_function"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div>
+         
+          
+                <div class="col-md-6 mb-3">
+              <label for="submenu_description">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="submenu_description" rows="6"></textarea>
+              </div>
+            </div>
+          </div>
+
+
+          
+           
+           
+          
+          <button type="button" class="btn btn-primary">Save</button>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+    </body>
+
+
+
+{% endblock body %}

@@ -1,0 +1,90 @@
+{% extends 'index.html' %}
+
+{% block title %} Operating Units {% endblock title %}
+
+
+
+{% block body %}
+<div class="container">
+      <div class="py-5 text-center">
+        <h2>Operating Units</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3 text-center"></h4>
+        <form class="needs-validation">
+            
+
+            <div class="col-md-6 mb-3">
+              <label for="opunit"> Operation Unit</label>
+              <div class="input-group">
+                <input
+                name="opunit"
+                  type="text"
+                  class="form-control"
+                  id="opunit"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="opunit_description">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="segment_description" rows="4"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="opunit_date">Start Date</label>
+              <div class="input-group">
+                <input
+                name="opunit_date"
+                  type="text"
+                  class="form-control"
+                  id="opunit_date"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="opunit_endDate">End Date</label>
+              <div class="input-group">
+                <input
+                name="opunit_endDate"
+                  type="text"
+                  class="form-control"
+                  id="opunit_endDate"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="opunit_assignment">Assignment</label>
+              <select
+              name="opunit_assignment"
+                    class="custom-select d-block w-100"
+                    id="opunit_assignment"
+                    required=""
+                  >
+                    <option value="">Yes/No</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+              
+            </div>
+             
+            <div class="col-md-6 mb-3">  
+              <div class="input-group">
+          <button type="submit" class="btn btn-primary">Save</button>
+            </div>   
+              </div>
+            </div>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+{% endblock body %}

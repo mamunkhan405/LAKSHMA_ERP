@@ -1,0 +1,96 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %}Data Security Policy{% endblock title %}
+
+
+
+{% block body %}
+  <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Data Security Policy</h2>
+   
+      </div>
+
+      <div class="col-md-8 order-md-1">
+       
+        <form class="needs-validation">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="dataName">Policy Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="dataName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid policy name is required.</div>
+            </div>
+             
+            <div class="col-md-6 mb-3">
+                <label for="starttime">Start Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="starttime"
+                  placeholder=""
+                  value=""
+                  required=""
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="endtime">End Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="endtime"
+                  placeholder=""
+                  value=""
+                  required=""
+                />
+               
+              </div>
+             
+              <div class="col-md-6 mb-3">
+                <label for="dataName">Data Set</label>
+                <select
+                    class="custom-select d-block w-100"
+                    id="dataset"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Data Set 01</option>
+                    <option>Data Set 02</option>
+                  </select>
+               
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="datadesc">Description</label>
+                <div class="input-group">
+                    <textarea class="form-control" id="datadesc" rows="4"></textarea>
+                </div>
+            </div>
+              <div class="col-md-6 mb-3">
+                <label for="dataName">Assignment</label>
+                <select
+                    class="custom-select d-block w-100"
+                    id="dataassignment"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+               
+              </div>
+              
+          
+          </div>
+          <button type="button" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+
+    </div>
+   {% endblock %}

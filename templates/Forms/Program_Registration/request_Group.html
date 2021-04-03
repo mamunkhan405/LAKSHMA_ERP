@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+{% comment %} {% extends 'main.html' %} {% endcomment %}
+{% block title %} Request Group{% endblock title %}
+
+
+
+{% block body %}
+ <body class="bg-light">
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Request Group Form</h2>
+        <p class="lead"></p>
+      </div>
+
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Request Group</h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="groupName">Group Name</label>
+              <input
+              name="groupName"
+                type="text"
+                class="form-control"
+                id="groupName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="request_Group_Application">Application</label>
+              <input
+              name="request_Group_Application"
+                type="text"
+                class="form-control"
+                id="request_Group_Application"
+                placeholder=""
+                value=""
+                required=""
+              />
+              
+            </div>
+         
+             <div class="col-md-6 mb-3">
+              <label for="request_Group_Code">Code</label>
+              <input
+              name="request_Group_Code"
+                type="text"
+                class="form-control"
+                id="request_Group_Code"
+                placeholder=""
+                value=""
+                required=""
+              />
+             
+            </div>
+                <div class="col-md-6 mb-3">
+              <label for="request_Group_description">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="program_registration_description" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+ <div class="col-md-6 mb-3">
+              <label for="rg_Program_Name">Program Name:</label>
+              <input
+              name="rg_Program_Name"
+                type="text"
+                class="form-control"
+                id="rg_Program_Name"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            
+             
+            <div class="col-md-6 mb-3">
+              <label for="rg_Short_Name">Short Name:</label>
+              <input
+              name="rg_Short_Name"
+                type="text"
+                class="form-control"
+                id="rg_Short_Name"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+
+          
+           
+           
+          
+          <button type="button" class="btn btn-primary">Save</button>
+    </div>
+        </form>
+      </div>
+    
+    </div>
+    </body>
+
+
+
+{% endblock body %}

@@ -1,0 +1,627 @@
+{% extends 'index.html' %}
+
+
+{% block title %} User Registration Form {% endblock title %}
+
+{% block css %}
+<style>
+    * {
+    box-sizing: border-box;
+    }
+
+    .pass{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: medium;
+     
+    }
+
+    #regForm {
+    background-color: #d4d2f1;
+    margin: 100px auto;
+    font-family: Raleway;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+    }
+
+    h1 {
+    text-align: center;  
+    }
+
+    input, select, textarea {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+    }
+
+    /* Mark input boxes that gets an error on validation: */
+    input.invalid,select.valid {
+    background-color: #ffdddd;
+    }
+
+    .fs-title{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 30px;
+    }
+
+    /* Hide all steps by default: */
+    .tab {
+    display: none;
+    }
+
+    button {
+    background-color: #1e06fc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+    }
+
+    button:hover {
+    opacity: 0.8;
+    }
+
+    #prevBtn {
+    background-color: #dbdada;
+    }
+
+    /* Make circles that indicate the steps of the form: */
+    .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+    }
+
+    .step.active {
+    opacity: 1;
+    }
+
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+    background-color: #f10a0a;
+    }
+    * {
+        font-family: Arial;
+    }
+    
+  
+</style>
+{% endblock css %}
+
+{% block body %}
+
+<form id="regForm" action="" method="post">
+{% csrf_token %}
+   
+
+   
+  <!-- One "tab" for each step in the form: -->
+        <div class="tab mt-4">
+            <h4 class="fs-title text-center mb-3">User Registration Form</h4>
+            <h2 class="fs-title text-center mb-3">Personal Details:</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3 ">
+                    <input
+                    oninput="this.className = ''"
+                    name="first_Name"
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        placeholder="First Name"
+                        value=""
+                        required=""
+                    />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input
+                    oninput="this.className = ''"
+                    name="last_Name"
+                        type="text"
+                        class="form-control"
+                        id="lastName"
+                        placeholder="Last Name"
+                        value=""
+                        required=""
+                    />
+                </div>           
+               <div class="col-md-4 mb-3">
+                    <div class="input-group">
+                        <input
+                        oninput="this.className = ''"
+                        name="user_Name"
+                            type="text"
+                            class="form-control"
+                            id="username"
+                            placeholder="Username"
+                            required=""
+                        />
+                    </div>
+                </div>
+                <div class=" col-md-8 mb-3">
+                    <input
+                    oninput="this.className = ''"
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="email@example.com"
+                    />            
+                </div>
+                
+                
+               
+                    <div class="form-group col-md-6">
+                        <input oninput="this.className = ''" id="txtNewPassword" name="password" type="password" class="form-control" placeholder="Password" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input oninput="this.className = ''" id="txtConfirmPassword" onChange="checkPasswordMatch();"  name="confirmPass" type="password" class="form-control" placeholder="Confirm Password" />
+                    </div>   
+                    <div class="registrationFormAlert form-group col-md-12 text-right " id="divCheckPasswordMatch"> <span class="pass">Make Sure Your Passwords Matches.</span> </div>
+             
+                   
+                              
+                            <div class="col-md-4 mb-3">
+                                <select
+                                oninput="this.className = ''"
+                                name="status"
+                                    class="custom-select d-block w-100"
+                                    id="userStatus"
+                                    required=""
+                                >
+                                    <option value="" disabled selected>Status</option>
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                </select>
+                            </div>                 
+                </div>
+               
+        </div>
+             
+
+<!-- nice  -->
+        <div class="tab  mt-4">
+            <h2 class="fs-title text-center">Create Your Role</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input
+                    name="role_Name"
+                    type="text"
+                    class="form-control"
+                    id="roleName"
+                    placeholder="Role Name"
+                    value=""
+                    required=""
+                    oninput="this.className = ''"
+                    />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input
+                    name="role_Code"
+                    type="text"
+                    class="form-control"
+                    id="roleCode"
+                    placeholder="Role Code"
+                    value=""
+                    required=""
+                    oninput="this.className = ''"
+                    />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <select
+                        name="role_Category"
+                        class="custom-select d-block w-100"
+                        id="roleCategory"
+                        required=""
+                        oninput="this.className = ''"
+                        >
+                        <option value=""  disabled selected>Role Category</option>
+                        <option>Finance</option>
+                        <option>HR</option>
+                        <option>Inventory</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="input-group">
+                    <input
+                    oninput="this.className = ''"
+                    name="predefined_Role"
+                        type="text"
+                        class="form-control"
+                        id="predRole"
+                        placeholder="Predefined Role"
+                        required=""
+                    />
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <div class="input-group">
+                    <textarea oninput="this.className = ''" name="role_Description" placeholder="Description" class="form-control" id="description" rows="4"> </textarea>
+                    </div>
+                </div>               
+            </div>
+        </div>
+            <div class="tab  mt-4">
+                <h2 class="fs-title text-center"> Role Hiererchy</h2>
+                <div class="row">
+                    <div class="mb-3 mr-1">
+                    <input
+                    name="role_Hier_Name"
+                        type="text"
+                        class="form-control"
+                        id="roleHier_Name"
+                        placeholder="Role Name"
+                        value=""
+                        required=""
+                        oninput="this.className = ''" 
+                    />
+                    </div> 
+                    <div class="mb-3 mr-1">
+                    <input
+                    name="role_Hier_Code"
+                        type="text"
+                        class="form-control"
+                        id="roleHier_Code"
+                        placeholder="Role Code"
+                        value=""
+                        required=""
+                        oninput="this.className = ''" 
+                    />
+                    </div> 
+                    <div class="mb-3 mr-1">
+                    <input
+                    name="inherit_Role_Name"
+                        type="text"
+                        class="form-control"
+                        id="InhroleName"
+                        placeholder="Inherit Role Name"
+                        value=""
+                        required=""
+                        oninput="this.className = ''" 
+                    />
+                    </div>
+                    <div class="mb-3 mr-2">
+                    <input
+                    name="inherit_Role_Code"
+                        type="text"
+                        class="form-control"
+                        id="InhroleCode"
+                        placeholder="Inherit Role Code"
+                        value=""
+                        required=""
+                        oninput="this.className = ''" 
+                    />
+                    </div>
+                    <div class="mb-3 mr-2">
+                    <select
+                    name="role_Assignment"
+                            class="custom-select d-block w-100"
+                            id="roleassignment"
+                            required=""
+                            oninput="this.className = ''" 
+                        >
+                            <option value=""  disabled selected>Assignment</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>   
+                </div>
+            </div>
+                <div class="tab  mt-4">
+                    <h2 class="fs-title text-center">Data Security</h2>
+                    <!-- <h3 class="fs-subtitle">Create your data security policy</h3> -->
+
+                    <div class="row">
+                        <div class="col-md-12 mb-3 ">
+                        <input
+                        name="data_Policy_Name"
+                            type="text"
+                            class="form-control"
+                            id="dataName"
+                            placeholder="Policy Name"
+                            value=""
+                            required=""
+                            oninput="this.className = ''"
+                        />
+                        
+                        </div>
+                        
+                        <div class="col-md-6 mb-3 ">
+                            <input
+                            name="start_Date"
+                            type="date"
+                            class="form-control"
+                            id="start_Date"
+                            value=""
+                            required=""
+                            oninput="this.className = ''"
+                            />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input
+                            name="end_Date"
+                            type="date"
+                            class="form-control"
+                            id="end_Date"
+                            value=""
+                            required=""
+                            oninput="this.className = ''"
+                            />
+                        
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <select
+                            name="dataset"
+                                class="custom-select d-block w-100"
+                                id="dataset"
+                                required=""
+                                oninput="this.className = ''"
+                            >
+                                <option value=""  disabled selected>Data Set</option>
+                                <option>Data Set 01</option>
+                                <option>Data Set 02</option>
+                            </select>
+                        
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <select
+                            name="data_Policy_Assignment"
+                                class="custom-select d-block w-100"
+                                id="dataassignment"
+                                required=""
+                                oninput="this.className = ''"
+                            >
+                                <option value=""  disabled selected>Assignment</option>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        
+                        </div>
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group">
+                                    <textarea name="data_Policy_Description" 
+                                    oninput="this.className = ''" placeholder="Description" class="form-control col-md-12" id="datadesc" rows="4"></textarea>
+                                </div>
+                            </div>
+                    </div> 
+                </div>
+
+            <div class="tab  mt-4">
+                <h2 class="fs-title ">Function Security Policy</h2>
+                <!-- <h3 class="fs-subtitle">Create your functional security policy</h3> -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                    <input
+                    name="function_Policy_Name"
+                        type="text"
+                        class="form-control"
+                        id="functionName"
+                        placeholder="Name"
+                        value=""
+                        required=""
+                        oninput="this.className = ''"
+                    />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                    <input
+                    name="function_Policy_Code"
+                        type="text"
+                        class="form-control"
+                        id="functionCode"
+                        placeholder="Code"
+                        value=""
+                        required=""
+                        oninput="this.className = ''"
+                    />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="input-group">
+                        <input
+                        name="function_Policy_Description"
+                            type="textarea"
+                            class="form-control"
+                            id="functiondesc"
+                            placeholder="Description"
+                            required=""
+                            oninput="this.className = ''"
+                        />
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="input-group">
+                            <select
+                            name="function_Policy_Assignment"
+                            class="custom-select d-block w-100"
+                            id="functionassignment"
+                            required=""
+                            oninput="this.className = ''"
+                        >
+                            <option value=""  disabled selected>Assignment</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+    <div class="tab  mt-4">
+                    <div>
+                        <h2 class="fs-title">Responsibility</h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <input
+                              name="responsibility_Name"
+                                type="text"
+                                class="form-control"
+                                id="resName"
+                                placeholder="Responsibility Name"
+                                value=""
+                                required=""
+                                oninput="this.className = ''"
+                              />                     
+                            </div> 
+                             <div class="col-md-6 mb-3">
+                              <input
+                              name="application"
+                                type="text"
+                                class="form-control"
+                                id="application"
+                                placeholder="Application"
+                                value=""
+                                required=""
+                                oninput="this.className = ''"
+                              />
+                            </div>                                               
+                            <div class="col-md-6 mb-3">
+                              <input
+                              name="data_Group"
+                                type="text"
+                                class="form-control"
+                                id="dataGroup"
+                                placeholder="Data Group"
+                                value=""
+                                required=""
+                                oninput="this.className = ''"
+                              />
+                            </div> 
+                            <div class="col-md-6 mb-3">
+                              <input
+                              name="request_Group"
+                                type="text"
+                                class="form-control"
+                                id="requestGroup"
+                                placeholder="Request Group"
+                                value=""
+                                required=""
+                                oninput="this.className = ''"
+                              />
+                            </div> 
+                            <div class="col-md-12 mb-3">
+                                <div class="input-group">
+                                    <textarea name="responsibility_Description" placeholder="Description" oninput="this.className = ''" class="form-control" id="resdesc" rows="4"></textarea>       
+                                </div>
+                            </div> 
+                        </div>
+                    </div> 
+    </div>
+  <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+  </div>
+  
+</form>
+
+{% endblock body %}
+
+{% block script %}
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+
+// FUNCTION FOR PASSWORD MATCHING 
+function checkPasswordMatch() {
+    var password = $("#txtNewPassword").val();
+    var confirmPassword = $("#txtConfirmPassword").val();
+
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("Passwords didn't match!!!");
+    else
+        $("#divCheckPasswordMatch").html("Passwords match. Keep Going..");
+}
+
+$(document).ready(function () {
+   $("#txtConfirmPassword").keyup(checkPasswordMatch);
+});
+</script>
+{% endblock script %}

@@ -1,0 +1,145 @@
+{% extends 'main.html' %}
+
+{% block title %} Create Role{% endblock title %}
+
+
+
+{% block body %}
+  <body class="bg-light">
+    <div class="container ">
+      <div class="py-5 text-center">
+        <h2>Create Role</h2>
+        <p class="lead">Create your role by filling up the form below</p>
+      </div>
+      
+      <h4 class="mb-3">Role Creation</h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="roleName">Role name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roleName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid role name is required.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="roleCode">Role Code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roleCode"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid role code is required.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="roleCategory">Role Category</label>
+              <select
+                    class="custom-select d-block w-100"
+                    id="roleCategory"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Finance</option>
+                    <option>HR</option>
+                    <option>Inventory</option>
+                  </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="predRole">Predefined Role</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="predRole"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="predRole">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="description" rows="4"></textarea>
+              </div>
+            </div>
+          
+         
+            <button type="button" class="btn btn-primary">Add Role</button>
+         </div>
+        </form>
+        </div>
+
+      {% comment %} <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Role Creation</h4>
+        <form class="needs-validation">
+            <div class="col-md-6 mb-3">
+              <label for="roleName">Role name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roleName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid role name is required.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="roleCode">Role Code</label>
+              <input
+                type="text"
+                class="form-control"
+                id="roleCode"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid role code is required.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="roleCategory">Role Category</label>
+              <select
+                    class="custom-select d-block w-100"
+                    id="roleCategory"
+                    required=""
+                  >
+                    <option value="">Choose...</option>
+                    <option>Finance</option>
+                    <option>HR</option>
+                    <option>Inventory</option>
+                  </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="predRole">Predefined Role</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="predRole"
+                  placeholder=""
+                  required=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="predRole">Description</label>
+              <div class="input-group">
+                <textarea class="form-control" id="description" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary">Add Role</button>
+    
+        </form>
+      </div> 
+  
+    </div>{% endcomment %}
+
+{% endblock %}
