@@ -10,4 +10,4 @@ from django.core.files.storage import FileSystemStorage
 # Create your views here.
 class Home(View):
     def get(self, request):
-        return render(request, 'Forms/home.html')
+        return render(request, 'Home/home.html')
