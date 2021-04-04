@@ -3,11 +3,18 @@
 {% block title %} LAKSMA ERP | Order{% endblock title %}
 
 {% block css %}
+<style>
+  /*.bg-color{
+    color:white;
+    background-color: rgb(37, 36, 36);
+    background-image: linear-gradient(green, rgb(46, 43, 43));
+  }*/
+</style>
 {% endblock css%}
 
 {% block body %}
   
-    <div class="container">
+    <div class="container p-5 bg-color">
       <div class="py-5 text-center">
         <h2 class="text-uppercase font-weight-bold">Order Entry Form</h2>
         <!-- <p class="lead">
@@ -21,18 +28,9 @@
         {% csrf_token %}
           <div class="row justify-content-center"> 
 
-          <!-- <div class="col-md-12 mb-3">
-              <label for="emp_Image">Choose Profile Picture:</label>
-              <input
-               src="media/images/Employee_Images"
-              name="emp_Image"
-                type="file"
-                class="form-control"
-                id="emp_Image"
-              />
-            </div>  -->
+       
 
-             <div class="col-md-12 mb-3">
+             <div class="col-md-4 mb-3">
               <label for="jobno">Job No.</label>
               <input
               name="jobno"
@@ -44,51 +42,271 @@
                 required=""
               />
             </div> 
-            <div class="col-md-6 mb-3">
-              <label for="buyername">Buyer Name</label>
-              <select
-              name="buyername"
-              class="custom-select d-block w-100"
-              id="buyername"
-              
-            >
-              <option value="">-- Select Buyer --</option>
-              <option>Buyer 1</option>
-              <option>Buyer 2</option>
-              <option>Buyer 3</option>
-              <option>Buyer 4</option>
-            </select>
-            </div> 
-
-            <div class="col-md-6 mb-3">
-              <label for="proddept">Prod. Dept.</label>
-              <select
-              name="proddept"
-              class="custom-select d-block w-100"
-              id="proddept"
-              
-            >
-              <option value="">-- Select --</option>
-              <option>Prod. Dept. 1</option>
-              <option>Prod. Dept. 2</option>
-              <option>Prod. Dept. 3</option>
-              <option>Prod. Dept. 4</option>
-            </select>
-            </div> 
-
-            <div class="col-md-6 mb-3">
-              <label for="repeatno">Repeat No/Job</label>
+             <div class="col-md-4 mb-3">
+              <label for="lccom">LC Com.</label>
               <input
-              name="repeatno"
+              name="lccom"
                 type="text"
                 class="form-control"
-                id="repeatno"
-                placeholder="Browse Job"
+                id="lccom"
+                placeholder=""
                 value=""
                 required=""
               />
             </div> 
-            <div class="col-md-6 mb-3">
+             <div class="col-md-4 mb-3">
+              <label for="lccomploc">LC Company Location</label>
+              <input
+              name="lccomploc"
+                type="text"
+                class="form-control"
+                id="lccomploc"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+             <div class="col-md-4 mb-3">
+              <label for="wcomp">W. Company </label>
+              <input
+              name="wcomp"
+                type="text"
+                class="form-control"
+                id="wcomp"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="wcomploc">W Company Location</label>
+              <input
+              name="wcomploc"
+                type="text"
+                class="form-control"
+                id="wcomploc"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="fileno">File No</label>
+              <input
+              name="fileno"
+                type="text"
+                class="form-control"
+                id="fileno"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="projob">Proj. Job</label>
+              <input
+              name="projob"
+                type="text"
+                class="form-control"
+                id="projob"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+                        
+             <div class="col-md-4 mb-3">
+              <label for="buyer">Buyer</label>
+              <input
+              name="buyer"
+                type="text"
+                class="form-control"
+                id="buyer"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+
+            <div class="col-md-4 mb-3">
+              <label for="styleref">Style Ref. </label>
+              <input
+              name="styleref"
+                type="text"
+                class="form-control"
+                id="styleref"
+                placeholder=""
+                value=""
+           
+              />
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="deptcode">Dept & Code </label>
+              <input
+              name="deptcode"
+                type="text"
+                class="form-control"
+                id="deptcode"
+                placeholder=""
+                value=""
+           
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="subdept">Sub. Dept.</label>
+              <select
+              name="subdept"
+              class="custom-select d-block w-100"
+              id="subdept"
+              
+            >
+              <option value="">-- Select Sub Dept --</option>
+              <option>Sub Dept 1</option>
+              <option>Sub Dept 2</option>
+              <option>Sub Dept 3</option>
+              <option>Sub Dept 4</option>
+            </select>
+            </div> 
+
+            <div class="col-md-4 mb-3">
+              <label for="productcat">Product Category</label>
+              <select
+              name="productcat"
+              class="custom-select d-block w-100"
+              id="productcat"
+            >
+              <option value="">-- Outwears --</option>
+              <option>Category 1</option>
+              <option>Category 2</option>
+              <option>Category 3</option>
+              <option>Category 4</option>
+            </select>
+            </div>  
+            <div class="col-md-4 mb-3">
+              <label for="season">Season</label>
+              <select
+              name="season"
+              class="custom-select d-block w-100"
+              id="season"
+              
+            >
+              <option value="">-- Select Season --</option>
+              <option>season 1</option>
+              <option>season 2</option>
+              <option>season 3</option>
+              <option>season 4</option>
+            </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="region">Region</label>
+              <select
+              name="region"
+              class="custom-select d-block w-100"
+              id="region"
+              
+            >
+              <option value="">-- Select Region --</option>
+              <option>Region 1</option>
+              <option>Region 2</option>
+              <option>Region 3</option>
+              <option>Region 4</option>
+            </select>
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="reptno">Rept. No</label>
+              <input
+              name="reptno"
+                type="text"
+                class="form-control"
+                id="reptno"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            
+            <div class="col-md-4 mb-3">
+              <label for="agent">Agent</label>
+              <select
+              name="agent"
+              class="custom-select d-block w-100"
+              id="agent"
+            >
+              <option value="">-- Select Agent --</option>
+              <option>Agent 1</option>
+              <option>Agent 2</option>
+              <option>Agent 3</option>
+              <option>Agent 4</option>
+            </select>
+            </div>  
+            
+            <div class="col-md-4 mb-3">
+              <label for="client">Client</label>
+              <select
+              name="client"
+              class="custom-select d-block w-100"
+              id="client"
+            >
+              <option value="">-- Select Client --</option>
+              <option>Client 1</option>
+              <option>Client 2</option>
+              <option>Client 3</option>
+              <option>Client 4</option>
+            </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="qualitylabel">Quality Label</label>
+              <input
+              name="qualitylabel"
+                type="text"
+                class="form-control"
+                id="qualitylabel"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="uomsmv">UOM & SMV</label>
+              <input
+              name="uomsmv"
+                type="text"
+                class="form-control"
+                id="uomsmv"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="bhmerc">BH Merc.</label>
+              <input
+              name="bhmerc"
+                type="text"
+                class="form-control"
+                id="bhmerc"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="shipmode">Ship Mode</label>
+              <select
+              name="shipmode"
+              class="custom-select d-block w-100"
+              id="shipmode"
+            >
+              <option value="">-- Sea --</option>
+              <option>Mode 1</option>
+              <option>Mode 2</option>
+              <option>Mode 3</option>
+              <option>Mode 4</option>
+            </select>
+            </div>  
+            <div class="col-md-4 mb-3">
               <label for="teamleader">Team Leader</label>
               <select
               name="teamleader"
@@ -96,402 +314,127 @@
               id="teamleader"
               
             >
-              <option value="">-- Select Buyer --</option>
-              <option>Buyer 1</option>
-              <option>Buyer 2</option>
-              <option>Buyer 3</option>
-              <option>Buyer 4</option>
+              <option value="">-- Select Leader  --</option>
+              <option>Team Leader 1</option>
+              <option>Team Leader 2</option>
+              <option>Team Leader 3</option>
+              <option>Team Leader 4</option>
             </select>
             </div> 
-
-
-
-
-
-            <div class="col-md-6 mb-3">
-              <label for="emp_middle_Name">Middle Name:</label>
+            <div class="col-md-4 mb-3">
+              <label for="dealingmerc">Dealing Mer.</label>
+              <select
+              name="dealingmerc"
+              class="custom-select d-block w-100"
+              id="dealingmerc"
+              
+            >
+              <option value="">-- Select Mer --</option>
+              <option>Mer 1</option>
+              <option>Mer 2</option>
+              <option>Mer 3</option>
+              <option>Mer 4</option>
+            </select>
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="factorymerc">Factory Mer.</label>
+              <select
+              name="factorymerc"
+              class="custom-select d-block w-100"
+              id="factorymerc"
+              
+            >
+              <option value="">-- Select Mer --</option>
+              <option>Mer 1</option>
+              <option>Mer 2</option>
+              <option>Mer 3</option>
+              <option>Mer 4</option>
+            </select>
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="bom">Ready for BOM</label>
               <input
-              name="emp_middle_Name"
+                name="bom"
                 type="text"
                 class="form-control"
-                id="emp_middle_Name"
+                id="bom"
                 placeholder=""
                 value=""
-             
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="copyform">Copy Form</label>
+              <input
+              name="copyform"
+                type="text"
+                class="form-control"
+                id="copyform"
+                placeholder=""
+                value=""
+                required=""
               />
             </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="emp_mother_Name">Mother Name:</label>
-                <input
-                name="emp_mother_Name"
-                  type="text"
-                  class="form-control"
-                  id="emp_mother_Name"
-                  placeholder=""
-                  value=""
-                  required=""
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_last_Name">Last Name:</label>
-                <input
-                name="emp_last_Name"
-                  type="text"
-                  class="form-control"
-                  id="emp_last_Name"
-                  placeholder=""
-                  value=""
-             
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_category">Employee Category:</label>
-                <select
-                name="emp_category"
-                class="custom-select d-block w-100"
-                id="emp_category"
-                
-              >
-                <option value="">Choose...</option>
-                <option>Contractual</option>
-              </select>
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_join_Date">Date Of Joining:</label>
-                <input
-                name="emp_join_Date"
-                  type="date"
-                  class="form-control"
-                  id="emp_join_Date"
-                  placeholder=""
-                  value=""
-                  required=""
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_blood_group">Blood Group:</label>
-                <input
-                name="emp_blood_group"
-                  type="text"
-                  class="form-control"
-                  id="emp_blood_group"
-                  placeholder=""
-                  value=""
-                 
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_confirm_Date">Date Of Confirmation:</label>
-                <input
-                name="emp_confirm_Date"
-                  type="date"
-                  class="form-control"
-                  id="emp_confirm_Date"
-                  placeholder=""
-                  value=""
-                  
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_marital_status">Marital Status:</label>
-                <input
-                name="emp_marital_status"
-                  type="text"
-                  class="form-control"
-                  id="emp_marital_status"
-                  placeholder=""
-                  value=""
-                  required=""
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_birth_Date">Date Of Birth:</label>
-                <input
-                name="emp_birth_Date"
-                  type="date"
-                  class="form-control"
-                  id="emp_birth_Date"
-                  placeholder=""
-                  value=""
-                  required=""
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_spouse_Name">Spouse Name:</label>
-                <input
-                name="emp_spouse_Name"
-                  type="text"
-                  class="form-control"
-                  id="emp_spouse_Name"
-                  placeholder=""
-                  value=""
-             
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_status">Status:</label>
-                <select
-                name="emp_status"
-                class="custom-select d-block w-100"
-                id="emp_status"
-                required
-              >
-                <option value="">Choose...</option>
-                <option>Existing</option>
-              </select>
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_present_Number">Present Mobile Number:</label>
-                <input
-                name="emp_present_Number"
-                  type="text"
-                  class="form-control"
-                  id="emp_present_Number"
-                  placeholder=""
-                  value=""
-                  required=""
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_group">Employee Group:</label>
-                <select
-                name="emp_group"
-                class="custom-select d-block w-100"
-                id="emp_group"
-                required
-              >
-                <option value="">Choose...</option>
-                <option>RMG</option>
-                <option>Technology</option>
-              </select>
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_national_No">National No:</label>
-                <input
-                name="emp_national_No"
-                  type="text"
-                  class="form-control"
-                  id="emp_national_No"
-                  placeholder=""
-                  value=""
-                />
-              </div> 
-              {% comment %} BANK INFORMATION  {% endcomment %}
-
-              <div class="col-md-6 mb-3">
-                <label for="emp_bank_name">Bank Name:</label>
-                <input
-                name="emp_bank_name"
-                  type="text"
-                  class="form-control"
-                  id="emp_bank_name"
-                  placeholder=""
-                  value=""
-                />
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="emp_bankaccount_number">Bank Account No:</label>
-                <input
-                name="emp_bankaccount_number"
-                  type="text"
-                  class="form-control"
-                  id="emp_bankaccount_number"
-                  placeholder=""
-                  value=""
-                />
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="emp_mobilebanking_Name">Mobile Banking Name:</label>
-                <input
-                name="emp_mobilebanking_Name"
-                  type="text"
-                  class="form-control"
-                  id="emp_mobilebanking_Name"
-                  placeholder=""
-                  value=""
-                />
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="emp_mobileaccount_number">Mobile Account No:</label>
-                <input
-                name="emp_mobileaccount_number"
-                  type="text"
-                  class="form-control"
-                  id="emp_mobileaccount_number"
-                  placeholder=""
-                  value=""
-                />
-              </div>
-
-              <div class="col-md-6 mb-3">
-                <label for="emp_reporting_Manager">Reporting Manager:</label>
-                <select
-                name="emp_reporting_Manager"
-                class="custom-select d-block w-100"
-                id="emp_reporting_Manager"
-                required
-              >
-                <option value="">Enter Manager Code</option>
-                <option>BVLC1439</option>
-              </select>
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_designation">Designation:</label>
-                <select
-                name="emp_designation"
-                class="custom-select d-block w-100"
-                id="emp_designation"
-              >
-                <option value="">Choose...</option>
-                <option>Designation 01</option>
-                <option>Designation 02</option>
-                <option>Designation 03</option>
-              </select>
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_gender">Gender:</label>
-                <select
-                name="emp_gender"
-                class="custom-select d-block w-100"
-                id="emp_gender"
-                required
-              >
-                <option value="">Select</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-              </select>
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_company">Company:</label>
-                <select
-                name="emp_company"
-                class="custom-select d-block w-100"
-                id="emp_company"
-           
-              >
-                <option value="">Select</option>
-                <option>Company 01</option>
-                <option>Company 02</option>
-              </select>
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_official_email">Official Email Address:</label>
-                <input
-                name="emp_official_email"
-                  type="text"
-                  class="form-control"
-                  id="emp_official_email"
-                  placeholder=""
-                  value=""
-             
-                />
-              </div> 
-              <div class="col-md-6 mb-3">
-                <label for="emp_personal_email">Personal Email Address:</label>
-                <input
-                name="emp_personal_email"
-                  type="text"
-                  class="form-control"
-                  id="emp_personal_email"
-                  placeholder=""
-                  value=""
-             
-                />
-              </div> 
-
-
-            <div class="col-md-12 mb-3">
-                <label for="emp_present_Address">Present Address:</label>
-                <div class="input-group">
-                    <textarea name="emp_present_Address" class="form-control" id="emp_present_Address" rows="3"></textarea>
-                  
-                </div>
+            <div class="col-md-4 mb-3">
+              <label for="add_file">Add File</label>
+              <input
+               src="media/images/Employee_Images"
+              name="add_file"
+                type="file"
+                class="form-control"
+                id="add_file"
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="intref">Int. Ref.</label>
+              <input
+              name="intref"
+                type="text"
+                class="form-control"
+                id="intref"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="currency">Currency</label>
+              <select
+              name="currency"
+              class="custom-select d-block w-100"
+              id="currency"
+            >
+              <option value="">-- USD --</option>
+              <option>Currency 1</option>
+              <option>Currency 2</option>
+              <option>Currency 3</option>
+              <option>Currency 4</option>
+            </select>
+            </div>  
+            <div class="col-md-4 mb-3">
+              <label for="ordertype">Order Type</label>
+              <input
+                name="ordertype"
+                type="text"
+                class="form-control"
+                id="ordertype"
+                placeholder=""
+                value=""
+              />
             </div> 
             <div class="col-md-12 mb-3">
-                <label for="emp_permanent_Address">Permanent Address:</label>
-                <div class="input-group">
-                    <textarea name="emp_permanent_Address" class="form-control" id="emp_permanent_Address" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="emp_division">Division:</label>
-                <select
-                name="emp_division"
-                class="custom-select d-block w-100"
-                id="emp_division"
-           
-              >
-                <option value="">Select</option>
-                <option>Division 01</option>
-                <option>Division 02</option>
-              </select>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="emp_department">Department:</label>
-                <select
-                name="emp_department"
-                class="custom-select d-block w-100"
-                id="emp_department"
-           
-              >
-                <option value="">Select</option>
-                <option>Department 01</option>
-                <option>Department 02</option>
-              </select>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="emp_sub_department">Sub-Department:</label>
-                <select
-                name="emp_sub_department"
-                class="custom-select d-block w-100"
-                id="emp_sub_department"
-           
-              >
-                <option value="">Select</option>
-                <option>Sub-Department 01</option>
-                <option>Sub-Department 02</option>
-              </select>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="emp_section">Section:</label>
-                <select
-                name="emp_section"
-                class="custom-select d-block w-100"
-                id="emp_section"
-           
-              >
-                <option value="">Select</option>
-                <option>Section 01</option>
-                <option>Section 02</option>
-              </select>
-              </div>
-              <div class="col-md-12 mb-3">
-                <label for="emp_sub_section">Sub-Section:</label>
-                <select
-                name="emp_sub_section"
-                class="custom-select d-block w-100"
-                id="emp_sub_section"
-           
-              >
-                <option value="">Select</option>
-                <option>Sub-Section 01</option>
-                <option>Sub-Section 02</option>
-              </select>
-              </div>
-              <div class="col-md-12 mb-3">
-                <label for="emp_location">Location:</label>
-                <input
-                name="emp_location"
-                  type="text"
-                  class="form-control"
-                  id="emp_location"
-                  placeholder=""
-                  value=""
-             
-                />
-              </div> 
+              <label for="remarks">Remarks</label>
+              <input
+                name="remarks"
+                type="text"
+                class="form-control"
+                id="remarks"
+                placeholder=""
+                value=""
+              />
+            </div> 
+
+
+
             
           </div>
           
