@@ -1,0 +1,158 @@
+{% extends 'index.html' %}
+
+{% block title %} LAKSHMA ERP | LAPDIP INFORMATION {% endblock title %}
+
+
+
+{% block body %}
+<div class="container p-5 bg-color">
+
+    <div class="py-5 text-center">
+      <h2 class="text-uppercase font-weight-bold">Lapdip Information</h2>
+      
+    </div>
+
+    <div class="col-md-12 order-md-1 mb-2">
+     
+      <form class="needs-validation " method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="row justify-content-center"> 
+
+     
+
+           <div class="col-md-4 mb-3">
+            <label for="jobno">SL No.</label>
+            <input
+            name="jobno"
+              type="text"
+              class="form-control"
+              id="jobno"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+
+           <div class="col-md-4 mb-3">
+            <label for="lccom">Color Name</label>
+            <input
+            name="lccom"
+              type="text"
+              class="form-control"
+              id="lccom"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+           <div class="col-md-4 mb-3">
+            <label for="lccomploc">Target Approval Date</label>
+            <input
+            name="lccomploc"
+              type="date"
+              class="form-control"
+              id="lccomploc"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+
+           <div class="col-md-4 mb-3">
+            <label for="wcomp">Sent To Sample Section</label>
+            <input
+            name="wcomp"
+              type="text"
+              class="form-control"
+              id="wcomp"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="wcomploc">Submission To Buyer</label>
+            <input
+            name="wcomploc"
+              type="text"
+              class="form-control"
+              id="wcomploc"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="fileno">Status</label>
+            <input
+            name="fileno"
+              type="text"
+              class="form-control"
+              id="fileno"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="projob">Status Update Date</label>
+            <input
+            name="projob"
+              type="date"
+              class="form-control"
+              id="projob"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="projob">Lapdip No.</label>
+            <input
+            name="projob"
+              type="text"
+              class="form-control"
+              id="projob"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="projob">Approval/Reject Date</label>
+            <input
+            name="projob"
+              type="date"
+              class="form-control"
+              id="projob"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-12 mb-3">
+            <label for="projob">Comment</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          </div> 
+
+          <div class="col-md-12 mb-3">
+            <label for="projob">Action</label>
+            <input
+            name="projob"
+              type="text"
+              class="form-control"
+              id="projob"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+
+
+
+{%endblock body%}

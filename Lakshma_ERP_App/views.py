@@ -113,29 +113,29 @@ class OrderEntry(View):
     #     params = {'Employee_information':Employee_information}
     #     return render(request, 'Forms/Add_Employee/employeeInfo.html', params)
 
-class MainFabric(View):
+class KnittDying(View):
     def get(self, request):
-        return render(request, 'Order_Entry/main_fabric.html')
+        return render(request, 'Order_Entry/knitt_dying.html')
 
-class SampleRequisition(View):
+class SampleInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/sample_req.html')
+        return render(request, 'Order_Entry/sample_info.html')
     
 class OrderUpdate(View):
     def get(self, request):
         return render(request, 'Order_Entry/order_update.html')
     
-class BuyerQuotation(View):
+class LapdipInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/buyer_quote.html')
+        return render(request, 'Order_Entry/lapdip_info.html')
     
 class QuotationEnquiry(View):
     def get(self, request):
         return render(request, 'Order_Entry/quote_enquiry.html')
     
-class ColorSizeBreakdown(View):
+class AccessoriesInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/color_size.html')
+        return render(request, 'Order_Entry/access_info.html')
     
     
     
