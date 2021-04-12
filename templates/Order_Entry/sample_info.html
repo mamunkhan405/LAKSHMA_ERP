@@ -2,17 +2,69 @@
 
 {% block title %} LAKSHMA ERP | SAMPLE INFORMATION {% endblock title %}
 
+{% block css %}
+<style>
+  .bg-color{
+    background-color:antiquewhite;
+    padding: 5px;
+
+  }
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+  
+  input[type=text]:focus {
+    border: 3px solid #555;
+  }
+  input[type=date] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+  
+  input[type=date]:focus {
+    border: 3px solid #555;
+  }
+  textarea[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+  
+  textarea[type=text]:focus {
+    border: 3px solid #555;
+  }
+</style>
+  
+{% endblock css %}
 
 
 {% block body %}
-<div class="container p-5 bg-color">
+<div class="container p-5  ">
 
     <div class="py-5 text-center">
       <h2 class="text-uppercase font-weight-bold">Sample Information</h2>
       
     </div>
 
-    <div class="col-md-12 order-md-1 mb-2">
+    <div class="col-md-12 order-md-1 mb-2 ">
      
       <form class="needs-validation " method="post" action="" enctype="multipart/form-data">
       {% csrf_token %}
@@ -120,7 +172,7 @@
           </div> 
           <div class="col-md-4 mb-3">
             <label for="projob">Comment</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+            <textarea class="form-control" type="text" id="exampleFormControlTextarea1" rows="1"></textarea>
           </div> 
 
           <div class="col-md-12 mb-3">

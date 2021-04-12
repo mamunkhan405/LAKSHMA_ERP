@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+
+{% block title %} HomePage {% endblock title %}
+
+
+
+{% block body %}
+
+<div class="container">
+    <h3 class="text-center mt-4">List View</h3>
+    <table class="table table-bordered mt-4 mb-4">
+        <thead  class="thead-dark">
+          <tr>
+            <th scope="col">SL</th>
+            <th scope="col">Po No.</th>
+            <th scope="col">Po Qty</th>
+            <th scope="col">Plan Qty</th>
+            <th scope="col">Ship Date</th>
+            <th scope="col">Lead Time</th>
+            <th scope="col">PO Status</th>
+            <th scope="col">Co. View</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.po_number}}</td>
+            <td>{{i.po_quantity}}</td>
+            <td>{{i.cpy_po_number.plan_quantity}}</td>
+            <td>{{i.shipment_date}}</td>
+            <td>60</td>
+            <td>{{i.po_status}}</td>
+            <td> <a href="/country_view/{{i.id}}" class="btn btn-sm btn-outline-warning"><i class="fa fa-eye"></i></a></td>
+          </tr>
+          {% endfor %}
+          <!-- <tr>
+            <th scope="row">2</th>
+            <td>223344</td>
+            <td>100000</td>
+            <td>1200000</td>
+            <td>10.11.20</td>
+            <td>60</td>
+            <td>Active</td>
+            <td> <a href="" class="btn btn-sm btn-outline-warning"><i class="fa fa-eye"></i></a></td>
+          </tr>
+
+          <tr>
+            <th scope="row">2</th>
+            <td>223344</td>
+            <td>100000</td>
+            <td>1200000</td>
+            <td>10.11.20</td>
+            <td>60</td>
+            <td>Active</td>
+            <td> <a href="" class="btn btn-sm btn-outline-warning"><i class="fa fa-eye"></i></a></td>
+          </tr>
+
+          <tr>
+            <th scope="row">2</th>
+            <td>223344</td>
+            <td>100000</td>
+            <td>1200000</td>
+            <td>10.11.20</td>
+            <td>60</td>
+            <td>Active</td>
+            <td> <a href="" class="btn btn-sm btn-outline-warning"><i class="fa fa-eye"></i></a></td>
+          </tr> -->
+          
+          
+        </tbody>
+      </table>
+
+</div>
+
+{% endblock body %}

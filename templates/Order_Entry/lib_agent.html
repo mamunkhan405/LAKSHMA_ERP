@@ -1,0 +1,121 @@
+{% extends 'index.html' %}
+
+{% block title %} LAKSHMA ERP | LIB AGENT  {% endblock title %}
+
+
+
+{% block body %}
+
+
+
+
+<div class="container p-5 bg-color">
+    <div class="py-5 text-center">
+      <h2 class="text-uppercase font-weight-bold">LIB AGENT</h2>
+      <!-- <p class="lead">
+          Please provide your authentic information by filling up the form below
+        </p> -->
+    </div>
+
+    <div class="col-md-12 order-md-1 mb-2">
+     
+      <form class="needs-validation " method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="row justify-content-center"> 
+
+     
+
+       
+           <div class="col-md-4 mb-3">
+            <label for="agent_name       ">Agent Name</label>
+            <input
+            name="agent_name   "
+              type="text"
+              class="form-control"
+              id="agent_name  "
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+         
+         
+          <div class="col-md-4 mb-3">
+            <label for="inserted_by    ">Inserted By</label>
+            <input
+              name="inserted_by    "
+              type="text"
+              class="form-control"
+              id="inserted_by    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="insert_date    ">Insert Date</label>
+            <input
+              name="insert_date    "
+              type="date"
+              class="form-control"
+              id="insert_date    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="updated_by    ">Updated By</label>
+            <input
+              name="updated_by    "
+              type="text"
+              class="form-control"
+              id="updated_by    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="update_date    ">Update Date</label>
+            <input
+              name="update_date    "
+              type="date"
+              class="form-control"
+              id="update_date    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+        
+
+          <div class="col-md-4 mb-3">
+            <label for="status_active    ">Status</label>
+            <select
+            name="status_active "
+            class="custom-select d-block w-100"
+            id="status_active "
+          >
+            <option value="">Active</option>
+            <option>In Active</option>
+         
+          </select>
+          </div> 
+
+          <div class="col-md-4 mb-3">
+            <label for="is_deleted     ">Delete</label>
+            <select
+            name="is_deleted  "
+            class="custom-select d-block w-100"
+            id="is_deleted  "
+          >
+            <option value="">Yes</option>
+            <option>No</option>
+         
+          </select>
+          </div> 
+
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+    </div>
+
+{%endblock body%}

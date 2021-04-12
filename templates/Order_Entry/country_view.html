@@ -1,0 +1,96 @@
+{% extends 'index.html' %}
+
+{% block title %} HomePage {% endblock title %}
+
+
+
+{% block body %}
+
+<div class="container">
+    <h5 class="btn btn-outline-primary" style="width: 100%;">
+        <strong>{{d.po_number}}</strong> 
+    </h5> 
+    <table class="table table-bordered  mb-4">
+        <thead  class="thead-dark">
+          
+          <tr>
+            <th scope="col">SL</th>
+            <th scope="col"> Delivery Country</th>
+            <th scope="col">Short Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">Product</th>
+            <th scope="col">Cut-Off</th>
+            <th scope="col">Co. Ship Date</th>
+            <th scope="col">Country Qty</th>
+            <th scope="col">Plan Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td>USA</td>
+            <td>EDF</td>
+            <td>T-Shirt</td>
+            <td>1st </td>
+            <td>1/1/2020</td>
+            <td> 3000 </td>
+            <td> 3100 </td>
+          </tr>
+         
+          <!-- <tr>
+            <th scope="row">2</th>
+            <td>United State</td>
+            <td>USA</td>
+            <td>EDF</td>
+            <td>T-Shirt</td>
+            <td>1st </td>
+            <td>1/1/2020</td>
+            <td> 3000 </td>
+            <td> 3100 </td>
+          </tr>
+
+          <tr>
+            <th scope="row">3</th>
+            <td>United State</td>
+            <td>USA</td>
+            <td>EDF</td>
+            <td>T-Shirt</td>
+            <td>1st </td>
+            <td>1/1/2020</td>
+            <td> 3000 </td>
+            <td> 3100 </td>
+          </tr>
+
+          <tr>
+            <th scope="row">4</th>
+            <td>United State</td>
+            <td>USA</td>
+            <td>EDF</td>
+            <td>T-Shirt</td>
+            <td>1st </td>
+            <td>1/1/2020</td>
+            <td> 3000 </td>
+            <td> 3100 </td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>United State</td>
+            <td>USA</td>
+            <td>EDF</td>
+            <td>T-Shirt</td>
+            <td>1st </td>
+            <td>1/1/2020</td>
+            <td> 3000 </td>
+            <td> 3100 </td>
+          </tr>
+           -->
+          
+        </tbody>
+      </table>
+
+</div>
+
+{% endblock body %}

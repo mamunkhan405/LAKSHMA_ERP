@@ -6,6 +6,7 @@ from django.contrib import messages
 # TESTING 
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from .models import *
 
 # Create your views here.
 class Home(View):
@@ -113,6 +114,32 @@ class OrderEntry(View):
     #     params = {'Employee_information':Employee_information}
     #     return render(request, 'Forms/Add_Employee/employeeInfo.html', params)
 
+class CostInfo(View):
+    def get(self, request):
+        
+        return render(request, 'Order_Entry/cost_info.html')
+
+class MainFabric(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/main_fabric.html')
+
+class ListView(View):
+    def get(self, request):
+        data = OmPoDetailsMaster.objects.all()
+        context = {
+            'data':data
+        }
+        return render(request, 'Order_Entry/list_view.html', context)
+
+class CountryView(View):
+    def get(self, request, id):
+        d = WoPOCountryDetails.objects.get(id=id)
+        print(d.id)
+        context = {
+            'd':d
+        }
+        return render(request, 'Order_Entry/country_view.html', context)
+
 class KnittDying(View):
     def get(self, request):
         return render(request, 'Order_Entry/knitt_dying.html')
@@ -136,6 +163,274 @@ class QuotationEnquiry(View):
 class AccessoriesInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/access_info.html')
+
+############ Related Table View ############
+
+
+class RelatedLibBuyer(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_buyer.html')
+    
+    def post(self, request):
+        buyer_name = request.POST['buyer_name']
+        contact_person = request.POST['contact_person']
+        buyer_email = request.POST['buyer_email']
+        contact_no = request.POST['contact_no']
+        website = request.POST['website']
+        address = request.POST['address']
+        subcontract_party = request.POST['subcontract_party']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+        remark = request.POST['remark']
+
+        lib_buyer_info = LibBuyer(
+            buyer_name = buyer_name,
+            contact_person = contact_person,
+            buyer_email = buyer_email,
+            contact_no = contact_no,
+            website = website,
+            address = address,
+            subcontract_party = subcontract_party,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted,
+            remark = remark
+        )
+
+        lib_buyer_info.save()
+        return render(request, 'Order_Entry/lib_buyer.html')
+
+
+class RelatedLibStyle(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_style.html')
+    
+    def post(self, request):
+        style_name = request.POST['style_name']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+        
+
+        lib_style_info = LibStyle(
+            style_name = style_name,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_style_info.save()
+        return render(request, 'Order_Entry/lib_style.html')
+
+class HrEmployeeForm(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/hrm_employee.html')
+    
+    def post(self, request):
+        emp_code = request.POST['emp_code']
+        first_name = request.POST['first_name']
+        middle_name = request.POST['middle_name']
+        last_name = request.POST['last_name']
+        full_name_bangla = request.POST['full_name_bangla']
+        id_card_no = request.POST['id_card_no']
+        punch_card_no = request.POST['punch_card_no']
+        date_of_birth = request.POST['date_of_birth']
+        father_name = request.POST['father_name']
+        father_name_bangla = request.POST['father_name_bangla']
+        mother_name = request.POST['mother_name']
+        mother_name_bangla = request.POST['mother_name_bangla']
+        birth_place = request.POST['birth_place']
+        religion = request.POST['religion']
+        blood_group = request.POST['blood_group']
+        marital_status = request.POST['marital_status']
+        sex = request.POST['sex']
+        nationality = request.POST['nationality']
+        national_id = request.POST['national_id']
+        passport_no = request.POST['passport_no']
+        designation_id = request.POST['designation_id']
+        designation_level = request.POST['designation_level']
+        joining_date = request.POST['joining_date']
+        confirmation_date = request.POST['confirmation_date']
+        service_benifit_from = request.POST['service_benifit_from']
+        category = request.POST['category']
+        functional_superior = request.POST['functional_superior']
+        admin_superior = request.POST['admin_superior']
+        salary_grade = request.POST['salary_grade']
+        salary_rule = request.POST['salary_rule']
+        gross_salary = request.POST['gross_salary']
+        bank_gross = request.POST['bank_gross']
+        status_active = request.POST['status_active']
+        status_suspension = request.POST['status_suspension']
+        status_attendance = request.POST['status_attendance']
+        status_salary = request.POST['status_salary']
+        ot_entitled = request.POST['ot_entitled']
+        holiday_allowance_entitled = request.POST['holiday_allowance_entitled']
+        pf_entitled = request.POST['pf_entitled']
+        gi_entitled = request.POST['gi_entitled']
+        overtime_policy = request.POST['overtime_policy']
+        holiday_incentive_policy = request.POST['holiday_incentive_policy']
+        duty_roster_policy = request.POST['duty_roster_policy']
+        leave_policy = request.POST['leave_policy']
+        maternity_leave_policy = request.POST['maternity_leave_policy']
+        attendance_bonus_policy = request.POST['attendance_bonus_policy']
+        absent_deduction_policy = request.POST['absent_deduction_policy']
+        late_deduction_policy = request.POST['late_deduction_policy']
+        bonus_policy = request.POST['bonus_policy']
+        tax_policy = request.POST['tax_policy']
+        shift_policy = request.POST['shift_policy']
+        company_id = request.POST['company_id']
+        location_id = request.POST['location_id']
+        division_id = request.POST['division_id']
+        department_id = request.POST['department_id']
+        section_id = request.POST['section_id']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        is_deleted = request.POST['is_deleted']
+        is_locked = request.POST['is_locked']
+        remark = request.POST['remark']
+        
+        hr_employee_info = HRmEmployee(
+            emp_code = emp_code,
+            first_name = first_name,
+            middle_name = middle_name,
+            last_name = last_name,
+            full_name_bangla = full_name_bangla,
+            id_card_no = id_card_no,
+            punch_card_no = punch_card_no,
+            date_of_birth = date_of_birth,
+            father_name = father_name,
+            father_name_bangla = father_name_bangla,
+            mother_name = mother_name,
+            mother_name_bangla = mother_name_bangla,
+            birth_place = birth_place,
+            religion = religion,
+            blood_group = blood_group,
+            marital_status = marital_status,
+            sex = sex,
+            nationality = nationality,
+            national_id = national_id,
+            passport_no = passport_no,
+            designation_id = designation_id,
+            designation_level = designation_level,
+            joining_date = joining_date,
+            confirmation_date = confirmation_date,
+            service_benifit_from = service_benifit_from,
+            category =category,
+            functional_superior = functional_superior,
+            admin_superior = admin_superior,
+            salary_grade = salary_grade,
+            salary_rule = salary_rule,
+            gross_salary = gross_salary,
+            bank_gross = bank_gross,
+            status_active = status_active,
+            status_suspension = status_suspension,
+            status_attendance = status_attendance,
+            status_salary = status_salary,
+            ot_entitled = ot_entitled,
+            holiday_allowance_entitled = holiday_allowance_entitled,
+            pf_entitled = pf_entitled,
+            gi_entitled = gi_entitled,
+            overtime_policy = overtime_policy,
+            holiday_incentive_policy = holiday_incentive_policy,
+            duty_roster_policy = duty_roster_policy,
+            leave_policy = leave_policy,
+            maternity_leave_policy = maternity_leave_policy,
+            attendance_bonus_policy = attendance_bonus_policy,
+            absent_deduction_policy = absent_deduction_policy,
+            late_deduction_policy = late_deduction_policy,
+            bonus_policy = bonus_policy,
+            tax_policy = tax_policy,
+            shift_policy = shift_policy,
+            company_id = company_id,
+            location_id = location_id,
+            division_id = division_id,
+            department_id = department_id,
+            section_id = section_id,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            is_deleted = is_deleted,
+            is_locked = is_locked,
+            remark = remark
+
+        )
+
+        hr_employee_info.save()
+        return render(request, 'Order_Entry/hrm_employee.html')
+    
+    
+class LibCompany(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_company.html')
+    
+class LibDepartment(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_department.html')
+    
+class LibDivision(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_division.html')
+    
+class LibSubDept(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_sub_dept.html')
+    
+class LibProdCat(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_prod_cat.html')
+    
+class LibSeason(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/libseason.html')
+    
+class LibAgent(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_agent.html')
+    
+class LibClient(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_client.html')
+    
+class LibUnit(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_unit.html')
+    
+class LibCurrency(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_currency.html')
+    
+class INV(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/inv_prod_info.html')
+    
+class LibColor(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_color.html')
+    
+class LibSize(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_size.html') 
+    
+class LibCountry(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_country.html')
     
     
     
