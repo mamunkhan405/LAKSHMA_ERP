@@ -6,6 +6,20 @@
 
 {% block body %}
 
+{% if messages %}
+
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong>{{message}} 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+    {% endfor %}
+
+   {% endif %}
+
 <div class="container p-5 bg-color">
     <div class="py-5 text-center">
       <h2 class="text-uppercase font-weight-bold">LIB CURRENCY</h2>
@@ -35,12 +49,7 @@
               required=""
             />
           </div> 
-           <div class="col-md-4 mb-3">
-            <label for="description">Description</label>
-            <textarea class="form-control"  name="description" id="exampleFormControlTextarea1" rows="1"></textarea>
-          </div> 
-         
-         
+           
           <div class="col-md-4 mb-3">
             <label for="inserted_by    ">Inserted By</label>
             <input
@@ -63,7 +72,7 @@
               value=""
             />
           </div> 
-          <div class="col-md-4 mb-3">
+          <div class="col-md-6 mb-3">
             <label for="updated_by    ">Updated By</label>
             <input
               name="updated_by    "
@@ -74,7 +83,7 @@
               value=""
             />
           </div> 
-          <div class="col-md-4 mb-3">
+          <div class="col-md-6 mb-3">
             <label for="update_date    ">Update Date</label>
             <input
               name="update_date    "
@@ -87,20 +96,20 @@
           </div> 
         
 
-          <div class="col-md-4 mb-3">
+          <div class="col-md-6 mb-3">
             <label for="status_active    ">Status</label>
             <select
             name="status_active "
             class="custom-select d-block w-100"
             id="status_active "
           >
-            <option value="">Active</option>
-            <option>In Active</option>
+            <option value="">Yes</option>
+            <option>No</option>
          
           </select>
           </div> 
 
-          <div class="col-md-4 mb-3">
+          <div class="col-md-6 mb-3">
             <label for="is_deleted     ">Delete</label>
             <select
             name="is_deleted  "
@@ -111,6 +120,11 @@
             <option>No</option>
          
           </select>
+          </div> 
+
+          <div class="col-md-12 mb-3">
+            <label for="description">Description</label>
+            <textarea class="form-control"  name="description" id="exampleFormControlTextarea1" rows="1"></textarea>
           </div> 
 
         </div>

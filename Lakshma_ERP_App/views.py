@@ -376,44 +376,405 @@ class HrEmployeeForm(View):
         return render(request, 'Order_Entry/hrm_employee.html')
     
     
-class LibCompany(View):
+class LibCompanyInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/lib_company.html')
+
+    def post(self, request):
+        group_id = request.POST['group_id']
+        company_name = request.POST['company_name']
+        company_short_name = request.POST['company_short_name']
+        service_cost_allocation = request.POST['service_cost_allocation']
+        posting_pre_year = request.POST['posting_pre_year']
+        statutory_account = request.POST['statutory_account']
+        contact_person = request.POST['contact_person']
+        cfo = request.POST['cfo']
+        company_nature = request.POST['company_nature']
+        location = request.POST['location']
+        core_business = request.POST['core_business']
+        email = request.POST['email']
+        website = request.POST['website']
+        ac_code_length = request.POST['ac_code_length']
+        profit_center_affected = request.POST['profit_center_affected']
+        plot_no = request.POST['plot_no']
+        level_no = request.POST['level_no']
+        road_no = request.POST['road_no']
+        block_no = request.POST['block_no']
+        country_id = request.POST['country_id']
+        province = request.POST['province']
+        city = request.POST['city']
+        zip_code = request.POST['zip_code']
+        trade_license_no = request.POST['trade_license_no']
+        incorporation_no = request.POST['incorporation_no']
+        erc_no = request.POST['erc_no']
+        irc_no = request.POST['irc_no']
+        tin_number = request.POST['tin_number']
+        vat_number = request.POST['vat_number']
+        epb_reg_no = request.POST['epb_reg_no']
+        trade_license_renewal = request.POST['trade_license_renewal']
+        erc_expiry_date = request.POST['erc_expiry_date']
+        irc_expiry_date = request.POST['irc_expiry_date']
+        bangladesh_bank_reg_no = request.POST['bangladesh_bank_reg_no']
+        graph_color = request.POST['graph_color']
+        logo_location = request.POST['logo_location']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+        is_locked = request.POST['is_locked']
+        
+        lib_company_info = LibCompany(
+            group_id = group_id,
+            company_name = company_name,
+            company_short_name = company_short_name,
+            service_cost_allocation = service_cost_allocation,
+            posting_pre_year = posting_pre_year,
+            statutory_account = statutory_account,
+            contact_person = contact_person,
+            cfo = cfo,
+            company_nature = company_nature,
+            location = location,
+            core_business = core_business,
+            email = email,
+            website = website,
+            ac_code_length = ac_code_length,
+            profit_center_affected = profit_center_affected,
+            plot_no = plot_no,
+            level_no = level_no,
+            road_no = road_no,
+            block_no = block_no,
+            country_id = country_id,
+            province = province,
+            city = city,
+            zip_code = zip_code,
+            trade_license_no = trade_license_no,
+            incorporation_no = incorporation_no,
+            erc_no = erc_no,
+            irc_no = irc_no,
+            tin_number = tin_number,
+            vat_number = vat_number,
+            epb_reg_no = epb_reg_no,
+            trade_license_renewal = trade_license_renewal,
+            erc_expiry_date = erc_expiry_date,
+            irc_expiry_date = irc_expiry_date,
+            bangladesh_bank_reg_no = bangladesh_bank_reg_no,
+            graph_color = graph_color,
+            logo_location = logo_location,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted,
+            is_locked = is_locked
+            
+        )
+
+        lib_company_info.save()
+        messages.success(request, 'Congratulations! Lib Company information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_company.html')
+
     
-class LibDepartment(View):
+class LibDepartmentInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/lib_department.html')
     
-class LibDivision(View):
+    def post(self, request):
+        department_name = request.POST['department_name']
+        department_id = request.POST['department_id']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+        is_locked = request.POST['is_locked']
+        remark = request.POST['remark']
+
+        lib_department_info = LibDepartment(
+            department_name = department_name,
+            department_id = department_id,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted,
+            is_locked = is_locked,
+            remark = remark
+        )
+
+        lib_department_info.save()
+        messages.success(request, 'Congratulations! Lib Department information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_department.html')
+
+    
+class LibDivisionInfo(View):
     def get(self, request):
+        return render(request, 'Order_Entry/lib_division.html')
+    
+    def post(self, request):
+        division_name = request.POST['division_name']
+        location_id = request.POST['location_id']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+        is_locked = request.POST['is_locked']
+        remark = request.POST['remark']
+
+        lib_division_info = LibDivision(
+            division_name = division_name,
+            location_id = location_id,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted,
+            is_locked = is_locked,
+            remark = remark
+        )
+
+        lib_division_info.save()
+        messages.success(request, 'Congratulations! Lib sub department information has been Added Successfully...')
         return render(request, 'Order_Entry/lib_division.html')
     
 class LibSubDept(View):
     def get(self, request):
         return render(request, 'Order_Entry/lib_sub_dept.html')
     
+    def post(self, request):
+        sub_department_name = request.POST['sub_department_name']
+        department_id = request.POST['department_id']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+        is_locked = request.POST['is_locked']
+        remark = request.POST['remark']
+
+        lib_sub_division_info = LibSubDepartment(
+            sub_department_name = sub_department_name,
+            department_id = department_id,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted,
+            is_locked = is_locked,
+            remark = remark
+        )
+
+        lib_sub_division_info.save()
+        messages.success(request, 'Congratulations! Lib sub department information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_sub_dept.html')
+    
 class LibProdCat(View):
     def get(self, request):
         return render(request, 'Order_Entry/lib_prod_cat.html')
     
-class LibSeason(View):
+    def post(self, request):
+        product_cate = request.POST['product_cate']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_product_cat_info = LibProductCate(
+            product_cate = product_cate,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted,
+            
+        )
+
+        lib_product_cat_info.save()
+        messages.success(request, 'Congratulations! Lib product cate information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_prod_cat.html')
+    
+class LibSeasonInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/libseason.html')
+     
+    def post(self, request):
+        season_name = request.POST['season_name']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_season_info = LibSeason(
+            season_name = season_name,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_season_info.save()
+        messages.success(request, 'Congratulations! Lib season information has been Added Successfully...')
+        return render(request, 'Order_Entry/libseason.html')
     
-class LibAgent(View):
+class LibRegionInfo(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/lib_region.html')
+    
+    def post(self, request):
+        region_name = request.POST['region_name']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_region_info = LibRegion(
+            region_name = region_name,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_region_info.save()
+        messages.success(request, 'Congratulations! Lib region information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_region.html')
+    
+class LibAgentInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/lib_agent.html')
     
-class LibClient(View):
+    def post(self, request):
+        agent_name = request.POST['agent_name']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_agent_info = LibAgent(
+            agent_name = agent_name,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_agent_info.save()
+        messages.success(request, 'Congratulations! Lib agent information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_agent.html')
+    
+class LibClientInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/lib_client.html')
     
-class LibUnit(View):
+    def post(self, request):
+        client_name = request.POST['client_name']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_client_info = LibClient(
+            client_name = client_name,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_client_info.save()
+        messages.success(request, 'Congratulations! Lib client information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_client.html')
+    
+class LibUnitInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/lib_unit.html')
     
-class LibCurrency(View):
+    def post(self, request):
+        unit_name = request.POST['unit_name']
+        description = request.POST['description']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_unit_info = LibUnit(
+            unit_name = unit_name,
+            description = description,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_unit_info.save()
+        messages.success(request, 'Congratulations! Lib unit information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_unit.html')
+    
+class LibCurrencyInfo(View):
     def get(self, request):
+        return render(request, 'Order_Entry/lib_currency.html')
+
+    def post(self, request):
+        currency_code = request.POST['currency_code']
+        description = request.POST['description']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_currency_info = LibCurrency(
+            currency_code = currency_code,
+            description = description,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_currency_info.save()
+        messages.success(request, 'Congratulations! Lib currency information has been Added Successfully...')
         return render(request, 'Order_Entry/lib_currency.html')
     
 class INV(View):
