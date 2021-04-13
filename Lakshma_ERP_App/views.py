@@ -205,6 +205,7 @@ class RelatedLibBuyer(View):
         )
 
         lib_buyer_info.save()
+        messages.success(request, 'Congratulations! Lib buyer information has been Added Successfully...')
         return render(request, 'Order_Entry/lib_buyer.html')
 
 
@@ -234,6 +235,7 @@ class RelatedLibStyle(View):
         )
 
         lib_style_info.save()
+        messages.success(request, 'Congratulations! Lib style information has been Added Successfully...')
         return render(request, 'Order_Entry/lib_style.html')
 
 class HrEmployeeForm(View):
@@ -373,6 +375,7 @@ class HrEmployeeForm(View):
         )
 
         hr_employee_info.save()
+        messages.success(request, 'Congratulations! Hr Employee information has been Added Successfully...')
         return render(request, 'Order_Entry/hrm_employee.html')
     
     
@@ -780,17 +783,130 @@ class LibCurrencyInfo(View):
 class INV(View):
     def get(self, request):
         return render(request, 'Order_Entry/inv_prod_info.html')
+
+    def post(self, request):
+        product_code = request.POST['product_code']
+        product_name_details = request.POST['product_name_details']
+        item_group = request.POST['item_group']
+        product_name_short = request.POST['product_name_short']
+        item_category = request.POST['item_category']
+        vat_per_unit = request.POST['vat_per_unit']
+        rate_per_unit = request.POST['rate_per_unit']
+        current_stock = request.POST['current_stock']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        inv_product_info = InvProductInfo(
+            product_code = product_code,
+            product_name_details = product_name_details,
+            item_group = item_group,
+            product_name_short = product_name_short,
+            item_category = item_category,
+            vat_per_unit = vat_per_unit,
+            rate_per_unit = rate_per_unit,
+            current_stock = current_stock,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        inv_product_info.save()
+        messages.success(request, 'Congratulations! Inv Product information has been Added Successfully...')
+        return render(request, 'Order_Entry/inv_prod_info.html')
     
-class LibColor(View):
+    
+class LibColorInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/lib_color.html')
     
-class LibSize(View):
+    def post(self, request):
+        color_name = request.POST['color_name']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_color_info = LibColor(
+            color_name = color_name,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_color_info.save()
+        messages.success(request, 'Congratulations! Lib color information has been Added Successfully...')
+        return render(request, 'Order_Entry/lib_color.html')
+    
+class LibSizeInfo(View):
     def get(self, request):
+        return render(request, 'Order_Entry/lib_size.html')
+
+    def post(self, request):
+        size_name = request.POST['size_name']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_size_info = LibSize(
+            size_name = size_name,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_size_info.save()
+        messages.success(request, 'Congratulations! Lib size information has been Added Successfully...')
         return render(request, 'Order_Entry/lib_size.html') 
     
-class LibCountry(View):
+class LibCountryInfo(View):
     def get(self, request):
+        return render(request, 'Order_Entry/lib_country.html')
+    
+    def post(self, request):
+        country_code = request.POST['country_code']
+        country_name = request.POST['country_name']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+
+        lib_country_info = LibCountry(
+            country_code = country_code,
+            country_name = country_name,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted
+            
+        )
+
+        lib_country_info.save()
+        messages.success(request, 'Congratulations! Lib country information has been Added Successfully...')
         return render(request, 'Order_Entry/lib_country.html')
     
     

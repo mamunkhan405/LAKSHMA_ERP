@@ -36,9 +36,9 @@ urlpatterns = [
     path('hr_employee/', HrEmployeeForm.as_view(), name='HrEmployeeForm'),
     path('lib_currency/', LibCurrencyInfo.as_view(), name='LibCurrencyInfo'),
     path('inv_prod_info/', INV.as_view(), name='INV'),
-    path('lib_color/', LibColor.as_view(), name='LibColor'),
-    path('lib_size/', LibSize.as_view(), name='LibSize'),
-    path('lib_country/', LibCountry.as_view(), name='LibCountry'),
+    path('lib_color/', LibColorInfo.as_view(), name='LibColorInfo'),
+    path('lib_size/', LibSizeInfo.as_view(), name='LibSizeInfo'),
+    path('lib_country/', LibCountryInfo.as_view(), name='LibCountryInfo'),
     
 
 ]
