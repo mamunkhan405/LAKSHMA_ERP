@@ -113,6 +113,108 @@ class OrderEntry(View):
     #     Employee_information = Employee_Info.objects.all()
     #     params = {'Employee_information':Employee_information}
     #     return render(request, 'Forms/Add_Employee/employeeInfo.html', params)
+class POBreakdownInfo(View):
+    def get(self, request):
+        return render(request, 'Order_Entry/po_breakdown.html')
+    
+    def post(self, request):
+        job_no_mst = request.POST['job_no_mst']
+        po_number = request.POST['po_number']
+        po_quantity = request.POST['po_quantity']
+        plan_quantity = request.POST['plan_quantity']
+        shipped_date = request.POST['shipped_date']
+        po_status = request.POST['po_status']
+        is_deleted = request.POST['is_deleted']
+        is_countable = request.POST['is_countable']
+        is_projected = request.POST['is_projected']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_locked = request.POST['is_locked']
+        remarks = request.POST['remarks']
+
+        po_breakdown_info = OmPoBreakDown(
+            job_no_mst = job_no_mst,
+            po_number = po_number,
+            po_quantity = po_quantity,
+            plan_quantity = plan_quantity,
+            shipped_date = shipped_date,
+            po_status = po_status,
+            is_deleted = is_deleted,
+            is_countable = is_countable,
+            is_projected = is_projected,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_locked = is_locked,
+            remarks = remarks
+
+        )
+        po_breakdown_info.save()
+        messages.success(request, 'Congratulations! Po Breakdown information has been Added Successfully...')
+        return render(request, 'Order_Entry/po_breakdown.html')
+
+class PoCountryInfo(View):
+    def get(self, request):
+        po_numbers = OmPoBreakDown.objects.all()
+        country_ids = LibCountry.objects.all()
+        product_ids = InvProductInfo.objects.all()
+        context = {
+            'po_numbers': po_numbers,
+            'country_ids': country_ids,
+            'product_ids': product_ids
+        }
+        return render(request, 'Order_Entry/po_country_details.html', context)
+
+    def post(self, request):
+        job_no = request.POST['job_no']
+        po_number = request.POST['po_number']
+        country_id = request.POST['country_id']
+        code = request.POST['code']
+        product_id = request.POST['product_id']
+        cut_off = request.POST['cut_off']
+        po_quantity = request.POST['po_quantity']
+        plan_quantity = request.POST['plan_quantity']
+        shipped_date = request.POST['shipped_date']
+        is_projected = request.POST['is_projected']
+        projected_id = request.POST['projected_id']
+        agent_name = request.POST['agent_name']
+        exporting_item_catg = request.POST['exporting_item_catg']
+        is_deleted = request.POST['is_deleted']
+        status_active = request.POST['status_active']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+
+        po_country_info = WoPOCountryDetails(
+            job_no = job_no,
+            po_number = po_number,
+            country_id = country_id,
+            code = code,
+            product_id = product_id,
+            cut_off = cut_off,
+            po_quantity = po_quantity,
+            plan_quantity = plan_quantity,
+            shipped_date = shipped_date,
+            is_projected = is_projected,
+            projected_id = projected_id,
+            agent_name = agent_name,
+            exporting_item_catg = exporting_item_catg,
+            is_deleted = is_deleted,
+            status_active = status_active,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date
+        )
+        po_country_info.save()
+        messages.success(request, 'Congratulations! Po country details has been Added Successfully...')
+        return render(request, 'Order_Entry/po_country_details.html')
 
 class CostInfo(View):
     def get(self, request):
