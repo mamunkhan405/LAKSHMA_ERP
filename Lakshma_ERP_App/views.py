@@ -250,6 +250,44 @@ class SampleInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/sample_info.html')
     
+    def post(self, request):
+        job_no_mst = request.POST['job_no_mst']
+        po_no_mst_id = request.POST['po_no_mst_id']
+        po_number_mst = request.POST['po_number_mst']
+        sample_type = request.POST['sample_type']
+        target_ap_date = request.POST['target_ap_date']
+        sent_to_sample = request.POST['sent_to_sample']
+        submission_to_buyer = request.POST['submission_to_buyer']
+        status_update_date = request.POST['status_update_date']
+        approval_reject_date = request.POST['approval_reject_date']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        comment = request.POST['comment']
+
+        sample_info = OmPoSampleInfo(
+            job_no_mst = job_no_mst,
+            po_no_mst_id = po_no_mst_id,
+            po_number_mst = po_number_mst,
+            sample_type = sample_type,
+            target_ap_date = target_ap_date,
+            sent_to_sample =sent_to_sample,
+            submission_to_buyer = submission_to_buyer,
+            status_update_date = status_update_date,
+            approval_reject_date = approval_reject_date,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            comment = comment
+        )
+        sample_info.save()
+        messages.success(request, 'Congratulations! Po sample info has been Added Successfully...')
+        return render(request, 'Order_Entry/sample_info.html')
+    
 class OrderUpdate(View):
     def get(self, request):
         return render(request, 'Order_Entry/order_update.html')
@@ -265,13 +303,58 @@ class QuotationEnquiry(View):
 class AccessoriesInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/access_info.html')
+    
+    def post(self, request):
+        job_no_mst = request.POST['job_no_mst']
+        po_no_mst_id = request.POST['po_no_mst_id']
+        po_number_mst = request.POST['po_number_mst']
+        accesories_name = request.POST['accesories_name']
+        target_ap_date = request.POST['target_ap_date']
+        sent_to_sample = request.POST['sent_to_sample']
+        submission_to_buyer = request.POST['submission_to_buyer']
+        supplier_name = request.POST['supplier_name']
+        status_update_date = request.POST['status_update_date']
+        approval_reject_date = request.POST['approval_reject_date']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        comment = request.POST['comment']
+
+        accessories_info = OmPoAccesoriesInfo(
+            job_no_mst = job_no_mst,
+            po_no_mst_id = po_no_mst_id,
+            po_number_mst = po_number_mst,
+            accesories_name = accesories_name,
+            target_ap_date = target_ap_date,
+            sent_to_sample =sent_to_sample,
+            submission_to_buyer = submission_to_buyer,
+            supplier_name = supplier_name,
+            status_update_date = status_update_date,
+            approval_reject_date = approval_reject_date,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            comment = comment
+        )
+        accessories_info.save()
+        messages.success(request, 'Congratulations! Po accessories info has been Added Successfully...')
+        return render(request, 'Order_Entry/access_info.html')
+
 
 ############ Related Table View ############
 
 
 class RelatedLibBuyer(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_buyer.html')
+        lib_buyer = LibBuyer.objects.all()
+        context = {
+            'lib_buyer':lib_buyer
+        }
+        return render(request, 'Order_Entry/lib_buyer.html', context)
     
     def post(self, request):
         buyer_name = request.POST['buyer_name']
@@ -308,12 +391,20 @@ class RelatedLibBuyer(View):
 
         lib_buyer_info.save()
         messages.success(request, 'Congratulations! Lib buyer information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_buyer.html')
+        lib_buyer = LibBuyer.objects.all()
+        context = {
+            'lib_buyer':lib_buyer
+        }
+        return render(request, 'Order_Entry/lib_buyer.html', context)
 
 
 class RelatedLibStyle(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_style.html')
+        style = LibStyle.objects.all()
+        context = {
+            'style':style
+        }
+        return render(request, 'Order_Entry/lib_style.html', context)
     
     def post(self, request):
         style_name = request.POST['style_name']
@@ -338,7 +429,11 @@ class RelatedLibStyle(View):
 
         lib_style_info.save()
         messages.success(request, 'Congratulations! Lib style information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_style.html')
+        style = LibStyle.objects.all()
+        context = {
+            'style':style
+        }
+        return render(request, 'Order_Entry/lib_style.html', context)
 
 class HrEmployeeForm(View):
     def get(self, request):
@@ -483,7 +578,11 @@ class HrEmployeeForm(View):
     
 class LibCompanyInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_company.html')
+        company = LibCompany.objects.all()
+        context = {
+            'company':company
+        }
+        return render(request, 'Order_Entry/lib_company.html', context)
 
     def post(self, request):
         group_id = request.POST['group_id']
@@ -579,12 +678,20 @@ class LibCompanyInfo(View):
 
         lib_company_info.save()
         messages.success(request, 'Congratulations! Lib Company information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_company.html')
+        company = LibCompany.objects.all()
+        context = {
+            'company':company
+        }
+        return render(request, 'Order_Entry/lib_company.html', context)
 
     
 class LibDepartmentInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_department.html')
+        department = LibDepartment.objects.all()
+        context = {
+            'department':department
+        }
+        return render(request, 'Order_Entry/lib_department.html', context)
     
     def post(self, request):
         department_name = request.POST['department_name']
@@ -613,12 +720,20 @@ class LibDepartmentInfo(View):
 
         lib_department_info.save()
         messages.success(request, 'Congratulations! Lib Department information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_department.html')
+        department = LibDepartment.objects.all()
+        context = {
+            'department':department
+        }
+        return render(request, 'Order_Entry/lib_department.html', context)
 
     
 class LibDivisionInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_division.html')
+        division = LibDivision.objects.all()
+        context = {
+            'division': division
+        }
+        return render(request, 'Order_Entry/lib_division.html', context)
     
     def post(self, request):
         division_name = request.POST['division_name']
@@ -647,11 +762,19 @@ class LibDivisionInfo(View):
 
         lib_division_info.save()
         messages.success(request, 'Congratulations! Lib sub department information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_division.html')
+        division = LibDivision.objects.all()
+        context = {
+            'division': division
+        }
+        return render(request, 'Order_Entry/lib_division.html', context)
     
 class LibSubDept(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_sub_dept.html')
+        sub_department = LibSubDepartment.objects.all()
+        context = {
+            'sub_department':sub_department
+        }
+        return render(request, 'Order_Entry/lib_sub_dept.html', context)
     
     def post(self, request):
         sub_department_name = request.POST['sub_department_name']
@@ -680,7 +803,11 @@ class LibSubDept(View):
 
         lib_sub_division_info.save()
         messages.success(request, 'Congratulations! Lib sub department information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_sub_dept.html')
+        sub_department = LibSubDepartment.objects.all()
+        context = {
+            'sub_department':sub_department
+        }
+        return render(request, 'Order_Entry/lib_sub_dept.html', context)
     
 class LibProdCat(View):
     def get(self, request):

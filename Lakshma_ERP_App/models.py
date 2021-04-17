@@ -747,13 +747,17 @@ class OmPoSampleInfo(models.Model):
     po_no_mst_id = models.CharField(max_length=50, null=False)
     po_number_mst = models.CharField(max_length=50, null=False)
     sample_type = models.CharField(max_length=50, null=False)
-    is_deleted = models.CharField(max_length=50, null=False)
+    target_ap_date = models.DateTimeField(default=now)
+    sent_to_sample = models.CharField(max_length=200, null=True, blank=True)
+    submission_to_buyer = models.CharField(max_length=200, null=True, blank=True)
+    status_update_date = models.DateTimeField(default=now)
+    approval_reject_date = models.DateTimeField(default=now)
     inserted_by = models.CharField(max_length=120, null=True)
     insert_date = models.DateTimeField(default=now)
     updated_by = models.CharField(max_length=120, null=True)
     update_date = models.DateTimeField(default=now)
     status_active = models.CharField(max_length=20, choices=STATUS, default=0, null=True)
-    is_locked = models.CharField(max_length=20, choices=STATUS, default=1, null=True)
+    comment = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.sample_type
@@ -768,13 +772,19 @@ class OmPoAccesoriesInfo(models.Model):
     po_no_mst_id = models.CharField(max_length=50, null=False)
     po_number_mst = models.CharField(max_length=50, null=False)
     accesories_name = models.CharField(max_length=50, null=False)
-    is_deleted = models.CharField(max_length=50, null=False)
+    target_ap_date = models.DateTimeField(default=now)
+    sent_to_sample = models.CharField(max_length=200, null=True, blank=True)
+    submission_to_buyer = models.CharField(max_length=200, null=True, blank=True)
+    supplier_name = models.CharField(max_length=200, null=True, blank=True)
+    status_update_date = models.DateTimeField(default=now)
+    approval_reject_date = models.DateTimeField(default=now)
     inserted_by = models.CharField(max_length=120, null=True)
     insert_date = models.DateTimeField(default=now)
     updated_by = models.CharField(max_length=120, null=True)
     update_date = models.DateTimeField(default=now)
     status_active = models.CharField(max_length=20, choices=STATUS, default=0, null=True)
-    is_locked = models.CharField(max_length=20, choices=STATUS, default=1, null=True)
+    comment = models.TextField(blank=True, null=True)
+    
 
     def __str__(self):
         return self.job_no_mst

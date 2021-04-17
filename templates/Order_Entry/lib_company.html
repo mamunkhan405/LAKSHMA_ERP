@@ -525,8 +525,9 @@
             class="custom-select d-block w-100"
             id="status_active "
           >
-            <option value="">Yes</option>
-            <option>No</option>
+          <option value="">-- Status --</option>
+          <option>Yes</option>
+          <option>No</option>
          
           </select>
           </div> 
@@ -538,8 +539,9 @@
             class="custom-select d-block w-100"
             id="is_deleted  "
           >
-            <option value="">Yes</option>
-            <option>No</option>
+          <option value="">-- Status --</option>
+          <option>Yes</option>
+          <option>No</option>
          
           </select>
           </div> 
@@ -550,8 +552,9 @@
             class="custom-select d-block w-100"
             id="is_locked   "
           >
-            <option value="">Yes</option>
-            <option>No</option>
+          <option value="">-- Status --</option>
+          <option>Yes</option>
+          <option>No</option>
          
           </select>
           </div> 
@@ -563,7 +566,45 @@
     </div>
     </div>
 
-
+    <div class="container mt-4">
+      <h4 class="text-center">VIEW ALL LIB COMPANY LIST HERE</h4>
+     
+       
+      <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Serial No.</th>
+            <th scope="col">Group Id</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Company Nature</th>
+            <th scope="col">Location</th>
+            <th scope="col">Core Business</th>
+            <th scope="col">Action</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in company  %}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.group_id}}</td>
+            <td>{{i.company_name}}</td>
+            <td>{{i.company_nature}}</td>
+            <td>{{i.location}}</td>
+            <td>{{i.core_business}}</td>
+            <td>
+             <a href="/viewcompanyInfo/{{i.id}}"><i class="fas fa-eye btn btn-primary btn-sm" ></i></a> 
+             <a href="/editcompanyInfo/{{i.id}}"><i class="fas fa-pencil-alt btn-danger btn-sm"></i></a>
+             <a href="/delete_company/{{i.id}}"><i class="far fa-trash-alt btn-warning btn-sm"></i></a> 
+            </td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+      </div>
+    </div> 
 
 
 

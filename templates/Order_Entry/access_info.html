@@ -5,6 +5,21 @@
 
 
 {% block body %}
+
+{% if messages %}
+
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong>{{message}} 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+    {% endfor %}
+
+{% endif %}
+
 <div class="container p-5 bg-color">
 
     <div class="py-5 text-center">
@@ -21,12 +36,35 @@
      
 
            <div class="col-md-4 mb-3">
-            <label for="jobno">SL No.</label>
+            <label for="job_no_mst">Job no mst</label>
             <input
-            name="jobno"
+            name="job_no_mst"
               type="text"
               class="form-control"
-              id="jobno"
+              id="job_no_mst"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="po_no_mst_id">Po no mst id</label>
+            <input
+            name="po_no_mst_id"
+              type="text"
+              class="form-control"
+              id="po_no_mst_id"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> <div class="col-md-4 mb-3">
+            <label for="po_number_mst">Po number mst</label>
+            <input
+            name="po_number_mst"
+              type="text"
+              class="form-control"
+              id="po_number_mst"
               placeholder=""
               value=""
               required=""
@@ -34,24 +72,24 @@
           </div> 
 
            <div class="col-md-4 mb-3">
-            <label for="lccom">Accessories Name</label>
+            <label for="accesories_name">Accessories Name</label>
             <input
-            name="lccom"
+            name="accesories_name"
               type="text"
               class="form-control"
-              id="lccom"
+              id="accesories_name"
               placeholder=""
               value=""
               required=""
             />
           </div> 
            <div class="col-md-4 mb-3">
-            <label for="lccomploc">Target Approval Date</label>
+            <label for="target_ap_date">Target Approval Date</label>
             <input
-            name="lccomploc"
+            name="target_ap_date"
               type="date"
               class="form-control"
-              id="lccomploc"
+              id="target_ap_date"
               placeholder=""
               value=""
               required=""
@@ -59,95 +97,138 @@
           </div> 
 
            <div class="col-md-4 mb-3">
-            <label for="wcomp">Sent To Sample Section</label>
+            <label for="sent_to_sample">Sent To Sample Section</label>
             <input
-            name="wcomp"
+            name="sent_to_sample"
               type="text"
               class="form-control"
-              id="wcomp"
+              id="sent_to_sample"
               placeholder=""
               value=""
               required=""
             />
           </div> 
           <div class="col-md-4 mb-3">
-            <label for="wcomploc">Submission To Buyer</label>
+            <label for="submission_to_buyer">Submission To Buyer</label>
             <input
-            name="wcomploc"
+            name="submission_to_buyer"
               type="text"
               class="form-control"
-              id="wcomploc"
+              id="submission_to_buyer"
               placeholder=""
               value=""
               required=""
             />
           </div> 
           <div class="col-md-4 mb-3">
-            <label for="fileno">Status</label>
+            <label for="supplier_name">Supplier Name</label>
             <input
-            name="fileno"
+            name="supplier_name"
               type="text"
               class="form-control"
-              id="fileno"
+              id="supplier_name"
               placeholder=""
               value=""
               required=""
             />
-          </div> 
+          </div>
           <div class="col-md-4 mb-3">
-            <label for="projob">Status Update Date</label>
+            <label for="status_update_date">Status Update Date</label>
             <input
-            name="projob"
+            name="status_update_date"
               type="date"
               class="form-control"
-              id="projob"
+              id="status_update_date"
               placeholder=""
               value=""
               required=""
             />
           </div> 
           <div class="col-md-4 mb-3">
-            <label for="projob">Approval/Reject Date</label>
+            <label for="approval_reject_date">Approval/Reject Date</label>
             <input
-            name="projob"
+            name="approval_reject_date"
               type="date"
               class="form-control"
-              id="projob"
+              id="approval_reject_date"
               placeholder=""
               value=""
               required=""
             />
           </div> 
           <div class="col-md-4 mb-3">
-            <label for="projob">Supplier Name</label>
+            <label for="inserted_by    ">Inserted By</label>
             <input
-            name="projob"
+              name="inserted_by    "
               type="text"
               class="form-control"
-              id="projob"
+              id="inserted_by    "
               placeholder=""
               value=""
-              required=""
             />
           </div> 
+          <div class="col-md-4 mb-3">
+            <label for="insert_date    ">Insert Date</label>
+            <input
+              name="insert_date    "
+              type="date"
+              class="form-control"
+              id="insert_date    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="updated_by    ">Updated By</label>
+            <input
+              name="updated_by    "
+              type="text"
+              class="form-control"
+              id="updated_by    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="update_date    ">Update Date</label>
+            <input
+              name="update_date    "
+              type="date"
+              class="form-control"
+              id="update_date    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+        
+
+          <div class="col-md-4 mb-3">
+            <label for="status_active    ">Status</label>
+            <select
+            name="status_active "
+            class="custom-select d-block w-100"
+            id="status_active "
+          >
+          <option value="">-- Status --</option>
+          <option>Yes</option>
+          <option>No</option>
          
-          <div class="col-md-12 mb-3">
-            <label for="projob">Comment</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+          </select>
           </div> 
-
+          
           <div class="col-md-12 mb-3">
-            <label for="projob">Action</label>
-            <input
-            name="projob"
+            <label for="comment  "> Comment </label>
+            <textarea
+            name="comment  "
               type="text"
               class="form-control"
-              id="projob"
+              id="comment  "
               placeholder=""
               value=""
               required=""
-            />
+            > </textarea>
           </div> 
+
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
       </form>
