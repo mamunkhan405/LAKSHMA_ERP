@@ -192,8 +192,9 @@
             class="custom-select d-block w-100"
             id="status_active "
           >
-            <option value="">Yes</option>
-            <option>No</option>
+          <option value="">-- Status --</option>
+          <option>Yes</option>
+          <option>No</option>
          
           </select>
           </div> 
@@ -205,8 +206,9 @@
             class="custom-select d-block w-100"
             id="is_deleted  "
           >
-            <option value="">Yes</option>
-            <option>No</option>
+          <option value="">-- Status --</option>
+          <option>Yes</option>
+          <option>No</option>
          
           </select>
           </div> 
@@ -216,6 +218,45 @@
       </form>
     </div>
 
+    <div class="container mt-4">
+      <h4 class="text-center mb-4">VIEW ALL INV PRODUCT LIST HERE</h4>
+     
+       
+      <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Serial No.</th>
+            <th scope="col">Product Code</th>
+            <th scope="col">Item Group</th>
+            <th scope="col">Product name short</th>
+            <th scope="col">Item Category</th>
+            <th scope="col">Current Stock</th>
+            <th scope="col">Action</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in inventory_product  %}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.product_code}}</td>
+            <td>{{i.item_group}}</td>
+            <td>{{i.product_name_short}}</td>
+            <td>{{i.item_category}}</td>
+            <td>{{i.current_stock}}</td>
+            <td>
+             <a href="/view_sub_department/{{i.id}}"><i class="fas fa-eye btn btn-primary btn-sm" ></i></a> 
+             <a href="/edit_sub_department/{{i.id}}"><i class="fas fa-pencil-alt btn-danger btn-sm"></i></a>
+             <a href="/delete_sub_department/{{i.id}}"><i class="far fa-trash-alt btn-warning btn-sm"></i></a> 
+            </td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+      </div>
+    </div> 
 
 
 

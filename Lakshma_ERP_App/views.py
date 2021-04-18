@@ -437,7 +437,11 @@ class RelatedLibStyle(View):
 
 class HrEmployeeForm(View):
     def get(self, request):
-        return render(request, 'Order_Entry/hrm_employee.html')
+        employee = HRmEmployee.objects.all()
+        context = {
+            'employee':employee
+        }
+        return render(request, 'Order_Entry/hrm_employee.html', context)
     
     def post(self, request):
         emp_code = request.POST['emp_code']
@@ -573,7 +577,11 @@ class HrEmployeeForm(View):
 
         hr_employee_info.save()
         messages.success(request, 'Congratulations! Hr Employee information has been Added Successfully...')
-        return render(request, 'Order_Entry/hrm_employee.html')
+        employee = HRmEmployee.objects.all()
+        context = {
+            'employee':employee
+        }
+        return render(request, 'Order_Entry/hrm_employee.html', context)
     
     
 class LibCompanyInfo(View):
@@ -811,7 +819,11 @@ class LibSubDept(View):
     
 class LibProdCat(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_prod_cat.html')
+        prod_cate = LibProductCate.objects.all()
+        context = {
+            'prod_cate':prod_cate
+        }
+        return render(request, 'Order_Entry/lib_prod_cat.html', context)
     
     def post(self, request):
         product_cate = request.POST['product_cate']
@@ -835,11 +847,19 @@ class LibProdCat(View):
 
         lib_product_cat_info.save()
         messages.success(request, 'Congratulations! Lib product cate information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_prod_cat.html')
+        prod_cate = LibProductCate.objects.all()
+        context = {
+            'prod_cate':prod_cate
+        }
+        return render(request, 'Order_Entry/lib_prod_cat.html', context)
     
 class LibSeasonInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/libseason.html')
+        seasons = LibSeason.objects.all()
+        context = {
+            'seasons':seasons
+        }
+        return render(request, 'Order_Entry/libseason.html', context)
      
     def post(self, request):
         season_name = request.POST['season_name']
@@ -863,11 +883,19 @@ class LibSeasonInfo(View):
 
         lib_season_info.save()
         messages.success(request, 'Congratulations! Lib season information has been Added Successfully...')
-        return render(request, 'Order_Entry/libseason.html')
+        seasons = LibSeason.objects.all()
+        context = {
+            'seasons':seasons
+        }
+        return render(request, 'Order_Entry/libseason.html', context)
     
 class LibRegionInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_region.html')
+        regions = LibRegion.objects.all()
+        context = {
+            'regions':regions
+        }
+        return render(request, 'Order_Entry/lib_region.html', context)
     
     def post(self, request):
         region_name = request.POST['region_name']
@@ -891,11 +919,19 @@ class LibRegionInfo(View):
 
         lib_region_info.save()
         messages.success(request, 'Congratulations! Lib region information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_region.html')
+        regions = LibRegion.objects.all()
+        context = {
+            'regions':regions
+        }
+        return render(request, 'Order_Entry/lib_region.html', context)
     
 class LibAgentInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_agent.html')
+        agents = LibAgent.objects.all()
+        context = {
+            'agents': agents
+        }
+        return render(request, 'Order_Entry/lib_agent.html', context)
     
     def post(self, request):
         agent_name = request.POST['agent_name']
@@ -919,11 +955,19 @@ class LibAgentInfo(View):
 
         lib_agent_info.save()
         messages.success(request, 'Congratulations! Lib agent information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_agent.html')
+        agents = LibAgent.objects.all()
+        context = {
+            'agents': agents
+        }
+        return render(request, 'Order_Entry/lib_agent.html', context)
     
 class LibClientInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_client.html')
+        clients = LibClient.objects.all()
+        context = {
+            'clients': clients
+        }
+        return render(request, 'Order_Entry/lib_client.html', context)
     
     def post(self, request):
         client_name = request.POST['client_name']
@@ -947,11 +991,19 @@ class LibClientInfo(View):
 
         lib_client_info.save()
         messages.success(request, 'Congratulations! Lib client information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_client.html')
+        clients = LibClient.objects.all()
+        context = {
+            'clients': clients
+        }
+        return render(request, 'Order_Entry/lib_client.html', context)
     
 class LibUnitInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_unit.html')
+        units = LibUnit.objects.all()
+        context = {
+            'units': units
+        }
+        return render(request, 'Order_Entry/lib_unit.html', context)
     
     def post(self, request):
         unit_name = request.POST['unit_name']
@@ -977,11 +1029,19 @@ class LibUnitInfo(View):
 
         lib_unit_info.save()
         messages.success(request, 'Congratulations! Lib unit information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_unit.html')
+        units = LibUnit.objects.all()
+        context = {
+            'units': units
+        }
+        return render(request, 'Order_Entry/lib_unit.html', context)
     
 class LibCurrencyInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_currency.html')
+        currency = LibCurrency.objects.all()
+        context = {
+            'currency': currency
+        } 
+        return render(request, 'Order_Entry/lib_currency.html', context)
 
     def post(self, request):
         currency_code = request.POST['currency_code']
@@ -1007,11 +1067,19 @@ class LibCurrencyInfo(View):
 
         lib_currency_info.save()
         messages.success(request, 'Congratulations! Lib currency information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_currency.html')
+        currency = LibCurrency.objects.all()
+        context = {
+            'currency': currency
+        } 
+        return render(request, 'Order_Entry/lib_currency.html', context)
     
 class INV(View):
     def get(self, request):
-        return render(request, 'Order_Entry/inv_prod_info.html')
+        inventory_product= InvProductInfo.objects.all()
+        context = {
+            'inventory_product':  inventory_product
+        }
+        return render(request, 'Order_Entry/inv_prod_info.html', context)
 
     def post(self, request):
         product_code = request.POST['product_code']
@@ -1049,7 +1117,11 @@ class INV(View):
 
         inv_product_info.save()
         messages.success(request, 'Congratulations! Inv Product information has been Added Successfully...')
-        return render(request, 'Order_Entry/inv_prod_info.html')
+        inventory_product= InvProductInfo.objects.all()
+        context = {
+            'inventory_product':  inventory_product
+        }
+        return render(request, 'Order_Entry/inv_prod_info.html', context)
     
     
 class LibColorInfo(View):
