@@ -15,104 +15,149 @@ class Home(View):
     
 class OrderEntry(View):
     def get(self, request):
-        # Employee_information = Employee_Info.objects.all()
-        # context = {'Employee_information':Employee_information}
-        return render(request, 'Order_Entry/order_entry_form.html')
+        buyers = LibBuyer.objects.all()
+        styles = LibStyle.objects.all()
+        company = LibCompany.objects.all()
+        departments = LibDepartment.objects.all()
+        sub_department = LibSubDepartment.objects.all()
+        prod_cate = LibProductCate.objects.all()
+        seasons = LibSeason.objects.all()
+        regions = LibRegion.objects.all()
+        agents= LibAgent.objects.all()
+        clients = LibClient.objects.all()
+        units = LibUnit.objects.all()
+        employee = HRmEmployee.objects.all()
+        currency = LibCurrency.objects.all()
 
-    # def post(self, request):
-    #     emp_Image = request.FILES['emp_Image']
+        context = {
+            'buyers':buyers,
+            'styles':styles,
+            'company':company,
+            'departments':departments,
+            'sub_department':sub_department,
+            'prod_cate':prod_cate,
+            'seasons':seasons,
+            'regions':regions,
+            'agents':agents,
+            'clients':clients,
+            'units':units,
+            'employee':employee,
+            'currency':currency
+            }
+        return render(request, 'Order_Entry/order_entry_form.html', context)
 
-    #     emp_first_Name = request.POST['emp_first_Name']
-    #     emp_middle_Name = request.POST['emp_middle_Name']
-    #     emp_last_Name = request.POST['emp_last_Name']
+    def post(self, request):
+        job_no = request.POST['job_no']
 
-    #     emp_join_Date = request.POST['emp_join_Date']
-    #     emp_confirm_Date = request.POST['emp_confirm_Date']
-    #     emp_birth_Date = request.POST['emp_birth_Date']
+        buyer_name = request.POST['buyer_name']
+        style_name = request.POST['style_name']
+        order_repeat_no = request.POST['order_repeat_no']
 
-    #     emp_father_Name = request.POST['emp_father_Name']
-    #     emp_mother_Name = request.POST['emp_mother_Name']
+        company_name = request.POST['company_name']
+        working_company_location = request.POST['working_company_location']
+        file_no = request.POST['file_no']
 
-    #     emp_category = request.POST['emp_category']
-    #     emp_blood_group = request.POST['emp_blood_group']
-    #     emp_marital_status = request.POST['emp_marital_status']
-    #     emp_spouse_Name = request.POST['emp_spouse_Name']
-    #     emp_present_number = request.POST['emp_present_Number']
-    #     emp_national_id_no = request.POST['emp_national_No']
-    #     emp_designation = request.POST['emp_designation']
-    #     emp_company = request.POST['emp_company']
+        projected_job_no = request.POST['projected_job_no']
+        department_name = request.POST['department_name']
 
-    #     emp_bank_name = request.POST['emp_bank_name']
-    #     emp_bankaccount_number = request.POST['emp_bankaccount_number']
-    #     emp_mobilebanking_Name = request.POST['emp_mobilebanking_Name']
-    #     emp_mobileaccount_number = request.POST['emp_mobileaccount_number']
+        sub_department_name = request.POST['sub_department_name']
+        product_cate = request.POST['product_cate']
+        season_name = request.POST['season_name']
+        region_name = request.POST['region_name']
+        agent_name = request.POST['agent_name']
+        client_name = request.POST['client_name']
+        quality_label = request.POST['quality_label']
+        unit_name = request.POST['unit_name']
 
-    #     emp_status = request.POST['emp_status']
-    #     emp_group = request.POST['emp_group']
-    #     emp_reporting_manager = request.POST['emp_reporting_Manager']
-    #     emp_gender = request.POST['emp_gender']
-    #     emp_official_email = request.POST['emp_official_email']
-    #     emp_personal_email = request.POST['emp_personal_email']
+        smv = request.POST['smv']
+        buying_house_merchandiser = request.POST['buying_house_merchandiser']
+        ship_mode = request.POST['ship_mode']
+        emp_code = request.POST['emp_code']
 
-    #     emp_present_address = request.POST['emp_present_Address']
-    #     emp_permanent_address = request.POST['emp_permanent_Address']
-    #     emp_division = request.POST['emp_division']
-    #     emp_department = request.POST['emp_department']
-    #     emp_sub_department = request.POST['emp_sub_department']
-    #     emp_section = request.POST['emp_section']
-    #     emp_sub_section = request.POST['emp_sub_section']
-    #     emp_location = request.POST['emp_location']
+        ready_for_bom = request.POST['ready_for_bom']
+        copy_from_job_no = request.POST['copy_from_job_no']
+        file_name_link = request.POST['file_name_link']
+        internal_ref_no = request.POST['internal_ref_no']
+        currency_code = request.POST['currency_code']
+        order_type = request.POST['order_type']
 
-    #     Employee_information = Employee_Info(
-    #         emp_Image =emp_Image,
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_deleted = request.POST['is_deleted']
+        remarks = request.POST['remarks']
 
-    #         emp_first_Name=emp_first_Name,
-    #         emp_middle_Name=emp_middle_Name,
-    #         emp_last_Name=emp_last_Name,
+        order_info = OrderEntryInfo(
+            job_no = job_no,
+            buyer_name = LibBuyer.objects.get(buyer_name=buyer_name),
+            style_name = LibStyle.objects.get(style_name=style_name),
+            order_repeat_no = order_repeat_no,
+            company_name = LibCompany.objects.get(company_name=company_name),
+            working_company_location = working_company_location,
+            file_no = file_no,
+            projected_job_no = projected_job_no,
+            department_name = LibDepartment.objects.get(department_name=department_name),
+            sub_department_name = LibSubDepartment.objects.get(sub_department_name=sub_department_name),
+            product_cate = LibProductCate.objects.get(product_cate=product_cate),
+            season_name = LibSeason.objects.get(season_name=season_name),
+            region_name = LibRegion.objects.get(region_name=region_name),
+            agent_name = LibAgent.objects.get(agent_name=agent_name),
+            client_name = LibClient.objects.get(client_name=client_name),
+            quality_label = quality_label,
+            unit_name = LibUnit.objects.get(unit_name=unit_name),
+            smv = smv,
+            buying_house_merchandiser = buying_house_merchandiser,
+            ship_mode = ship_mode,
+            emp_code = HRmEmployee.objects.get(emp_code=emp_code),
+            ready_for_bom = ready_for_bom,
+            copy_from_job_no = copy_from_job_no,
+            file_name_link = file_name_link,
+            internal_ref_no = internal_ref_no,
+            currency_code = LibCurrency.objects.get(currency_code=currency_code),
+            order_type = order_type,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_deleted = is_deleted,
+            remarks = remarks
+        )
 
-    #         emp_join_Date=emp_join_Date,
-    #         emp_confirm_Date=emp_confirm_Date,
-    #         emp_birth_Date=emp_birth_Date,
+        order_info.save()
+        messages.success(request, 'Congratulations! Order information has been Added Successfully...')
+        buyers = LibBuyer.objects.all()
+        styles = LibStyle.objects.all()
+        company = LibCompany.objects.all()
+        departments = LibDepartment.objects.all()
+        sub_department = LibSubDepartment.objects.all()
+        prod_cate = LibProductCate.objects.all()
+        seasons = LibSeason.objects.all()
+        regions = LibRegion.objects.all()
+        agents= LibAgent.objects.all()
+        clients = LibClient.objects.all()
+        units = LibUnit.objects.all()
+        employee = HRmEmployee.objects.all()
+        currency = LibCurrency.objects.all()
 
-    #         emp_father_Name=emp_father_Name,
-    #         emp_mother_Name=emp_mother_Name,
-
-    #         emp_category=emp_category,
-    #         emp_blood_group=emp_blood_group,
-    #         emp_marital_status=emp_marital_status,
-    #         emp_spouse_Name=emp_spouse_Name,
-    #         emp_present_number=emp_present_number,
-    #         emp_national_id_no=emp_national_id_no,
-    #         emp_designation=emp_designation,
-    #         emp_company=emp_company,
-
-    #         emp_bank_name=emp_bank_name,
-    #         emp_bankaccount_number=emp_bankaccount_number,
-    #         emp_mobilebanking_Name=emp_mobilebanking_Name,
-    #         emp_mobileaccount_number=emp_mobileaccount_number,
-
-    #         emp_status=emp_status,
-    #         emp_group=emp_group,
-    #         emp_reporting_manager=emp_reporting_manager,
-    #         emp_gender=emp_gender,
-    #         emp_official_email=emp_official_email,
-    #         emp_personal_email=emp_personal_email,
-
-    #         emp_present_address=emp_present_address,
-    #         emp_permanent_address=emp_permanent_address,
-    #         emp_division=emp_division,
-    #         emp_department=emp_department,
-    #         emp_sub_department=emp_sub_department,
-    #         emp_section=emp_section,
-    #         emp_sub_section=emp_sub_section,
-    #         emp_location=emp_location,
-    #      )
-    #     Employee_information.save()
-    #     messages.success(
-    #         request, 'Congratulations! Employee information has been Added Successfully...')
-    #     Employee_information = Employee_Info.objects.all()
-    #     params = {'Employee_information':Employee_information}
-    #     return render(request, 'Forms/Add_Employee/employeeInfo.html', params)
+        context = {
+            'buyers':buyers,
+            'styles':styles,
+            'company':company,
+            'departments':departments,
+            'sub_department':sub_department,
+            'prod_cate':prod_cate,
+            'seasons':seasons,
+            'regions':regions,
+            'agents':agents,
+            'clients':clients,
+            'units':units,
+            'employee':employee,
+            'currency':currency
+            }
+        return render(request, 'Order_Entry/order_entry_form.html', context)
 class POBreakdownInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/po_breakdown.html')
@@ -163,19 +208,21 @@ class PoCountryInfo(View):
         po_numbers = OmPoBreakDown.objects.all()
         country_ids = LibCountry.objects.all()
         product_ids = InvProductInfo.objects.all()
+        country_info = WoPOCountryDetails.objects.all()
         context = {
             'po_numbers': po_numbers,
             'country_ids': country_ids,
-            'product_ids': product_ids
+            'product_ids': product_ids,
+            'country_info': country_info
         }
         return render(request, 'Order_Entry/po_country_details.html', context)
 
     def post(self, request):
         job_no = request.POST['job_no']
         po_number = request.POST['po_number']
-        country_id = request.POST['country_id']
+        country_code = request.POST['country_code']
         code = request.POST['code']
-        product_id = request.POST['product_id']
+        product_code = request.POST['product_code']
         cut_off = request.POST['cut_off']
         po_quantity = request.POST['po_quantity']
         plan_quantity = request.POST['plan_quantity']
@@ -193,10 +240,10 @@ class PoCountryInfo(View):
 
         po_country_info = WoPOCountryDetails(
             job_no = job_no,
-            po_number = po_number,
-            country_id = country_id,
+            po_number = OmPoBreakDown.objects.get(po_number=po_number) ,
+            country_code = LibCountry.objects.get(country_code=country_code),
             code = code,
-            product_id = product_id,
+            product_code = InvProductInfo.objects.get(product_code=product_code) ,
             cut_off = cut_off,
             po_quantity = po_quantity,
             plan_quantity = plan_quantity,
@@ -214,12 +261,123 @@ class PoCountryInfo(View):
         )
         po_country_info.save()
         messages.success(request, 'Congratulations! Po country details has been Added Successfully...')
-        return render(request, 'Order_Entry/po_country_details.html')
+        po_numbers = OmPoBreakDown.objects.all()
+        country_ids = LibCountry.objects.all()
+        product_ids = InvProductInfo.objects.all()
+        country_info = WoPOCountryDetails.objects.all()
+        context = {
+            'po_numbers': po_numbers,
+            'country_ids': country_ids,
+            'product_ids': product_ids,
+            'country_info': country_info
+        }
+        
+        return render(request, 'Order_Entry/po_country_details.html', context)
 
 class CostInfo(View):
     def get(self, request):
-        
+        products = InvProductInfo.objects.all()
+        context = {
+            'products': products
+        }
+        return render(request, 'Order_Entry/cost_info.html', context)
+
+    def post(self, request):
+        job_no_cost_mst = request.POST['job_no_cost_mst']
+        product_name_short = request.POST['product_name_short']
+        unit_price = request.POST['unit_price']
+        set_pc_rate = request.POST['set_pc_rate']
+        set_quantity = request.POST['set_quantity']
+        set_total_quantity = request.POST['set_total_quantity']
+        sewing_smv = request.POST['sewing_smv']
+        cutting_smv = request.POST['cutting_smv']
+        finishing_smv = request.POST['finishing_smv']
+        fabric_cost_total = request.POST['fabric_cost_total']
+        fabric_cost_percent = request.POST['fabric_cost_percent']
+        trims_cost_total = request.POST['trims_cost_total']
+        trims_cost_percent = request.POST['trims_cost_percent']
+        embellish_cost_total = request.POST['embellish_cost_total']
+        embellish_cost_percent = request.POST['embellish_cost_percent']
+        commercial_cost_total = request.POST['commercial_cost_total']
+        commercial_cost_percent = request.POST['commercial_cost_percent']
+        commision_cost_total = request.POST['commision_cost_total']
+        commission_cost_percent = request.POST['commission_cost_percent']
+        testing_cost_total = request.POST['testing_cost_total']
+        testing_cost_percent = request.POST['testing_cost_percent']
+        freight_cost_total = request.POST['freight_cost_total']
+        freight_cost_percent = request.POST['freight_cost_percent']
+        inspection_cost = request.POST['inspection_cost']
+        inspection_cost_per = request.POST['inspection_cost_per']
+        courier_cost = request.POST['courier_cost']
+        courier_cost_per = request.POST['courier_cost_per']
+        total_cost = request.POST['total_cost']
+        total_cost_per = request.POST['total_cost_per']
+        cm_per_unit = request.POST['cm_per_unit']
+        price_per_unit = request.POST['price_per_unit']
+        price_per_pc = request.POST['price_per_pc']
+        bep_cm_per = request.POST['bep_cm_per']
+        asking_cm_per = request.POST['asking_cm_per']
+        cm_from_ie = request.POST['cm_from_ie']
+        profit_loss = request.POST['profit_loss']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        is_deleted = request.POST['is_deleted']
+        status_active = request.POST['status_active']
+
+        po_cost_info = OmPoCostDetail(
+            job_no_cost_mst = job_no_cost_mst,
+            product_name_short = InvProductInfo.objects.get(product_name_short=product_name_short),
+            unit_price = unit_price,
+            set_pc_rate = set_pc_rate,
+            set_quantity = set_quantity,
+            set_total_quantity = set_total_quantity,
+            sewing_smv = sewing_smv,
+            cutting_smv = cutting_smv,
+            finishing_smv = finishing_smv,
+            fabric_cost_total = fabric_cost_total,
+            fabric_cost_percent = fabric_cost_percent,
+            trims_cost_total = trims_cost_total,
+            trims_cost_percent = trims_cost_percent,
+            embellish_cost_total = embellish_cost_total,
+            embellish_cost_percent = embellish_cost_percent,
+            commercial_cost_total = commercial_cost_total,
+            commercial_cost_percent = commercial_cost_percent,
+            commision_cost_total = commision_cost_total,
+            commission_cost_percent = commission_cost_percent,
+            testing_cost_total = testing_cost_total,
+            testing_cost_percent = testing_cost_percent,
+            freight_cost_total = freight_cost_total,
+            freight_cost_percent = freight_cost_percent,
+            inspection_cost = inspection_cost,
+            inspection_cost_per = inspection_cost_per,
+            courier_cost = courier_cost,
+            courier_cost_per = courier_cost_per,
+            total_cost = total_cost,
+            total_cost_per = total_cost_per,
+            cm_per_unit = cm_per_unit,
+            price_per_unit = price_per_unit,
+            price_per_pc = price_per_pc,
+            bep_cm_per = bep_cm_per,
+            asking_cm_per = asking_cm_per,
+            cm_from_ie = cm_from_ie,
+            profit_loss = profit_loss,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            is_deleted = is_deleted,
+            status_active = status_active
+        )
+        po_cost_info.save()
+        messages.success(request, 'Congratulations! Po country details has been Added Successfully...')
         return render(request, 'Order_Entry/cost_info.html')
+
+
+
+
+
 
 class MainFabric(View):
     def get(self, request):

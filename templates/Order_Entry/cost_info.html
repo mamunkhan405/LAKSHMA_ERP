@@ -29,86 +29,100 @@
           <div class="row justify-content-center"> 
 
        
+            <div class="col-md-4 mb-3">
+              <label for="job_no_cost_mst">Job no cost mst</label>
+              <input
+              name="job_no_cost_mst"
+                type="text"
+                class="form-control"
+                id="job_no_cost_mst"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="product_name_short ">Product name</label>
+              <select
+              name="product_name_short   "
+              class="custom-select d-block w-100"
+              id="product_name_short   "
+            >
+            <option value="">-- Choose --</option>
+            {% for p in products %}
+            <option>{{p.product_name_short}}</option>
+            {% endfor %}
+           
+            </select>
+            </div> 
 
              <div class="col-md-4 mb-3">
-              <label for="jobno">Product Name</label>
+              <label for="unit_price">Unit Price</label>
               <input
-              name="jobno"
+              name="unit_price"
                 type="text"
                 class="form-control"
-                id="jobno"
+                id="unit_price"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
              <div class="col-md-4 mb-3">
-              <label for="lccom">Set Ratio</label>
+              <label for="set_pc_rate">Set pc rate</label>
               <input
-              name="lccom"
+              name="set_pc_rate"
                 type="text"
                 class="form-control"
-                id="lccom"
+                id="set_pc_rate"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
              <div class="col-md-4 mb-3">
-              <label for="lccomploc">Sew SMV/ Pcs</label>
+              <label for="set_quantity">Set quantity </label>
               <input
-              name="lccomploc"
+              name="set_quantity"
                 type="text"
                 class="form-control"
-                id="lccomploc"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-             <div class="col-md-4 mb-3">
-              <label for="wcomp">Cut SMV/ Pcs </label>
-              <input
-              name="wcomp"
-                type="text"
-                class="form-control"
-                id="wcomp"
+                id="set_quantity"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
             <div class="col-md-4 mb-3">
-              <label for="wcomploc">Fin SMV/ Pcs</label>
+              <label for="set_total_quantity">Set total quantity</label>
               <input
-              name="wcomploc"
+              name="set_total_quantity"
                 type="text"
                 class="form-control"
-                id="wcomploc"
+                id="set_total_quantity"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
             <div class="col-md-4 mb-3">
-              <label for="fileno">Fabric Cost</label>
+              <label for="sewing_smv">Sewing smv</label>
               <input
-              name="fileno"
+              name="sewing_smv"
                 type="text"
                 class="form-control"
-                id="fileno"
+                id="sewing_smv"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
             <div class="col-md-4 mb-3">
-              <label for="projob">Print</label>
+              <label for="cutting_smv">Cutting smv</label>
               <input
-              name="projob"
+              name="cutting_smv"
                 type="text"
                 class="form-control"
-                id="projob"
+                id="cutting_smv"
                 placeholder=""
                 value=""
                 required=""
@@ -116,12 +130,12 @@
             </div> 
                         
              <div class="col-md-4 mb-3">
-              <label for="buyer">Buyer</label>
+              <label for="finishing_smv">Finishing smv</label>
               <input
-              name="buyer"
+              name="finishing_smv"
                 type="text"
                 class="form-control"
-                id="buyer"
+                id="finishing_smv"
                 placeholder=""
                 value=""
                 required=""
@@ -129,12 +143,12 @@
             </div> 
 
             <div class="col-md-4 mb-3">
-              <label for="styleref">Embroidary </label>
+              <label for="fabric_cost_total">Fabric cost total </label>
               <input
-              name="styleref"
+              name="fabric_cost_total"
                 type="text"
                 class="form-control"
-                id="styleref"
+                id="fabric_cost_total"
                 placeholder=""
                 value=""
            
@@ -142,356 +156,392 @@
             </div>
 
             <div class="col-md-4 mb-3">
-              <label for="deptcode">Dept & Code </label>
+              <label for="fabric_cost_percent">Fabric cost percent </label>
               <input
-              name="deptcode"
+              name="fabric_cost_percent"
                 type="text"
                 class="form-control"
-                id="deptcode"
+                id="fabric_cost_percent"
                 placeholder=""
                 value=""
            
               />
             </div>
             <div class="col-md-4 mb-3">
-                <label for="deptcode">Gmts Wash </label>
+                <label for="trims_cost_total">Trims cost total </label>
                 <input
-                name="deptcode"
+                name="trims_cost_total"
                   type="text"
                   class="form-control"
-                  id="deptcode"
+                  id="trims_cost_total"
                   placeholder=""
                   value=""
              
                 />
               </div>
               <div class="col-md-4 mb-3">
-                <label for="deptcode">SP. Works </label>
+                <label for="trims_cost_percent">Trims cost percent </label>
                 <input
-                name="deptcode"
+                name="trims_cost_percent"
                   type="text"
                   class="form-control"
-                  id="deptcode"
+                  id="trims_cost_percent"
                   placeholder=""
                   value=""
              
                 />
               </div>
               <div class="col-md-4 mb-3">
-                <label for="deptcode">Gmts Dye. </label>
+                <label for="embellish_cost_total">Embellish cost total </label>
                 <input
-                name="deptcode"
+                name="embellish_cost_total"
                   type="text"
                   class="form-control"
-                  id="deptcode"
+                  id="embellish_cost_total"
                   placeholder=""
                   value=""
              
                 />
               </div>
               <div class="col-md-4 mb-3">
-                <label for="deptcode">Inspection Cost </label>
+                <label for="embellish_cost_percent">Embellish cost percent </label>
                 <input
-                name="deptcode"
+                name="embellish_cost_percent"
                   type="text"
                   class="form-control"
-                  id="deptcode"
+                  id="embellish_cost_percent"
                   placeholder=""
                   value=""
              
                 />
               </div>
               <div class="col-md-4 mb-3">
-                <label for="deptcode">Curiar Cost </label>
+                <label for="commercial_cost_total">Commercial cost total</label>
                 <input
-                name="deptcode"
+                name="commercial_cost_total"
                   type="text"
                   class="form-control"
-                  id="deptcode"
+                  id="commercial_cost_total"
                   placeholder=""
                   value=""
              
                 />
               </div>
-            <!-- <div class="col-md-4 mb-3">
-              <label for="subdept">Sub. Dept.</label>
-              <select
-              name="subdept"
-              class="custom-select d-block w-100"
-              id="subdept"
+              <div class="col-md-4 mb-3">
+                <label for="commercial_cost_percent">Commercial cost percent</label>
+                <input
+                name="commercial_cost_percent"
+                  type="text"
+                  class="form-control"
+                  id="commercial_cost_percent"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="commision_cost_total">Commision cost total</label>
+                <input
+                name="commision_cost_total"
+                  type="text"
+                  class="form-control"
+                  id="commision_cost_total"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="commission_cost_percent">Commercial cost percent</label>
+                <input
+                name="commission_cost_percent"
+                  type="text"
+                  class="form-control"
+                  id="commission_cost_percent"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="testing_cost_total">Testing cost total</label>
+                <input
+                name="testing_cost_total"
+                  type="text"
+                  class="form-control"
+                  id="testing_cost_total"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="testing_cost_percent">Testing cost percent</label>
+                <input
+                name="testing_cost_percent"
+                  type="text"
+                  class="form-control"
+                  id="testing_cost_percent"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="freight_cost_total">Freight cost total</label>
+                <input
+                name="freight_cost_total"
+                  type="text"
+                  class="form-control"
+                  id="freight_cost_total"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="freight_cost_percent">Freight cost percent</label>
+                <input
+                name="freight_cost_percent"
+                  type="text"
+                  class="form-control"
+                  id="freight_cost_percent"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="inspection_cost">Inspection cost</label>
+                <input
+                name="inspection_cost"
+                  type="text"
+                  class="form-control"
+                  id="inspection_cost"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="inspection_cost_per">Inspection cost per</label>
+                <input
+                name="inspection_cost_per"
+                  type="text"
+                  class="form-control"
+                  id="inspection_cost_per"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="courier_cost">Couriar cost</label>
+                <input
+                name="courier_cost"
+                  type="text"
+                  class="form-control"
+                  id="courier_cost"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
               
-            >
-              <option value="">-- Select Sub Dept --</option>
-              <option>Sub Dept 1</option>
-              <option>Sub Dept 2</option>
-              <option>Sub Dept 3</option>
-              <option>Sub Dept 4</option>
-            </select>
-            </div> 
+              <div class="col-md-4 mb-3">
+                <label for="courier_cost_per">Courier cost per</label>
+                <input
+                name="courier_cost_per"
+                  type="text"
+                  class="form-control"
+                  id="courier_cost_per"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="total_cost">Total cost</label>
+                <input
+                name="total_cost"
+                  type="text"
+                  class="form-control"
+                  id="total_cost"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="total_cost_per">Total cost per</label>
+                <input
+                name="total_cost_per"
+                  type="text"
+                  class="form-control"
+                  id="total_cost_per"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="cm_per_unit">Cm per unit</label>
+                <input
+                name="cm_per_unit"
+                  type="text"
+                  class="form-control"
+                  id="cm_per_unit"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="price_per_unit">Price per unit</label>
+                <input
+                name="price_per_unit"
+                  type="text"
+                  class="form-control"
+                  id="price_per_unit"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="price_per_pc">Price per piece</label>
+                <input
+                name="price_per_pc"
+                  type="text"
+                  class="form-control"
+                  id="price_per_pc"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="bep_cm_per">Bep cm per</label>
+                <input
+                name="bep_cm_per"
+                  type="text"
+                  class="form-control"
+                  id="bep_cm_per"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="asking_cm_per">Asking cm per</label>
+                <input
+                name="asking_cm_per"
+                  type="text"
+                  class="form-control"
+                  id="asking_cm_per"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="cm_from_ie">Cm from ie</label>
+                <input
+                name="cm_from_ie"
+                  type="text"
+                  class="form-control"
+                  id="cm_from_ie"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="profit_loss">Profit loss</label>
+                <input
+                name="profit_loss"
+                  type="text"
+                  class="form-control"
+                  id="profit_loss"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="inserted_by">Inserted by</label>
+                <input
+                name="inserted_by"
+                  type="text"
+                  class="form-control"
+                  id="inserted_by"
+                  placeholder=""
+                  value=""
+             
+                />
+              </div>
 
-            <div class="col-md-4 mb-3">
-              <label for="productcat">Product Category</label>
-              <select
-              name="productcat"
-              class="custom-select d-block w-100"
-              id="productcat"
-            >
-              <option value="">-- Outwears --</option>
-              <option>Category 1</option>
-              <option>Category 2</option>
-              <option>Category 3</option>
-              <option>Category 4</option>
-            </select>
-            </div>  
-            <div class="col-md-4 mb-3">
-              <label for="season">Season</label>
-              <select
-              name="season"
-              class="custom-select d-block w-100"
-              id="season"
-              
-            >
-              <option value="">-- Select Season --</option>
-              <option>season 1</option>
-              <option>season 2</option>
-              <option>season 3</option>
-              <option>season 4</option>
-            </select>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="region">Region</label>
-              <select
-              name="region"
-              class="custom-select d-block w-100"
-              id="region"
-              
-            >
-              <option value="">-- Select Region --</option>
-              <option>Region 1</option>
-              <option>Region 2</option>
-              <option>Region 3</option>
-              <option>Region 4</option>
-            </select>
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="reptno">Rept. No</label>
-              <input
-              name="reptno"
-                type="text"
-                class="form-control"
-                id="reptno"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            
-            <div class="col-md-4 mb-3">
-              <label for="agent">Agent</label>
-              <select
-              name="agent"
-              class="custom-select d-block w-100"
-              id="agent"
-            >
-              <option value="">-- Select Agent --</option>
-              <option>Agent 1</option>
-              <option>Agent 2</option>
-              <option>Agent 3</option>
-              <option>Agent 4</option>
-            </select>
-            </div>  
-            
-            <div class="col-md-4 mb-3">
-              <label for="client">Client</label>
-              <select
-              name="client"
-              class="custom-select d-block w-100"
-              id="client"
-            >
-              <option value="">-- Select Client --</option>
-              <option>Client 1</option>
-              <option>Client 2</option>
-              <option>Client 3</option>
-              <option>Client 4</option>
-            </select>
-            </div>
+              <div class="col-md-4 mb-3">
+                <label for="insert_date    ">Insert Date</label>
+                <input
+                  name="insert_date    "
+                  type="date"
+                  class="form-control"
+                  id="insert_date    "
+                  placeholder=""
+                  value=""
+                />
+              </div> 
+              <div class="col-md-4 mb-3">
+                <label for="updated_by    ">Updated By</label>
+                <input
+                  name="updated_by    "
+                  type="text"
+                  class="form-control"
+                  id="updated_by    "
+                  placeholder=""
+                  value=""
+                />
+              </div> 
+              <div class="col-md-4 mb-3">
+                <label for="update_date    ">Update Date</label>
+                <input
+                  name="update_date    "
+                  type="date"
+                  class="form-control"
+                  id="update_date    "
+                  placeholder=""
+                  value=""
+                />
+              </div> 
 
-            <div class="col-md-4 mb-3">
-              <label for="qualitylabel">Quality Label</label>
-              <input
-              name="qualitylabel"
-                type="text"
-                class="form-control"
-                id="qualitylabel"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="uomsmv">UOM & SMV</label>
-              <input
-              name="uomsmv"
-                type="text"
-                class="form-control"
-                id="uomsmv"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="bhmerc">BH Merc.</label>
-              <input
-              name="bhmerc"
-                type="text"
-                class="form-control"
-                id="bhmerc"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="shipmode">Ship Mode</label>
-              <select
-              name="shipmode"
-              class="custom-select d-block w-100"
-              id="shipmode"
-            >
-              <option value="">-- Sea --</option>
-              <option>Mode 1</option>
-              <option>Mode 2</option>
-              <option>Mode 3</option>
-              <option>Mode 4</option>
-            </select>
-            </div>  
-            <div class="col-md-4 mb-3">
-              <label for="teamleader">Team Leader</label>
-              <select
-              name="teamleader"
-              class="custom-select d-block w-100"
-              id="teamleader"
-              
-            >
-              <option value="">-- Select Leader  --</option>
-              <option>Team Leader 1</option>
-              <option>Team Leader 2</option>
-              <option>Team Leader 3</option>
-              <option>Team Leader 4</option>
-            </select>
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="dealingmerc">Dealing Mer.</label>
-              <select
-              name="dealingmerc"
-              class="custom-select d-block w-100"
-              id="dealingmerc"
-              
-            >
-              <option value="">-- Select Mer --</option>
-              <option>Mer 1</option>
-              <option>Mer 2</option>
-              <option>Mer 3</option>
-              <option>Mer 4</option>
-            </select>
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="factorymerc">Factory Mer.</label>
-              <select
-              name="factorymerc"
-              class="custom-select d-block w-100"
-              id="factorymerc"
-              
-            >
-              <option value="">-- Select Mer --</option>
-              <option>Mer 1</option>
-              <option>Mer 2</option>
-              <option>Mer 3</option>
-              <option>Mer 4</option>
-            </select>
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="bom">Ready for BOM</label>
-              <input
-                name="bom"
-                type="text"
-                class="form-control"
-                id="bom"
-                placeholder=""
-                value=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="copyform">Copy Form</label>
-              <input
-              name="copyform"
-                type="text"
-                class="form-control"
-                id="copyform"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="add_file">Add File</label>
-              <input
-               src="media/images/Employee_Images"
-              name="add_file"
-                type="file"
-                class="form-control"
-                id="add_file"
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="intref">Int. Ref.</label>
-              <input
-              name="intref"
-                type="text"
-                class="form-control"
-                id="intref"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="currency">Currency</label>
-              <select
-              name="currency"
-              class="custom-select d-block w-100"
-              id="currency"
-            >
-              <option value="">-- USD --</option>
-              <option>Currency 1</option>
-              <option>Currency 2</option>
-              <option>Currency 3</option>
-              <option>Currency 4</option>
-            </select>
-            </div>  
-            <div class="col-md-4 mb-3">
-              <label for="ordertype">Order Type</label>
-              <input
-                name="ordertype"
-                type="text"
-                class="form-control"
-                id="ordertype"
-                placeholder=""
-                value=""
-              />
-            </div> 
-            <div class="col-md-12 mb-3">
-              <label for="remarks">Remarks</label>
-              <input
-                name="remarks"
-                type="text"
-                class="form-control"
-                id="remarks"
-                placeholder=""
-                value=""
-              />
-            </div>  -->
+              <div class="col-md-4 mb-3">
+                <label for="is_deleted     ">IS Delete</label>
+                <select
+                name="is_deleted  "
+                class="custom-select d-block w-100"
+                id="is_deleted  "
+              >
+              <option value="">-- Status --</option>
+              <option>Yes</option>
+              <option>No</option>
+             
+              </select>
+              </div> 
+              <div class="col-md-4 mb-3">
+                <label for="status_active      ">Status active</label>
+                <select
+                name="status_active   "
+                class="custom-select d-block w-100"
+                id="status_active   "
+              >
+              <option value="">-- Status --</option>
+              <option>Yes</option>
+              <option>No</option>
+             
+              </select>
+              </div> 
+            
 
 
 

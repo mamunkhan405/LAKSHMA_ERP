@@ -13,6 +13,19 @@
 {% endblock css%}
 
 {% block body %}
+{% if messages %}
+
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong>{{message}} 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+    {% endfor %}
+
+   {% endif %}
   
     <div class="container p-5 bg-color">
       <div class="py-5 text-center">
@@ -31,350 +44,329 @@
        
 
              <div class="col-md-4 mb-3">
-              <label for="jobno">Job No.</label>
+              <label for="job_no">Job No.</label>
               <input
-              name="jobno"
+              name="job_no"
                 type="text"
                 class="form-control"
-                id="jobno"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-             <div class="col-md-4 mb-3">
-              <label for="lccom">LC Com.</label>
-              <input
-              name="lccom"
-                type="text"
-                class="form-control"
-                id="lccom"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-             <div class="col-md-4 mb-3">
-              <label for="lccomploc">LC Company Location</label>
-              <input
-              name="lccomploc"
-                type="text"
-                class="form-control"
-                id="lccomploc"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-             <div class="col-md-4 mb-3">
-              <label for="wcomp">W. Company </label>
-              <input
-              name="wcomp"
-                type="text"
-                class="form-control"
-                id="wcomp"
+                id="job_no"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
             <div class="col-md-4 mb-3">
-              <label for="wcomploc">W Company Location</label>
-              <input
-              name="wcomploc"
-                type="text"
-                class="form-control"
-                id="wcomploc"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="fileno">File No</label>
-              <input
-              name="fileno"
-                type="text"
-                class="form-control"
-                id="fileno"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="projob">Proj. Job</label>
-              <input
-              name="projob"
-                type="text"
-                class="form-control"
-                id="projob"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-                        
-             <div class="col-md-4 mb-3">
-              <label for="buyer">Buyer</label>
-              <input
-              name="buyer"
-                type="text"
-                class="form-control"
-                id="buyer"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-
-            <div class="col-md-4 mb-3">
-              <label for="styleref">Style Ref. </label>
-              <input
-              name="styleref"
-                type="text"
-                class="form-control"
-                id="styleref"
-                placeholder=""
-                value=""
+              <label for="buyer_name">Buyer Name</label>
+              <select
+              name="buyer_name "
+              class="custom-select d-block w-100"
+              id="buyer_name "
+            >
+              <option value="">-- Select Buyer --</option>
+              {% for b in buyers %}
+              <option>{{b.buyer_name}}</option>
+              {% endfor %}
            
-              />
-            </div>
+            </select>
+            </div> 
 
             <div class="col-md-4 mb-3">
-              <label for="deptcode">Dept & Code </label>
-              <input
-              name="deptcode"
-                type="text"
-                class="form-control"
-                id="deptcode"
-                placeholder=""
-                value=""
+              <label for="style_name">Style Ref. No.</label>
+              <select
+              name="style_name "
+              class="custom-select d-block w-100"
+              id="style_name "
+            >
+              <option value="">-- Select Style Ref No --</option>
+              {% for s in styles %}
+              <option>{{s.style_name}}</option>
+              {% endfor %}
            
-              />
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="subdept">Sub. Dept.</label>
-              <select
-              name="subdept"
-              class="custom-select d-block w-100"
-              id="subdept"
-              
-            >
-              <option value="">-- Select Sub Dept --</option>
-              <option>Sub Dept 1</option>
-              <option>Sub Dept 2</option>
-              <option>Sub Dept 3</option>
-              <option>Sub Dept 4</option>
             </select>
             </div> 
-
-            <div class="col-md-4 mb-3">
-              <label for="productcat">Product Category</label>
-              <select
-              name="productcat"
-              class="custom-select d-block w-100"
-              id="productcat"
-            >
-              <option value="">-- Outwears --</option>
-              <option>Category 1</option>
-              <option>Category 2</option>
-              <option>Category 3</option>
-              <option>Category 4</option>
-            </select>
-            </div>  
-            <div class="col-md-4 mb-3">
-              <label for="season">Season</label>
-              <select
-              name="season"
-              class="custom-select d-block w-100"
-              id="season"
-              
-            >
-              <option value="">-- Select Season --</option>
-              <option>season 1</option>
-              <option>season 2</option>
-              <option>season 3</option>
-              <option>season 4</option>
-            </select>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="region">Region</label>
-              <select
-              name="region"
-              class="custom-select d-block w-100"
-              id="region"
-              
-            >
-              <option value="">-- Select Region --</option>
-              <option>Region 1</option>
-              <option>Region 2</option>
-              <option>Region 3</option>
-              <option>Region 4</option>
-            </select>
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="reptno">Rept. No</label>
+           
+             <div class="col-md-4 mb-3">
+              <label for="order_repeat_no">Order Repeat No.</label>
               <input
-              name="reptno"
+              name="order_repeat_no"
                 type="text"
                 class="form-control"
-                id="reptno"
+                id="order_repeat_no"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
+            <div class="col-md-4 mb-3">
+              <label for="company_name">Company Name </label>
+              <select
+              name="company_name "
+              class="custom-select d-block w-100"
+              id="company_name "
+            >
+              <option value="">-- Select Working Company --</option>
+              {% for c in company %}
+              <option>{{c.company_name}}</option>
+              {% endfor %}
+           
+            </select>
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="working_company_location">Working Company Location</label>
+              <input
+              name="working_company_location"
+                type="text"
+                class="form-control"
+                id="working_company_location"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="file_no">File no</label>
+              <input
+              name="file_no"
+                type="text"
+                class="form-control"
+                id="file_no"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="projected_job_no">Projected job no</label>
+              <input
+              name="projected_job_no"
+                type="text"
+                class="form-control"
+                id="projected_job_no"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+
+             <div class="col-md-4 mb-3">
+              <label for="department_name">Department Name</label>
+              <select
+              name="department_name "
+              class="custom-select d-block w-100"
+              id="department_name "
+            >
+              <option value="">-- Choose --</option>
+              {% for d in departments %}
+              <option>{{d.department_name}}</option>
+              {% endfor %}
+           
+            </select>
+            </div> 
+
+            <div class="col-md-4 mb-3">
+              <label for="sub_department_name">Sub Department Name</label>
+              <select
+              name="sub_department_name "
+              class="custom-select d-block w-100"
+              id="sub_department_name "
+            >
+              <option value="">-- Choose --</option>
+              {% for sub in sub_department %}
+              <option>{{sub.sub_department_name}}</option>
+              {% endfor %}
+           
+            </select>
+            </div> 
+
+            <div class="col-md-4 mb-3">
+              <label for="product_cate">product Category </label>
+              <select
+              name="product_cate"
+              class="custom-select d-block w-100"
+              id="product_cate"
+            >
+              <option value="">-- Choose --</option>
+              {% for p in prod_cate %}
+              <option>{{p.product_cate}}</option>
+              {% endfor %}
+            </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="season_name">Season Name</label>
+              <select
+              name="season_name"
+              class="custom-select d-block w-100"
+              id="season_name"
+            >
+              <option value="">-- Choose --</option>
+              {% for s in seasons %}
+              <option>{{s.season_name}}</option>
+              {% endfor %}
+            </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="region_name">Region Name</label>
+              <select
+              name="region_name"
+              class="custom-select d-block w-100"
+              id="region_name"
+              
+            >
+              <option value="">-- Choose --</option>
+              {% for r in regions %}
+              <option>{{r.region_name}}</option>
+              {% endfor %}
+            </select>
+            </div> 
+           
             
             <div class="col-md-4 mb-3">
-              <label for="agent">Agent</label>
+              <label for="agent_name">Agent Name</label>
               <select
-              name="agent"
+              name="agent_name"
               class="custom-select d-block w-100"
-              id="agent"
+              id="agent_name"
             >
-              <option value="">-- Select Agent --</option>
-              <option>Agent 1</option>
-              <option>Agent 2</option>
-              <option>Agent 3</option>
-              <option>Agent 4</option>
+              <option value="">-- Choose --</option>
+              {% for a in agents %}
+              <option>{{a.agent_name}}</option>
+              {% endfor %}
             </select>
             </div>  
             
             <div class="col-md-4 mb-3">
-              <label for="client">Client</label>
+              <label for="client_name">Client Name</label>
               <select
-              name="client"
+              name="client_name"
               class="custom-select d-block w-100"
-              id="client"
+              id="client_name"
             >
-              <option value="">-- Select Client --</option>
-              <option>Client 1</option>
-              <option>Client 2</option>
-              <option>Client 3</option>
-              <option>Client 4</option>
+              <option value="">-- Choose --</option>
+              {% for c in clients %}
+              <option>{{c.client_name}}</option>
+              {% endfor %}
             </select>
             </div>
 
             <div class="col-md-4 mb-3">
-              <label for="qualitylabel">Quality Label</label>
+              <label for="quality_label">Quality Label</label>
               <input
-              name="qualitylabel"
+              name="quality_label"
                 type="text"
                 class="form-control"
-                id="qualitylabel"
+                id="quality_label"
                 placeholder=""
                 value=""
                 required=""
               />
             </div> 
             <div class="col-md-4 mb-3">
-              <label for="uomsmv">UOM & SMV</label>
-              <input
-              name="uomsmv"
-                type="text"
-                class="form-control"
-                id="uomsmv"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="bhmerc">BH Merc.</label>
-              <input
-              name="bhmerc"
-                type="text"
-                class="form-control"
-                id="bhmerc"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="shipmode">Ship Mode</label>
+              <label for="unit_name">Unit Name</label>
               <select
-              name="shipmode"
+              name="unit_name"
               class="custom-select d-block w-100"
-              id="shipmode"
+              id="unit_name"
             >
-              <option value="">-- Sea --</option>
-              <option>Mode 1</option>
-              <option>Mode 2</option>
-              <option>Mode 3</option>
-              <option>Mode 4</option>
+              <option value="">-- Choose --</option>
+              {% for u in units %}
+              <option>{{u.unit_name}}</option>
+              {% endfor %}
+              
+            </select>
+            </div> 
+
+
+            <div class="col-md-4 mb-3">
+              <label for="smv">UOM & SMV</label>
+              <input
+              name="smv"
+                type="text"
+                class="form-control"
+                id="smv"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="buying_house_merchandiser">Buying house merchandiser.</label>
+              <input
+              name="buying_house_merchandiser"
+                type="text"
+                class="form-control"
+                id="buying_house_merchandiser"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="ship_mode">Ship Mode</label>
+              <select
+              name="ship_mode"
+              class="custom-select d-block w-100"
+              id="ship_mode"
+            >
+              <option value="">-- Choose --</option>
+              <option>Sea</option>
+              <option>Air</option>
+              <option>Road</option>
+              
             </select>
             </div>  
             <div class="col-md-4 mb-3">
-              <label for="teamleader">Team Leader</label>
+              <label for="emp_code">Employee code</label>
               <select
-              name="teamleader"
+              name="emp_code"
               class="custom-select d-block w-100"
-              id="teamleader"
+              id="emp_code"
               
             >
-              <option value="">-- Select Leader  --</option>
-              <option>Team Leader 1</option>
-              <option>Team Leader 2</option>
-              <option>Team Leader 3</option>
-              <option>Team Leader 4</option>
+              <option value="">-- Choose  --</option>
+              {% for e in employee %}
+              <option>{{e.emp_code}}</option>
+              {% endfor %}
             </select>
             </div> 
+          
             <div class="col-md-4 mb-3">
-              <label for="dealingmerc">Dealing Mer.</label>
-              <select
-              name="dealingmerc"
-              class="custom-select d-block w-100"
-              id="dealingmerc"
-              
-            >
-              <option value="">-- Select Mer --</option>
-              <option>Mer 1</option>
-              <option>Mer 2</option>
-              <option>Mer 3</option>
-              <option>Mer 4</option>
-            </select>
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="factorymerc">Factory Mer.</label>
-              <select
-              name="factorymerc"
-              class="custom-select d-block w-100"
-              id="factorymerc"
-              
-            >
-              <option value="">-- Select Mer --</option>
-              <option>Mer 1</option>
-              <option>Mer 2</option>
-              <option>Mer 3</option>
-              <option>Mer 4</option>
-            </select>
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="bom">Ready for BOM</label>
+              <label for="ready_for_bom">Ready for BOM</label>
               <input
-                name="bom"
+                name="ready_for_bom"
                 type="text"
                 class="form-control"
-                id="bom"
+                id="ready_for_bom"
                 placeholder=""
                 value=""
               />
             </div> 
             <div class="col-md-4 mb-3">
-              <label for="copyform">Copy Form</label>
+              <label for="copy_from_job_no">Copy Form job no</label>
               <input
-              name="copyform"
+              name="copy_from_job_no"
                 type="text"
                 class="form-control"
-                id="copyform"
+                id="copy_from_job_no"
                 placeholder=""
                 value=""
                 required=""
               />
             </div>
             <div class="col-md-4 mb-3">
+              <label for="file_name_link">File name link</label>
+              <input
+              name="file_name_link"
+                type="text"
+                class="form-control"
+                id="file_name_link"
+                placeholder=""
+                value=""
+                required=""
+              />
+            </div>
+            <!-- <div class="col-md-4 mb-3">
               <label for="add_file">Add File</label>
               <input
                src="media/images/Employee_Images"
@@ -383,286 +375,137 @@
                 class="form-control"
                 id="add_file"
               />
-            </div> 
+            </div>  -->
             <div class="col-md-4 mb-3">
-              <label for="intref">Int. Ref.</label>
+              <label for="internal_ref_no">Int. Ref. No.</label>
               <input
-              name="intref"
+              name="internal_ref_no"
                 type="text"
                 class="form-control"
-                id="intref"
+                id="internal_ref_no"
                 placeholder=""
                 value=""
                 required=""
               />
             </div>
             <div class="col-md-4 mb-3">
-              <label for="currency">Currency</label>
+              <label for="currency_code">Currency</label>
               <select
-              name="currency"
+              name="currency_code"
               class="custom-select d-block w-100"
-              id="currency"
+              id="currency_code"
             >
-              <option value="">-- USD --</option>
-              <option>Currency 1</option>
-              <option>Currency 2</option>
-              <option>Currency 3</option>
-              <option>Currency 4</option>
+              <option value="">-- Choose --</option>
+              {% for c in currency %}
+              <option>{{c.currency_code}}</option>
+              {% endfor %}
             </select>
             </div>  
             <div class="col-md-4 mb-3">
-              <label for="ordertype">Order Type</label>
-              <input
-                name="ordertype"
-                type="text"
-                class="form-control"
-                id="ordertype"
-                placeholder=""
-                value=""
-              />
+              <label for="order_type">Order Type</label>
+              <select
+              name="order_type"
+              class="custom-select d-block w-100"
+              id="order_type"
+            >
+              <option value="">-- Choose --</option>
+              <option>Knit</option>
+              <option>Oven</option>
+              <option>Sweater</option>
+              
+            </select>
             </div> 
-            <div class="col-md-12 mb-3">
-              <label for="remarks">Remarks</label>
-              <input
-                name="remarks"
-                type="text"
-                class="form-control"
-                id="remarks"
-                placeholder=""
-                value=""
-              />
-            </div> 
-          </div>
-          <button type="submit" class="btn btn-primary">Save</button>
-        </form>
-      </div>
-
-
-
-      <!-- ============== PO DETAILS ENTRY FORM ============== -->
-
-      <div class="py-5 text-center">
-        <h2 class="text-uppercase font-weight-bold">PO DETAILS ENTRY</h2>
-        
-      </div>
-
-      <div class="col-md-12 order-md-1 mb-2">
-       
-        <form class="needs-validation " method="post" action="" enctype="multipart/form-data">
-        {% csrf_token %}
-          <div class="row justify-content-center"> 
-
-       
-
-             <div class="col-md-4 mb-3">
-              <label for="jobno">Breakdown Type</label>
-              <input
-              name="jobno"
-                type="text"
-                class="form-control"
-                id="jobno"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-
-             <div class="col-md-4 mb-3">
-              <label for="lccom">Round Type</label>
-              <input
-              name="lccom"
-                type="text"
-                class="form-control"
-                id="lccom"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-             <div class="col-md-4 mb-3">
-              <label for="lccomploc">PO Copy</label>
-              <input
-              name="lccomploc"
-                type="text"
-                class="form-control"
-                id="lccomploc"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-
-             <div class="col-md-4 mb-3">
-              <label for="wcomp">Copy PO No. </label>
-              <input
-              name="wcomp"
-                type="text"
-                class="form-control"
-                id="wcomp"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="wcomploc">PO No.</label>
-              <input
-              name="wcomploc"
-                type="text"
-                class="form-control"
-                id="wcomploc"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="fileno">PO Recived Date</label>
-              <input
-              name="fileno"
-                type="text"
-                class="form-control"
-                id="fileno"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="projob">PO Ship Date</label>
-              <input
-              name="projob"
-                type="text"
-                class="form-control"
-                id="projob"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="projob">Act. Ship. Date</label>
-              <input
-              name="projob"
-                type="text"
-                class="form-control"
-                id="projob"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="projob">Avg. FOB</label>
-              <input
-              name="projob"
-                type="text"
-                class="form-control"
-                id="projob"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-            <div class="col-md-4 mb-3">
-              <label for="projob">Up Charge</label>
-              <input
-              name="projob"
-                type="text"
-                class="form-control"
-                id="projob"
-                placeholder=""
-                value=""
-                required=""
-              />
-            </div> 
-                        
             
-
             <div class="col-md-4 mb-3">
-              <label for="styleref">Order Quantity </label>
+              <label for="inserted_by    ">Inserted By</label>
               <input
-              name="styleref"
+                name="inserted_by    "
                 type="text"
                 class="form-control"
-                id="styleref"
+                id="inserted_by    "
                 placeholder=""
                 value=""
-           
               />
-            </div>
-
+            </div> 
             <div class="col-md-4 mb-3">
-              <label for="deptcode">CTN  </label>
+              <label for="insert_date    ">Insert Date</label>
               <input
-              name="deptcode"
+                name="insert_date    "
+                type="date"
+                class="form-control"
+                id="insert_date    "
+                placeholder=""
+                value=""
+              />
+            </div> 
+            <div class="col-md-4 mb-3">
+              <label for="updated_by    ">Updated By</label>
+              <input
+                name="updated_by    "
                 type="text"
                 class="form-control"
-                id="deptcode"
+                id="updated_by    "
                 placeholder=""
                 value=""
-           
               />
-            </div>
+            </div> 
             <div class="col-md-4 mb-3">
-              <label for="deptcode">Projected PO  </label>
+              <label for="update_date    ">Update Date</label>
               <input
-              name="deptcode"
-                type="text"
+                name="update_date    "
+                type="date"
                 class="form-control"
-                id="deptcode"
+                id="update_date    "
                 placeholder=""
                 value=""
-           
               />
-            </div>
+            </div> 
             <div class="col-md-4 mb-3">
-              <label for="deptcode">Packing  </label>
-              <input
-              name="deptcode"
-                type="text"
-                class="form-control"
-                id="deptcode"
-                placeholder=""
-                value=""
+              <label for="status_active">Status</label>
+              <select
+              name="status_active "
+              class="custom-select d-block w-100"
+              id="status_active "
+            >
+              <option value="">-- Choose --</option>
+              <option>Yes</option>
+              <option>No</option>
            
-              />
-            </div>
+            </select>
+            </div> 
+  
             <div class="col-md-4 mb-3">
-              <label for="deptcode">Actual PO No </label>
-              <input
-              name="deptcode"
-                type="text"
-                class="form-control"
-                id="deptcode"
-                placeholder=""
-                value=""
+              <label for="is_deleted">Delete</label>
+              <select
+              name="is_deleted"
+              class="custom-select d-block w-100"
+              id="is_deleted"
+            >
+              <option value="">-- Choose --</option>
+              <option>Yes</option>
+              <option>No</option>
            
-              />
-            </div>
+            </select>
+            </div> 
             <div class="col-md-12 mb-3">
-              <label for="deptcode">PO Status </label>
-              <input
-              name="deptcode"
+              <label for="remarks  "> Remark </label>
+              <textarea
+              name="remarks  "
                 type="text"
                 class="form-control"
-                id="deptcode"
+                id="remarks  "
                 placeholder=""
                 value=""
-           
-              />
-            </div>
-           
+                required=""
+              ></textarea>
+            </div> 
+            
           </div>
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>
 
-
-
-
-    </div>
-
+</div>
 
   {% endblock %}
 

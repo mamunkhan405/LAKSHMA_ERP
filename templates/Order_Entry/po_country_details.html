@@ -65,15 +65,15 @@
           </div> 
 
           <div class="col-md-4 mb-3">
-            <label for="country_id    ">Country Id</label>
+            <label for="country_code   ">Country Id</label>
             <select
-            name="country_id "
+            name="country_code "
             class="custom-select d-block w-100"
-            id="country_id "
+            id="country_code "
           >
             <option value="">Select country id</option>
             {% for country in country_ids %}
-            <option>{{country.country_name}}</option>
+            <option>{{country.country_code}}</option>
             {% endfor %}
           </select>
           </div> 
@@ -92,11 +92,11 @@
           </div> 
 
           <div class="col-md-4 mb-3">
-            <label for="product_id    ">Product Id</label>
+            <label for="product_code    ">Product Code</label>
             <select
-            name="product_id "
+            name="product_code "
             class="custom-select d-block w-100"
-            id="product_id "
+            id="product_code "
           >
             <option value="">Select Product id</option>
             {% for product in product_ids %}
@@ -284,7 +284,44 @@
       </form>
     </div>
 
-
+    <div class="container mt-4">
+      <h4 class="text-center">VIEW ALL PO COUNTRY LIST HERE</h4>
+     
+       
+      <div class="table-responsive">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Serial No.</th>
+            <th scope="col">Job no</th>
+            <th scope="col">Po Number</th>
+            <th scope="col">Product Code</th>
+            <th scope="col">Po quantity</th>
+            <th scope="col">Agent Name</th>
+            <th scope="col">Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in country_info  %}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.job_no}}</td>
+            <td>{{i.po_number}}</td>
+            <td>{{i.product_code}}</td>
+            <td>{{i.po_quantity}}</td>
+            <td>{{i.agent_name}}</td>
+            <td>
+              <a href="/viewbuyerInfo/{{i.id}}"><i class="fas fa-eye btn btn-primary btn-sm" ></i></a> 
+              <a href="/editbuyerInfo/{{i.id}}"><i class="fas fa-pencil-alt btn-danger btn-sm"></i></a>
+              <a href="/delete_buyer/{{i.id}}"><i class="far fa-trash-alt btn-warning btn-sm"></i></a> 
+            </td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+      </div>
+    </div> 
 
 
 {%endblock body%}
