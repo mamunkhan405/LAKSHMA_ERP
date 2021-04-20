@@ -158,6 +158,105 @@ class OrderEntry(View):
             'currency':currency
             }
         return render(request, 'Order_Entry/order_entry_form.html', context)
+
+class PoDetails(View):
+    def get(self, request):
+        numbers = OmPoBreakDown.objects.all()
+        po_job = WoPOCountryDetails.objects.all()
+        po_info = OmPoDetailsMaster.objects.all()
+        context = {
+            'numbers':numbers,
+            'po_job':po_job,
+            'po_info': po_info
+        }
+        return render(request, 'Order_Entry/po_details.html', context)
+    def post(self, request):
+        job_no_mst = request.POST['job_no_mst']
+        breakdown_type = request.POST['breakdown_type']
+        round_type = request.POST['round_type']
+        copy_from = request.POST['copy_from']
+        po_number = request.POST['po_number']
+        job_no = request.POST['job_no']
+        po_received_date = request.POST['po_received_date']
+        po_quantity = request.POST['po_quantity']
+        unit_price = request.POST['unit_price']
+        set_pc_rate = request.POST['set_pc_rate']
+        set_quantity = request.POST['set_quantity']
+        set_total_quantity = request.POST['set_total_quantity']
+        po_total_price = request.POST['po_total_price']
+        shipment_date = request.POST['shipment_date']
+        original_shipment_date = request.POST['original_shipment_date']
+        avg_fob = request.POST['avg_fob']
+        up_charge = request.POST['up_charge']
+        ctn = request.POST['ctn']
+        projected_po_number = request.POST['projected_po_number']
+        actual_po_number = request.POST['actual_po_number']
+        t_year = request.POST['t_year']
+        t_month = request.POST['t_month']
+        is_deleted = request.POST['is_deleted']
+        is_countable = request.POST['is_countable']
+        is_projected = request.POST['is_projected']
+        remarks = request.POST['remarks']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_locked = request.POST['is_locked']
+        po_status = request.POST['po_status']
+
+        po_details_info = OmPoDetailsMaster(
+            job_no_mst = job_no_mst,
+            breakdown_type = breakdown_type,
+            round_type = round_type,
+            copy_from = copy_from,
+            po_number = OmPoBreakDown.objects.get(po_number=po_number),
+            job_no = WoPOCountryDetails.objects.get(job_no=job_no),
+
+            
+            po_received_date = po_received_date,
+            po_quantity = po_quantity,
+            unit_price = unit_price,
+            set_pc_rate = set_pc_rate,
+
+            set_quantity = set_quantity,
+            set_total_quantity = set_total_quantity,
+            po_total_price = po_total_price,
+            shipment_date = shipment_date,
+            original_shipment_date = original_shipment_date,
+            avg_fob = avg_fob,
+            up_charge = up_charge,
+            ctn = ctn,
+            projected_po_number = projected_po_number,
+            actual_po_number = actual_po_number,
+            t_year = t_year,
+            t_month = t_month,
+            
+            is_deleted = is_deleted,
+            is_countable = is_countable,
+            is_projected = is_projected,
+            remarks = remarks,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_locked = is_locked,
+            po_status = po_status
+
+        )
+        po_details_info.save()
+        messages.success(request, 'Congratulations! Po Detail information has been Added Successfully...')
+        numbers = OmPoBreakDown.objects.all()
+        po_job = WoPOCountryDetails.objects.all()
+        po_info = OmPoDetailsMaster.objects.all()
+        context = {
+            'numbers':numbers,
+            'po_job':po_job,
+            'po_info': po_info
+        }
+        return render(request, 'Order_Entry/po_details.html', context)
+
 class POBreakdownInfo(View):
     def get(self, request):
         return render(request, 'Order_Entry/po_breakdown.html')

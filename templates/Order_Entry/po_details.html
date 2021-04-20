@@ -1,0 +1,480 @@
+{% extends 'index.html' %}
+
+{% block title %} LAKSHMA ERP | PO DETAILS ENTRY {% endblock title %}
+
+
+
+{% block body %}
+
+{% if messages %}
+
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong>{{message}} 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+    {% endfor %}
+
+{% endif %}
+<div class="container p-5 bg-color">
+    <div class="py-5 text-center">
+      <h2 class="text-uppercase font-weight-bold">PO DETAILS ENTRY</h2>
+    </div>
+    <div class="col-md-12 order-md-1 mb-2">
+      <form class="needs-validation " method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="row justify-content-center"> 
+
+           <div class="col-md-4 mb-3">
+            <label for="job_no_mst">Job No MST</label>
+            <input
+            name="job_no_mst"
+              type="text"
+              class="form-control"
+              id="job_no_mst"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+           <div class="col-md-4 mb-3">
+            <label for="breakdown_type">Breakdown Type</label>
+            <input
+            name="breakdown_type"
+              type="text"
+              class="form-control"
+              id="breakdown_type"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+
+           <div class="col-md-4 mb-3">
+            <label for="round_type">Round Type</label>
+            <input
+            name="round_type"
+              type="text"
+              class="form-control"
+              id="round_type"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+           <div class="col-md-4 mb-3">
+            <label for="copy_from">PO Copy</label>
+            <input
+            name="copy_from"
+              type="text"
+              id="copy_from"
+              class="form-control"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+
+           <div class="col-md-4 mb-3">
+            <label for="po_number">Copy PO No. </label>
+            <select
+            name="po_number"
+            class="custom-select d-block w-100"
+            id="po_number"
+          >
+            <option value="">-- Select --</option>
+            {% for p in numbers %}
+            <option>{{p.po_number}}</option>
+            {% endfor %}
+         
+          </select>
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="job_no">PO country job no</label>
+            <select
+            name="job_no"
+            class="custom-select d-block w-100"
+            id="job_no"
+            >
+            <option value="">-- Select --</option>
+            {% for j in po_job %}
+            <option>{{j.job_no}}</option>
+            {% endfor %}
+         
+          </select>
+          </div> 
+          
+          <div class="col-md-4 mb-3">
+            <label for="po_received_date">PO Recived Date</label>
+            <input
+            name="po_received_date"
+              type="date"
+              class="form-control"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="po_quantity">PO Quantity</label>
+            <input
+            name="po_quantity"
+              type="text"
+              class="form-control"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="unit_price">Unit Price</label>
+            <input
+            name="unit_price"
+              type="text"
+              class="form-control"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="set_pc_rate">Set PC Rate</label>
+            <input
+            name="set_pc_rate"
+              type="text"
+              class="form-control"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="set_quantity">Set Quantity</label>
+            <input
+            name="set_quantity"
+              type="text"
+              class="form-control"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="set_total_quantity">Set Total Quantity</label>
+            <input
+            name="set_total_quantity"
+              type="text"
+              class="form-control"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="po_total_price">PO Total Price</label>
+            <input
+            name="po_total_price"
+              type="text"
+              class="form-control"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="shipment_date">Shipment Date</label>
+            <input
+            name="shipment_date"
+              type="date"
+              class="form-control"
+              id="shipment_date"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="original_shipment_date">Original Shipment Date</label>
+            <input
+            name="original_shipment_date"
+              type="date"
+              class="form-control"
+              id="original_shipment_date"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+         
+          <div class="col-md-4 mb-3">
+            <label for="avg_fob">Avg. FOB</label>
+            <input
+            name="avg_fob"
+              type="text"
+              class="form-control"
+              id="avg_fob"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="up_charge">Up Charge</label>
+            <input
+            name="up_charge"
+              type="text"
+              class="form-control"
+              id="up_charge"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+                      
+          <div class="col-md-4 mb-3">
+            <label for="ctn">CTN  </label>
+            <input
+            name="ctn"
+              type="text"
+              class="form-control"
+              id="ctn"
+              placeholder=""
+              value=""
+         
+            />
+          </div>
+
+         
+          <div class="col-md-4 mb-3">
+            <label for="projected_po_number">Projected PO Number </label>
+            <input
+            name="projected_po_number"
+              type="text"
+              class="form-control"
+              id="projected_po_number"
+              placeholder=""
+              value=""
+         
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="actual_po_number">Actual PO No </label>
+            <input
+            name="actual_po_number"
+              type="text"
+              class="form-control"
+              id="actual_po_number"
+              placeholder=""
+              value=""
+         
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="t_year">T Year </label>
+            <input
+            name="t_year"
+              type="text"
+              class="form-control"
+              id="t_year"
+              placeholder=""
+              value=""
+         
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="t_month">T Month </label>
+            <input
+            name="t_month"
+              type="text"
+              class="form-control"
+              id="t_month"
+              placeholder=""
+              value=""
+         
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="is_deleted">Delete</label>
+            <select
+            name="is_deleted"
+            class="custom-select d-block w-100"
+            id="is_deleted"
+          >
+            <option value="">-- Select --</option>
+            <option>Yes</option>
+            <option>No</option>
+         
+          </select>
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="is_countable">Countable</label>
+            <select
+            name="is_countable"
+            class="custom-select d-block w-100"
+            id="is_countable"
+          >
+            <option value="">-- Select --</option>
+            <option>Yes</option>
+            <option>No</option>
+         
+          </select>
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="is_projected">Projected</label>
+            <select
+            name="is_projected"
+            class="custom-select d-block w-100"
+            id="is_projected"
+          >
+            <option value="">-- Select --</option>
+            <option>Yes</option>
+            <option>No</option>
+         
+          </select>
+          </div> 
+
+          <div class="col-md-4 mb-3">
+            <label for="inserted_by    ">Inserted By</label>
+            <input
+              name="inserted_by    "
+              type="text"
+              class="form-control"
+              id="inserted_by    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="insert_date    ">Insert Date</label>
+            <input
+              name="insert_date    "
+              type="date"
+              class="form-control"
+              id="insert_date    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="updated_by    ">Updated By</label>
+            <input
+              name="updated_by    "
+              type="text"
+              class="form-control"
+              id="updated_by    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="update_date    ">Update Date</label>
+            <input
+              name="update_date    "
+              type="date"
+              class="form-control"
+              id="update_date    "
+              placeholder=""
+              value=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="status_active">Status</label>
+            <select
+            name="status_active "
+            class="custom-select d-block w-100"
+            id="status_active "
+          >
+            <option value="">-- Choose --</option>
+            <option>Yes</option>
+            <option>No</option>
+         
+          </select>
+          </div> 
+          <div class="col-md-6 mb-3">
+            <label for="is_locked">Locked</label>
+            <select
+            name="is_locked "
+            class="custom-select d-block w-100"
+            id="is_locked "
+          >
+            <option value="">-- Choose --</option>
+            <option>Yes</option>
+            <option>No</option>
+         
+          </select>
+          </div> 
+          
+          <div class="col-md-6 mb-3">
+            <label for="po_status">PO Status </label>
+            <input
+            name="po_status"
+              type="text"
+              class="form-control"
+              id="po_status"
+              placeholder=""
+              value=""
+         
+            />
+          </div>
+          <div class="col-md-12 mb-3">
+            <label for="remarks  "> Remarks </label>
+            <textarea
+            name="remarks  "
+              type="text"
+              class="form-control"
+              id="remarks  "
+              placeholder=""
+              value=""
+              required=""
+            > </textarea>
+          </div> 
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="container mt-4">
+    <h4 class="text-center mb-4">VIEW ALL PO DETAIL LIST HERE</h4>
+   
+     
+    <div class="table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Serial No.</th>
+          <th scope="col">Job no mst</th>
+          <th scope="col">Breakdown type</th>
+          <th scope="col">Po copy</th>
+          <th scope="col">Unit price</th>
+          <th scope="col">Set pc rate</th>
+          <th scope="col">Action</th>
+        
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in po_info  %}
+        <tr>
+          <td>{{i.id}}</td>
+          <td>{{i.job_no_mst}}</td>
+          <td>{{i.breakdown_type}}</td>
+          <td>{{i.copy_from}}</td>
+          <td>{{i.unit_price}}</td>
+          <td>{{i.set_pc_rate}}</td>
+          <td>
+           <a href="/viewcompanyInfo/{{i.id}}"><i class="fas fa-eye btn btn-primary btn-sm" ></i></a> 
+           <a href="/editcompanyInfo/{{i.id}}"><i class="fas fa-pencil-alt btn-danger btn-sm"></i></a>
+           <a href="/delete_company/{{i.id}}"><i class="far fa-trash-alt btn-warning btn-sm"></i></a> 
+          </td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+    </div>
+  </div> 
+{% endblock body %}
