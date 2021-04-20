@@ -505,7 +505,11 @@ class KnittDying(View):
 
 class SampleInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/sample_info.html')
+        samples = OmPoSampleInfo.objects.all()
+        context = {
+            'samples':samples
+        }
+        return render(request, 'Order_Entry/sample_info.html', context)
     
     def post(self, request):
         job_no_mst = request.POST['job_no_mst']
@@ -543,7 +547,11 @@ class SampleInfo(View):
         )
         sample_info.save()
         messages.success(request, 'Congratulations! Po sample info has been Added Successfully...')
-        return render(request, 'Order_Entry/sample_info.html')
+        samples = OmPoSampleInfo.objects.all()
+        context = {
+            'samples':samples
+        }
+        return render(request, 'Order_Entry/sample_info.html', context)
     
 class OrderUpdate(View):
     def get(self, request):
