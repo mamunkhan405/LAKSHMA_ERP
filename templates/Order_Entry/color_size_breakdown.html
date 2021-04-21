@@ -23,7 +23,7 @@
 <div class="container p-5 bg-color">
 
     <div class="py-5 text-center">
-      <h2 class="text-uppercase font-weight-bold">Labdip Information</h2>
+      <h2 class="text-uppercase font-weight-bold">OmPO Color Size breakdown Form</h2>
       
     </div>
 
@@ -36,6 +36,19 @@
      
 
            <div class="col-md-4 mb-3">
+            <label for="po_break_down_id">Po breakdown id</label>
+            <input
+            name="po_break_down_id"
+              type="text"
+              class="form-control"
+              id="po_break_down_id"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+
+           <div class="col-md-4 mb-3">
             <label for="job_no_mst">Job no mst</label>
             <input
             name="job_no_mst"
@@ -46,32 +59,33 @@
               value=""
               required=""
             />
-          </div> 
-
-           <div class="col-md-4 mb-3">
-            <label for="po_no_mst_id">Po no mst id</label>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="po_no_mst">Po no mst</label>
             <input
-            name="po_no_mst_id"
+            name="po_no_mst"
               type="text"
               class="form-control"
-              id="po_no_mst_id"
+              id="po_no_mst"
               placeholder=""
               value=""
               required=""
             />
           </div>
           <div class="col-md-4 mb-3">
-            <label for="po_number_mst">Po number mst</label>
-            <input
-            name="po_number_mst"
-              type="text"
-              class="form-control"
-              id="po_number_mst"
-              placeholder=""
-              value=""
-              required=""
-            />
-          </div>
+            <label for="size_name">Size Name</label>
+            <select
+              name="size_name "
+              class="custom-select d-block w-100"
+              id="size_name "
+            >
+              <option value="">-- Choose --</option>
+              {% for s in sizes %}
+              <option>{{s.size_name}}</option>
+              {% endfor %}
+           
+            </select>
+          </div> 
           <div class="col-md-4 mb-3">
             <label for="color_name">Color Name</label>
             <select
@@ -80,87 +94,77 @@
               id="color_name "
             >
               <option value="">-- Choose --</option>
-              {% for s in colors %}
-              <option>{{s.color_name}}</option>
+              {% for c in colors %}
+              <option>{{c.color_name}}</option>
               {% endfor %}
            
             </select>
           </div> 
           <div class="col-md-4 mb-3">
-            <label for="lapdip_no">Lapdip No.</label>
+            <label for="prod_quantity">Product quantity</label>
             <input
-            name="lapdip_no"
+            name="prod_quantity"
               type="text"
               class="form-control"
-              id="lapdip_no"
+              id="prod_quantity"
               placeholder=""
               value=""
               required=""
             />
           </div>   
+
            <div class="col-md-4 mb-3">
-            <label for="target_ap_date">Target Approval Date</label>
+            <label for="po_total">Po Total</label>
             <input
-            name="target_ap_date"
-              type="date"
+            name="po_total"
+              type="text"
               class="form-control"
-              id="target_ap_date"
+              id="po_total"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          <div class="col-md-4 mb-3">
+            <label for="is_deleted">Is deleted</label>
+            <input
+            name="is_deleted"
+              type="text"
+              class="form-control"
+              id="is_deleted"
+              placeholder=""
+              value=""
+              required=""
+            />
+          </div> 
+          
+          <div class="col-md-4 mb-3">
+            <label for="is_used">Is used</label>
+            <input
+            name="is_used"
+              type="text"
+              class="form-control"
+              id="is_used"
               placeholder=""
               value=""
               required=""
             />
           </div> 
 
-           <div class="col-md-4 mb-3">
-            <label for="sent_to_sample">Sent To Sample Section</label>
-            <input
-            name="sent_to_sample"
-              type="text"
-              class="form-control"
-              id="sent_to_sample"
-              placeholder=""
-              value=""
-              required=""
-            />
-          </div> 
           <div class="col-md-4 mb-3">
-            <label for="submission_to_buyer">Submission To Buyer</label>
-            <input
-            name="submission_to_buyer"
-              type="text"
-              class="form-control"
-              id="submission_to_buyer"
-              placeholder=""
-              value=""
-              required=""
-            />
+            <label for="status_active    ">Status</label>
+            <select
+            name="status_active "
+            class="custom-select d-block w-100"
+            id="status_active "
+          >
+          <option value="">-- Status --</option>
+          <option>Yes</option>
+          <option>No</option>
+         
+          </select>
           </div> 
           
-          <div class="col-md-4 mb-3">
-            <label for="status_update_date">Status Update Date</label>
-            <input
-            name="status_update_date"
-              type="date"
-              class="form-control"
-              id="status_update_date"
-              placeholder=""
-              value=""
-              required=""
-            />
-          </div> 
-          
-          <div class="col-md-4 mb-3">
-            <label for="approval_reject_date">Approval/Reject Date</label>
-            <input
-            name="approval_reject_date"
-              type="date"
-              class="form-control"
-              id="approval_reject_date"
-              placeholder=""
-              value=""
-              required=""
-            />
-          </div> 
           <div class="col-md-4 mb-3">
             <label for="inserted_by    ">Inserted By</label>
             <input
@@ -208,11 +212,11 @@
         
 
           <div class="col-md-4 mb-3">
-            <label for="status_active    ">Status</label>
+            <label for="is_locked ">Is locked</label>
             <select
-            name="status_active "
+            name="is_locked "
             class="custom-select d-block w-100"
-            id="status_active "
+            id="is_locked "
           >
           <option value="">-- Status --</option>
           <option>Yes</option>
@@ -220,26 +224,15 @@
          
           </select>
           </div> 
-          <div class="col-md-12 mb-3">
-            <label for="comment  "> Comment </label>
-            <textarea
-            name="comment  "
-              type="text"
-              class="form-control"
-              id="comment  "
-              placeholder=""
-              value=""
-              required=""
-            ></textarea>
-          </div> 
+          
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
       </form>
     </div>
   </div>
 
-  <div class="container mt-4">
-    <h4 class="text-center">VIEW ALL LABDIP INFO LIST HERE</h4>
+  <div class="container mt-4 ">
+    <h4 class="text-center mb-4">VIEW ALL PO COLOR SIZE BREAKDOWN INFO LIST HERE</h4>
    
      
     <div class="table-responsive">
@@ -247,23 +240,23 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">Serial No.</th>
-          <th scope="col">Job no  mst</th>
+          <th scope="col">Po Breakdown Id</th>
           <th scope="col">Color name </th>
-          <th scope="col">Labdip no</th>
-          <th scope="col">Inserted By</th>
-          <th scope="col">Updated By</th>
+          <th scope="col">Size name</th>
+          <th scope="col">Product quantity</th>
+          <th scope="col">Po Total</th>
           <th scope="col">Action </th>
         </tr>
       </thead>
       <tbody>
-        {% for i in lapdip  %}
+        {% for i in breakdown  %}
         <tr>
           <td>{{i.id}}</td>
-          <td>{{i.job_no_mst}}</td>
+          <td>{{i.po_break_down_id}}</td>
           <td>{{i.color_name}}</td>
-          <td>{{i.lapdip_no}}</td>
-          <td>{{i.inserted_by}}</td>
-          <td>{{i.updated_by}}</td>
+          <td>{{i.size_name}}</td>
+          <td>{{i.prod_quantity}}</td>
+          <td>{{i.po_total}}</td>
           <td>
             <a href="/viewbuyerInfo/{{i.id}}"><i class="fas fa-eye btn btn-primary btn-sm" ></i></a> 
             <a href="/editbuyerInfo/{{i.id}}"><i class="fas fa-pencil-alt btn-danger btn-sm"></i></a>

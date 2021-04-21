@@ -503,13 +503,13 @@ class OrderEntryInfo(models.Model):
     )
     job_no = models.CharField(max_length=120, null=True)
     buyer_name = models.ForeignKey(LibBuyer, related_name='lib_buyer_name', on_delete=models.CASCADE, null=True)
-    style_name = models.ForeignKey(LibStyle, related_name='style_ref_no', on_delete=models.CASCADE, null=True)
+    style_name = models.ForeignKey(LibStyle, related_name='lib_style_name', on_delete=models.CASCADE, null=True)
     order_repeat_no = models.CharField(max_length=50, choices=STATUS, default=0)
     company_name = models.ForeignKey(LibCompany, related_name='lib_company_name', on_delete=models.CASCADE, null=True)
     working_company_location = models.CharField(max_length=40, null=False)
     file_no = models.CharField(max_length=50, null=True)
     projected_job_no = models.CharField(max_length=50, null=False)
-    department_name = models.ForeignKey(LibDepartment, related_name='main_department_name', on_delete=models.CASCADE, null=True)
+    department_name = models.ForeignKey(LibDepartment, related_name='lib_department_name', on_delete=models.CASCADE, null=True)
     sub_department_name = models.ForeignKey(LibSubDepartment, related_name='lib_sub_department_name', on_delete=models.CASCADE, null=True)
     product_cate = models.ForeignKey(LibProductCate, related_name='lib_product_cate', on_delete=models.CASCADE, null=True)
     season_name = models.ForeignKey(LibSeason, related_name='lib_season_name', on_delete=models.CASCADE, null=True)
@@ -694,8 +694,8 @@ class OmPoColorSizeBreakDown(models.Model):
     po_break_down_id = models.CharField(max_length=30, null=False)
     job_no_mst = models.CharField(max_length=50, null=False)
     po_no_mst = models.CharField(max_length=50, null=False)
-    size_number_id = models.ForeignKey(LibSize, related_name='lib_size_number_id', on_delete=models.CASCADE)
-    color_number_id = models.ForeignKey(LibColor, related_name='lib_color_number_id', on_delete=models.CASCADE)
+    size_name = models.ForeignKey(LibSize, related_name='lib_size_name', on_delete=models.CASCADE, null=True)
+    color_name = models.ForeignKey(LibColor, related_name='lib_color_name', on_delete=models.CASCADE, null=True)
     prod_quantity = models.IntegerField(default= 0, null = True, blank = True)
     po_total =  models.DecimalField(max_digits=12, decimal_places=2, default=0, null=False)
     is_deleted = models.CharField(max_length=50, null=False)
@@ -756,6 +756,32 @@ class OmPoSampleInfo(models.Model):
 
     def __str__(self):
         return self.sample_type
+
+class OmPoLabdipInfo(models.Model):
+    STATUS = (
+        ('Yes', 'Yes'),
+        ('No', 'No'),
+    )
+    
+    job_no_mst = models.CharField(max_length=50, null=False)
+    po_no_mst_id = models.CharField(max_length=50, null=False)
+    po_number_mst = models.CharField(max_length=50, null=False)
+    color_name = models.ForeignKey(LibColor, related_name='lib_labdip_color', on_delete=models.CASCADE)
+    lapdip_no = models.CharField(max_length=50, null=False)
+    target_ap_date = models.DateTimeField(default=now)
+    sent_to_sample = models.CharField(max_length=200, null=True, blank=True)
+    submission_to_buyer = models.CharField(max_length=200, null=True, blank=True)
+    status_update_date = models.DateTimeField(default=now)
+    approval_reject_date = models.DateTimeField(default=now)
+    inserted_by = models.CharField(max_length=120, null=True)
+    insert_date = models.DateTimeField(default=now)
+    updated_by = models.CharField(max_length=120, null=True)
+    update_date = models.DateTimeField(default=now)
+    status_active = models.CharField(max_length=20, choices=STATUS, default=0, null=True)
+    comment = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.lapdip_no
 
 class OmPoAccesoriesInfo(models.Model):
     STATUS = (

@@ -28,6 +28,7 @@ class OrderEntry(View):
         units = LibUnit.objects.all()
         employee = HRmEmployee.objects.all()
         currency = LibCurrency.objects.all()
+        all_orders = OrderEntryInfo.objects.all()
 
         context = {
             'buyers':buyers,
@@ -42,7 +43,8 @@ class OrderEntry(View):
             'clients':clients,
             'units':units,
             'employee':employee,
-            'currency':currency
+            'currency':currency,
+            'all_orders':all_orders
             }
         return render(request, 'Order_Entry/order_entry_form.html', context)
 
@@ -141,6 +143,7 @@ class OrderEntry(View):
         units = LibUnit.objects.all()
         employee = HRmEmployee.objects.all()
         currency = LibCurrency.objects.all()
+        all_orders = OrderEntryInfo.objects.all()
 
         context = {
             'buyers':buyers,
@@ -155,7 +158,8 @@ class OrderEntry(View):
             'clients':clients,
             'units':units,
             'employee':employee,
-            'currency':currency
+            'currency':currency,
+            'all_orders':all_orders
             }
         return render(request, 'Order_Entry/order_entry_form.html', context)
 
@@ -259,7 +263,11 @@ class PoDetails(View):
 
 class POBreakdownInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/po_breakdown.html')
+        po_breakdown = OmPoBreakDown.objects.all()
+        context = {
+            'po_breakdown': po_breakdown
+        }
+        return render(request, 'Order_Entry/po_breakdown.html', context)
     
     def post(self, request):
         job_no_mst = request.POST['job_no_mst']
@@ -300,7 +308,11 @@ class POBreakdownInfo(View):
         )
         po_breakdown_info.save()
         messages.success(request, 'Congratulations! Po Breakdown information has been Added Successfully...')
-        return render(request, 'Order_Entry/po_breakdown.html')
+        po_breakdown = OmPoBreakDown.objects.all()
+        context = {
+            'po_breakdown': po_breakdown
+        }
+        return render(request, 'Order_Entry/po_breakdown.html', context)
 
 class PoCountryInfo(View):
     def get(self, request):
@@ -376,8 +388,10 @@ class PoCountryInfo(View):
 class CostInfo(View):
     def get(self, request):
         products = InvProductInfo.objects.all()
+        all_cost = OmPoCostDetail.objects.all()
         context = {
-            'products': products
+            'products': products,
+            'all_cost':all_cost
         }
         return render(request, 'Order_Entry/cost_info.html', context)
 
@@ -471,7 +485,13 @@ class CostInfo(View):
         )
         po_cost_info.save()
         messages.success(request, 'Congratulations! Po country details has been Added Successfully...')
-        return render(request, 'Order_Entry/cost_info.html')
+        products = InvProductInfo.objects.all()
+        all_cost = OmPoCostDetail.objects.all()
+        context = {
+            'products': products,
+            'all_cost':all_cost
+        }
+        return render(request, 'Order_Entry/cost_info.html', context)
 
 
 
@@ -559,7 +579,117 @@ class OrderUpdate(View):
     
 class LapdipInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lapdip_info.html')
+        colors = LibColor.objects.all()
+        lapdip = OmPoLabdipInfo.objects.all()
+        context = {
+            'colors':colors,
+            'lapdip':lapdip
+        } 
+        return render(request, 'Order_Entry/lapdip_info.html', context)
+    
+    def post(self, request):
+        job_no_mst = request.POST['job_no_mst']
+        po_no_mst_id = request.POST['po_no_mst_id']
+        po_number_mst = request.POST['po_number_mst']
+        color_name = request.POST['color_name']
+        lapdip_no = request.POST['lapdip_no']
+        target_ap_date = request.POST['target_ap_date']
+        sent_to_sample = request.POST['sent_to_sample']
+        submission_to_buyer = request.POST['submission_to_buyer']
+        status_update_date = request.POST['status_update_date']
+        approval_reject_date = request.POST['approval_reject_date']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        comment = request.POST['comment']
+
+        lapdip_info = OmPoLabdipInfo(
+            job_no_mst = job_no_mst,
+            po_no_mst_id = po_no_mst_id,
+            po_number_mst = po_number_mst,
+            color_name = LibColor.objects.get(color_name=color_name),
+            lapdip_no = lapdip_no,
+            target_ap_date = target_ap_date,
+            sent_to_sample =sent_to_sample,
+            submission_to_buyer = submission_to_buyer,
+            status_update_date = status_update_date,
+            approval_reject_date = approval_reject_date,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            comment = comment
+        )
+        lapdip_info.save()
+        messages.success(request, 'Congratulations! Po labdip info has been Added Successfully...')
+        colors = LibColor.objects.all()
+        lapdip = OmPoLabdipInfo.objects.all()
+        context = {
+            'colors':colors,
+            'lapdip':lapdip
+        } 
+        return render(request, 'Order_Entry/lapdip_info.html', context)
+
+class ColorSizeBreakdown(View):
+    def get(self, request):
+        colors = LibColor.objects.all()
+        sizes = LibSize.objects.all()
+        breakdown = OmPoColorSizeBreakDown.objects.all()
+        context = {
+            'colors':colors,
+            'sizes':sizes,
+            'breakdown':breakdown
+        } 
+        return render(request, 'Order_Entry/color_size_breakdown.html', context)
+    
+    def post(self, request):
+        po_break_down_id = request.POST['po_break_down_id']
+        job_no_mst = request.POST['job_no_mst']
+        po_no_mst = request.POST['po_no_mst']
+        size_name = request.POST['size_name']
+        color_name = request.POST['color_name']
+        prod_quantity = request.POST['prod_quantity']
+        po_total = request.POST['po_total']
+        is_deleted = request.POST['is_deleted']
+        is_used = request.POST['is_used']
+        inserted_by = request.POST['inserted_by']
+        insert_date = request.POST['insert_date']
+        updated_by = request.POST['updated_by']
+        update_date = request.POST['update_date']
+        status_active = request.POST['status_active']
+        is_locked = request.POST['is_locked']
+
+        color_size_breakdown = OmPoColorSizeBreakDown(
+            po_break_down_id = po_break_down_id,
+            job_no_mst = job_no_mst,
+            po_no_mst = po_no_mst,
+            size_name = LibSize.objects.get(size_name=size_name),
+            color_name = LibColor.objects.get(color_name=color_name),
+            prod_quantity = prod_quantity,
+            po_total = po_total,
+            is_deleted = is_deleted,
+            is_used = is_used,
+            inserted_by = inserted_by,
+            insert_date = insert_date,
+            updated_by = updated_by,
+            update_date = update_date,
+            status_active = status_active,
+            is_locked = is_locked
+        )
+        color_size_breakdown.save()
+        messages.success(request, 'Congratulations! Color Size Breakdown info has been Added Successfully...')
+        colors = LibColor.objects.all()
+        sizes = LibSize.objects.all()
+        breakdown = OmPoColorSizeBreakDown.objects.all()
+        context = {
+            'colors':colors,
+            'sizes':sizes,
+            'breakdown':breakdown
+        } 
+        return render(request, 'Order_Entry/color_size_breakdown.html', context)
     
 class QuotationEnquiry(View):
     def get(self, request):
@@ -1391,7 +1521,11 @@ class INV(View):
     
 class LibColorInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_color.html')
+        colors = LibColor.objects.all()
+        context = {
+            'colors':colors
+        }
+        return render(request, 'Order_Entry/lib_color.html', context)
     
     def post(self, request):
         color_name = request.POST['color_name']
@@ -1415,11 +1549,19 @@ class LibColorInfo(View):
 
         lib_color_info.save()
         messages.success(request, 'Congratulations! Lib color information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_color.html')
+        colors = LibColor.objects.all()
+        context = {
+            'colors':colors
+        }
+        return render(request, 'Order_Entry/lib_color.html', context)
     
 class LibSizeInfo(View):
     def get(self, request):
-        return render(request, 'Order_Entry/lib_size.html')
+        sizes = LibSize.objects.all()
+        context = {
+            'sizes':sizes
+        }
+        return render(request, 'Order_Entry/lib_size.html', context)
 
     def post(self, request):
         size_name = request.POST['size_name']
@@ -1443,7 +1585,11 @@ class LibSizeInfo(View):
 
         lib_size_info.save()
         messages.success(request, 'Congratulations! Lib size information has been Added Successfully...')
-        return render(request, 'Order_Entry/lib_size.html') 
+        sizes = LibSize.objects.all()
+        context = {
+            'sizes':sizes
+        }
+        return render(request, 'Order_Entry/lib_size.html', context) 
     
 class LibCountryInfo(View):
     def get(self, request):

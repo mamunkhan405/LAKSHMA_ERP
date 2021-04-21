@@ -17,6 +17,7 @@ urlpatterns = [
     path('sample_info/', SampleInfo.as_view(), name='SampleInfo'),
     path('order_update/', OrderUpdate.as_view(), name='Order_update'),
     path('lapdip_info/', LapdipInfo.as_view(), name='LapdipInfo'),
+    path('color_size_breakdown/', ColorSizeBreakdown.as_view(), name='ColorSizeBreakdown'),
     path('quote_enquiry/', QuotationEnquiry.as_view(), name='Quote_enquiry'),
     path('access_info/', AccessoriesInfo.as_view(), name='AccessoriesInfo'),
     

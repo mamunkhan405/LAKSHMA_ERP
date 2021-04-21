@@ -30,6 +30,7 @@ admin.site.register((
     OmPoColorSizeBreakDown,
     OmPoColorInfo,
     OmPoSampleInfo,
+    OmPoLabdipInfo,
     OmPoAccesoriesInfo,)
 )
 
